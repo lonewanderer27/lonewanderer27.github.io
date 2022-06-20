@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jay Blogs</title>
+    <description>Jay Blogs is where I write my thoughts growing up as a software developer plus rants about sociatal issues.</description>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 21 Jun 2022 00:30:55 +0800</pubDate>
+    <lastBuildDate>Tue, 21 Jun 2022 00:30:55 +0800</lastBuildDate>
+    <generator>Jekyll v3.9.2</generator>
+    
+      <item>
+        <title>Reply to &quot;Should Old Friends and Days of Long Ago Should Be Forgotten?&quot;</title>
+        <description>&lt;p&gt;First of all, young Jay, your grammar sucks and it’s ironic considering that you answered this question during the time that you were taking your Journalism class in Bangkal High School under Prof. Neri&lt;/p&gt; &lt;p&gt;Anyway for me, I think it’s a no for me. These old friends, together with our old memories with them, they are the reason why and where we are right now.&lt;/p&gt; &lt;p&gt;So! Story time, I’ve had an old friend whom helped me pass during my Grade School days. But eventually, there was time that we’ve had to be separated because my family had to move to...</description>
+        <pubDate>Mon, 20 Jun 2022 20:30:00 +0800</pubDate>
+        <link>/reply-to-should-old-friends-be-forgotten/</link>
+        <guid isPermaLink="true">/reply-to-should-old-friends-be-forgotten/</guid>
+        
+        <category>life</category>
+        
+        <category>school</category>
+        
+        <category>life</category>
+      </item>
+    
+      <item>
+        <title>Setting up my first blog website</title>
+        <description>&lt;p&gt;Hello!&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 20 Jun 2022 19:30:00 +0800</pubDate>
+        <link>/my-first-blog-post/</link>
+        <guid isPermaLink="true">/my-first-blog-post/</guid>
+        
+        <category>blog</category>
+        
+        <category>Jekflix</category>
+        
+        <category>GitHub Pages</category>
+        
+        <category>blog</category>
+      </item>
+    
+      <item>
+        <title>I&apos;m Gay. Nerd.</title>
+        <description>&lt;p&gt;I’m Gay. Nerd.&lt;/p&gt; &lt;p&gt;I’ve recently watched Netflix’s Heartstopper and I just related so much to Charlie. There’s never been an instance that a character in a movie or series, that made me feel so seen as a person. Charlie is someone is who is very introverted, and good at math (while I am skilled at programming and I also like computers), minus the part that he is good at music because for the life of me I can’t even read music notes.&lt;/p&gt; &lt;p&gt;Coming out today was probably late since I’ve already known myself as gay years years ago, but I’m...</description>
+        <pubDate>Thu, 28 Apr 2022 00:46:00 +0800</pubDate>
+        <link>/im-gay-nerd/</link>
+        <guid isPermaLink="true">/im-gay-nerd/</guid>
+        
+        <category>life</category>
+        
+        <category>lgbt+</category>
+        
+        <category>heartstopper</category>
+        
+        <category>charlie</category>
+        
+        <category>lgbt+</category>
+      </item>
+    
+      <item>
+        <title>My Coming Out Story</title>
+        <description>&lt;p&gt;It has been 3-4 years since I discovered I was gay, it was a really hard time for me, but I think I’m ready to tell my story:&lt;/p&gt; &lt;p&gt;I still remember before starting Grade 10, I prayed to God, hoping that no one would bully me anymore and that I’ll have more friends this time around. (I was bullied for a lot of reasons back in Grade 6 to 9, and added the factor that I didn’t had a lot of friends because I was super shy and don’t know how to talk. It was terrible basically)&lt;/p&gt; &lt;p&gt;My wish came...</description>
+        <pubDate>Wed, 27 Apr 2022 00:00:00 +0800</pubDate>
+        <link>/my-coming-out-story/</link>
+        <guid isPermaLink="true">/my-coming-out-story/</guid>
+        
+        <category>life</category>
+        
+        <category>lgbt+</category>
+        
+        <category>lgbt+</category>
+      </item>
+    
+      <item>
+        <title>Introducing The Coffee Lounge™</title>
+        <description>&lt;p&gt;I introduce The Coffee Lounge™&lt;/p&gt; &lt;p&gt;A five-star coffee shop, located in the heart of Metro Manila.&lt;/p&gt; &lt;p&gt;Serving exceptional coffee, partnered with our famous bread products, your experience in The Coffee Lounge will be nothing short of extravagant and relaxing.&lt;/p&gt; &lt;p&gt;It doesn’t exist in real world as of now, yet it represents a milestone in my grand scheme plan of things.&lt;/p&gt; &lt;p&gt;10 Years from now, The Coffee Lounge™ is going to be one of the last businesses that I’ll establish before going abroad to finally be free from the society that I am currently in, and live my life the way...</description>
+        <pubDate>Wed, 27 Apr 2022 00:00:00 +0800</pubDate>
+        <link>/the-coffee-lounge/</link>
+        <guid isPermaLink="true">/the-coffee-lounge/</guid>
+        
+        <category>life</category>
+        
+        <category>life</category>
+      </item>
+    
+      <item>
+        <title>Making Camp Buddy Toolbox using PySimpleGUI</title>
+        <description>&lt;p&gt;I once wanted to create a Discord chatbot that speaks exactly like Keitaro, however, none have written a dialog extractor specifically for Camp Buddy, so I wrote &lt;a href=&quot;https://github.com/lonewanderer27/Camp-Buddy-Dialog-Extractor&quot;&gt;Camp Buddy Dialog Extractor&lt;/a&gt;&lt;/p&gt; &lt;p&gt;However, that program is a command line application, meaning a user would have to know how to use a terminal which is not very user friendly… What if someone who’s inexperienced in coding just wants to have fun with their friends, talking to Keitaro or Hiro in their Discord server, like I once wanted…&lt;/p&gt; &lt;p&gt;So I thought to myself.. why not make an app that can extract scripts...</description>
+        <pubDate>Tue, 09 Jun 2020 17:12:00 +0800</pubDate>
+        <link>/making-camp-buddy-toolbox-using-pysimplegui/</link>
+        <guid isPermaLink="true">/making-camp-buddy-toolbox-using-pysimplegui/</guid>
+        
+        <category>code</category>
+        
+        <category>code</category>
+      </item>
+    
+      <item>
+        <title>I am a Tech-Nerd</title>
+        <description>&lt;p&gt;I am a tech-nerd.&lt;/p&gt; &lt;p&gt;Collecting a bunch of electronics, opening their insides to see how they work and experimenting with them has been my hobby since I was 11 years old.&lt;/p&gt; &lt;p&gt;Now, it’s so much more, I dream the likes of Elon Musk, Bill Gates who own multi-national companies that continues to push the capabilities of our technology, innovating in every where possible.&lt;/p&gt; &lt;p&gt;I also strive to change how the society perceives Programming and Tech related Jobs, you are not just sitting in a chair all day waiting for something to happen.&lt;/p&gt; &lt;p&gt;“You can create something meaningful that could change...</description>
+        <pubDate>Fri, 22 May 2020 00:00:00 +0800</pubDate>
+        <link>/i-am-a-tech-nerd/</link>
+        <guid isPermaLink="true">/i-am-a-tech-nerd/</guid>
+        
+        <category>life</category>
+        
+        <category>code</category>
+        
+        <category>life</category>
+      </item>
+    
+      <item>
+        <title>The quick brown fox jumps over a lazy dog</title>
+        <description>&lt;p&gt;Cas sociis natoque penatibus et magnis &lt;a href=&quot;#&quot;&gt;dis parturient montes&lt;/a&gt;, nascetur ridiculus mus. &lt;em&gt;Aenean eu leo quam.&lt;/em&gt; Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt; &lt;blockquote&gt; &lt;p&gt;Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.&lt;/p&gt; &lt;/blockquote&gt; &lt;p&gt;Etiam porta &lt;strong&gt;sem malesuada magna&lt;/strong&gt; mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.&lt;/p&gt; &lt;h2 id=&quot;inline-html-elements&quot;&gt;Inline HTML elements&lt;/h2&gt; &lt;p&gt;HTML defines a long list of available inline tags, a complete list of...</description>
+        <pubDate>Tue, 09 Oct 2018 20:26:40 +0800</pubDate>
+        <link>/the-quick-brown-fox-jumps-over-a-lazy-dog/</link>
+        <guid isPermaLink="true">/the-quick-brown-fox-jumps-over-a-lazy-dog/</guid>
+        
+        <category>css</category>
+        
+        <category>tips</category>
+        
+        <category>css</category>
+      </item>
+    
+      <item>
+        <title>Should Old Friends and Days of Long Ago Should Be Forgotten?</title>
+        <description>&lt;p&gt;For me, i think it’s a no. Because these old friends, old memories, they are the reason why and where you are right now. For example, you have an old friend, he/she helped you pass the elementary days, now the time came that you two have to separate of school in High School because of various reasons. You should not forget him/her and what did he/she do to you.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 20 Jun 2017 00:00:00 +0800</pubDate>
+        <link>/should-old-friends-be-forgotten/</link>
+        <guid isPermaLink="true">/should-old-friends-be-forgotten/</guid>
+        
+        <category>life</category>
+        
+        <category>school</category>
+        
+        <category>life</category>
+      </item>
+    
+      <item>
+        <title>Top 10 Greatest People I Know</title>
+        <description>&lt;h2 id=&quot;1-andy-rubin&quot;&gt;1. Andy Rubin&lt;/h2&gt; &lt;p&gt;&lt;img src=&quot;../assets/img/2017-06-15-top-10-greatest-people-i-know/wp-image-1694051579.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt; &lt;p&gt;He because he is the main founder of Android. Which Google bought $50 Million dollars. I’ve added him because without him, Android couldn’t have been existed, there will be no modders and developers like me creating Android forks.&lt;/p&gt; &lt;h2 id=&quot;2-bill-gates&quot;&gt;2. Bill Gates&lt;/h2&gt; &lt;p&gt;&lt;img src=&quot;../assets/img/2017-06-15-top-10-greatest-people-i-know/wp-image-1182106555.webp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt; &lt;p&gt;Bill Gates co – founded with Paul Allen. They founded Microsoft which made Windows. FYI, Windows is the most dominant in computer operating system for PC followed by Apple Mac OS then Linux. At first Windows was just color based but now, it was the best...</description>
+        <pubDate>Thu, 15 Jun 2017 00:00:00 +0800</pubDate>
+        <link>/top-10-greatest-people-i-know/</link>
+        <guid isPermaLink="true">/top-10-greatest-people-i-know/</guid>
+        
+        <category>life</category>
+        
+        <category>school</category>
+        
+        <category>life</category>
+      </item>
+    
+  </channel>
+</rss>
