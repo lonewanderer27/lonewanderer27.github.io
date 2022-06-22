@@ -21,7 +21,6 @@ nav_exclude:                                            # The following paths ar
   - pages/404.html
   - pages/index.md
   - pages/blog.html
-  - documentation/**
 
 ### Author Info ###
 author:
@@ -57,8 +56,6 @@ collections:
   projects:
     output: true
     permalink: /projects/:name
-  elements:                                             # For Documentation Only
-    output: true                                        # For Documentation Only
 
 
 ### Disqus ###
@@ -90,11 +87,6 @@ defaults:
       type: "projects"
     values:
       layout: "page"
-  - scope:                                              # For Documentation Only
-      path: ""                                          # For Documentation Only
-      type: "elements"                                  # For Documentation Only
-    values:                                             # For Documentation Only
-      layout: "element"                                 # For Documentation Only
   - scope:
       path: ""
       type: "posts"
@@ -111,5 +103,8 @@ exclude:
   - "Gemfile*"
   - "*.gemspec"
   - screenshot.gif
+
+include: 
+  - .nojekyll
 
 destination: docs/
