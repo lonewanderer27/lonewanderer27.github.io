@@ -1,3 +1,13 @@
+# Ruby Gems
+*.gem
+
+# Design Files
+*.psd
+*.ai
+
+# IntelliJ
+.idea
+
 # Local Site Directories
 _site/
 .sass-cache/
