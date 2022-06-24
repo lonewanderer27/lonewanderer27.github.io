@@ -2,6 +2,6 @@
 name: AASS-DIC
 tools: [HTML5, CSS3, Python, Javascript, Firebase]
 image: /assets/images/AASS-DIC.png
-description: An PySimpleGUIapplication that allows you to extract assets and character dialogs of Camp Buddy easily!
+description: A QR Code Attendance System that Mark and I are currently working on for future use of Schools.
 external_url: https://www.google.com
 ---
