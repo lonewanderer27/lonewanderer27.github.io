@@ -36,7 +36,7 @@ author:
 # dribbble          : your_username
   gitlab            : lonewanderer27
 # instagram         : your_username
-# kaggle            : your_username
+  kaggle            : aljay27
 # soundcloud        : your_username
   spotify           : u1ffp1a9hnrfzza8c56we2am
   stackoverflow     : 11452934
@@ -103,6 +103,10 @@ exclude:
   - "Gemfile*"
   - "*.gemspec"
   - screenshot.gif
+  - pages/blog.html
+  - pages/tags.html
+  - pages/search.json
+  - _posts
 
 include: 
   - .nojekyll
