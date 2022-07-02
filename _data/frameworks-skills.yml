@@ -1,0 +1,19 @@
+- name: PySimpleGUI
+  percentage: 98
+  color: info
+
+- name: Flask
+  percentage: 93
+  color: primary
+
+- name: Bootstrap
+  percentage: 90
+  color: warning
+
+- name: W3.CSS
+  percentage: 80
+  color: success
+
+- name: Django
+  percentage: 10
+  color: info
