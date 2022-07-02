@@ -8,9 +8,9 @@ weight: 3
 # **About Me**
 
 Hi I am **{{ site.author.name }}** :wave:, but people usually call me "Jay".<br>
-I'm mostly a backend developer, and I specialize in making API route endpoints using Flask and Django. I care deeply about building endpoints that are not only fast but also easy to utilize for front-end developers. 
+I'm a backend developer, and I specialize in making API route endpoints using Flask and Django. I deeply care about building endpoints that are not only fast but also easy to utilize for front-end developers, along with proper documentation.
 
-I'm also partly front-end developer, I've made websites using Bootstrap and W3.CSS, and also native applications using PySimpleGUI and .NET Framework.
+I'm also partly a front-end developer, I've made websites using Bootstrap and W3.CSS, and also native applications using PySimpleGUI and .NET Framework.
 <br><br>
 
 ### Professional Life

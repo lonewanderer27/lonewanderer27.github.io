@@ -14,6 +14,10 @@
   percentage: 50
   color: info
 
+- name: Javascript
+  percentage: 25
+  color: warning 
+
 - name: PHP
   percentage: 15
   color: success
