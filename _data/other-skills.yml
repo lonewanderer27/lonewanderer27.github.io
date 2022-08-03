@@ -1,14 +1,22 @@
 - name: Linux
-  percentage: 80
+  percentage: 95
   color: success
+
+- name: WordPress
+  percentage: 90
+  color: info
 
 - name: Sony Vegas Pro
   percentage: 75
   color: info
 
 - name: Adobe Photoshop
-  percentage: 60
+  percentage: 70
   color: primary
+
+- name: Firebase
+  percentage: 50
+  color: warning
 
 - name: Git
   percentage: 40
@@ -18,6 +26,6 @@
   percentage: 25
   color: warning
 
-- name: Azure Cloud
+- name: Microsoft Azure
   percentage: 15
   color: success
