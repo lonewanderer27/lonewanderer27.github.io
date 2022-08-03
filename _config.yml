@@ -2,8 +2,8 @@
 title               : Adriane James
 description         : >-
                       I turn half cup of coffee :coffee: into code,
-                      use tabs over spaces
-                      and never broke production.
+                      use *Nix as my daily driver OS
+                      and aspires to be a Software Engineer someday.
 baseurl             : ""                                          # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
 repository          : lonewanderer27/lonewanderer27.github.io     # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
 blog_page_url       : "https://lonewanderer27.github.io/blog"
@@ -46,7 +46,7 @@ author:
   twitch            : jay27_22
 # vimeo             : your_username
   youtube           : UCzfuLQUiIMkUxse9qlJio1w
-# keybase           : your_username
+  keybase           : lonewanderer27
 
 
 ### Posts ###
