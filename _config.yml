@@ -13,6 +13,7 @@ open_new_tab        : true                                        # Opens extern
 ### Plugins ###
 plugins:
   - jemoji
+  - jekyll-sitemap
 
 
 ### Navbar Settings ###
