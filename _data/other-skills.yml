@@ -1,6 +1,14 @@
 - name: Linux
-  percentage: 95
+  percentage: 98
   color: success
+
+- name: hPanel
+  percentage: 95
+  color: primary
+
+- name: cPanel / VistaPanel
+  percentage: 90
+  color: primary
 
 - name: WordPress
   percentage: 90
