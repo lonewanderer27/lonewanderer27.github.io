@@ -15,7 +15,7 @@ I'm also partly a front-end developer, I've made websites using Bootstrap and W3
 
 ### Professional Life
 
-I haven't worked professionally, in fact I have only gotten my first big project recently. I am currently working in a security agency as a web developer to make their very first website, along with my friend Mark, who's a front-end developer. 
+I haven't worked professionally as , in fact I have only gotten my first big project recently. I am currently working in a security agency as a web developer to make their very first website, along with my friend Mark, who's a front-end developer. 
 
 It was my first project so I am learning a lot, particularly in web-hosting to which I'm thankful for their IT Manager as he taught me things I didn't know about web hosting. Nowadays I am taking the time to learn how a Content Management System like WordPress works, and the PHP programming language as the client needed an easy way to edit their content without editing the source code. Things went so far, we're paid A LOT and we've successfully turned over the source code.
 <br><br>
@@ -29,7 +29,7 @@ My journey to becoming a software developer really started when I attended Colle
 
 ### Outlook
 
-Right now, I'm very excited to learn Javascript and its various front-end technologies like React Native, Electron and Tauri. In the following years, I plan to explore the "front-end side" more and become a better-rounded full-stack dev.
+Right now, I'm very excited to learn Javascript and its various technologies like ReactJS, Electron and Tauri. In the following years, I plan to explore the "front-end side" more and become a better-rounded full-stack dev.
 <br><br>
 
 <div class="row">
