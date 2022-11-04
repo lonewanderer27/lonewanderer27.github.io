@@ -1,0 +1,284 @@
+---
+#-------------------------------
+# General Site Settings
+
+title: Jay
+logo:
+author: lonewanderer27
+description: this is meta description
+email: adrianejames27@gmail.com
+phone: "+639983082814"
+address: "#3853 Macabulos St. Bangkal, Makati City, Philippines"
+copyright: Copyright &copy; 2022 [Adriane James](https://github.com/lonewanderer27) <br> Developed and Designed by [Themefisher](https://themefisher.com)
+
+menu:
+  - { name: About, link: "/about" }
+  - { name: Blog, link: "/blog" }
+  - { name: Portfolio, link: "/portfolio" }
+  - { name: Contact, link: "/contact" }
+
+#-------------------------------
+# Google Analytics Section
+
+# Analytics helps you understand who visits your website.
+# Learn more at: http://support.google.com/analytics/answer/1008065
+
+# NOTE: If you want to use Google Analytics for basic web tracking: Just uncomment and enter your UA-Code here.
+
+google-analytics: # UA-XXXXXX-X
+
+#-------------------------------
+# Comment Section (Disqus)
+
+disqus-identifier: # Add your shortname for Disqus Comment. For example mr-brown
+
+#-------------------------------
+# Hero Section
+
+hero:
+  hero-title: Hi I’m Jay!<br>a Front-End <br>Developer
+
+social:
+  # - { icon: "ti-email", link: "mailto:adrianejames27@gmail.com" }
+  # - { icon: "ti-instagram", link: "https://www.instagram.com/jay27_2" }
+  # - { icon: "ti-twitter", link: "https://www.twitter.com/ellewanderer27" }
+  - { icon: "ti-github", link: "https://github.com/lonewanderer27" }
+  - { icon: "ti-linkedin", link: "https://linkedin.com/in/jay-puzon" }
+  - { icon: "ti-facebook", link: "https://www.facebook.com/jayayayayay" }
+  - { icon: "ti-dribbble", link: "https://dribbble.com/lonewanderer27" }
+  - { icon: "ti-youtube", link: "https://www.youtube.com/channel/UCzfuLQUiIMkUxse9qlJio1w" }
+
+
+#-------------------------------
+# About (Section and Page)
+
+# About Section
+blurb: I am a Front End Web Developer with 1 year of hands-on experience designing, developing and implementing web applications and solutions. Seeking to leverage a broader development experience and hands-on technical expertise in a front-end web development role.
+blurb-btn-link: "/about"
+blurb-btn-name: know more
+
+# About Page
+
+# Work Process Section
+work-process:
+  - title: "Research and Plan"
+    icon: "assets/images/icons/plan.png"
+    content: "I research what are the requirements and features that needs to be implemented. And I make a plan that includes the technologies that will be used, implementation details, and the estimated completion date."
+
+  - title: "Design and Develop"
+    icon: "assets/images/icons/design.png"
+    content: "I create Lo-Fidelity and Hi-Fidelity wireframes. Continuous communication with my client is crucial for refinement of what the final application should look like. Then I finally develop the application using test-driven development method."
+
+  - title: "Deliver"
+    icon: "assets/images/icons/print.png"
+    content: "Application is handed over to the client, with source code and documentation included without charge. Continuous support is optional."
+
+# My Team Section
+# team:
+#   - title: "Jack Schenziwe"
+#     image: "assets/images/team/member-1.png"
+#     designation: "Project Manager"
+
+#   - title: "Julias Carlie"
+#     image: "assets/images/team/member-2.png"
+#     designation: "Web Developer"
+
+#   - title: "John Doe"
+#     image: "assets/images/team/member-3.png"
+#     designation: "Designer"
+
+#-------------------------------
+# Skills Section
+
+skills-title: Skills
+skills:
+  - { name: Python, color: "#2b6194", value: "70%" }
+  - { name: React, color: "#3fdfff", value: "90%" }
+  - { name: Web Hosting, color: "#9473e6", value: "80%" }
+  - { name: PHP, color: "#4e388b", value: "70%" }
+
+#-------------------------------
+# Experience Section
+
+experience-title: Experience
+experience:
+  - {
+      name: Wordpress Developer,
+      icon: "icon-1.png",
+      date: "June 2022 - October 2022",
+      organization: "ABC-RMO Security and Investigation Agency Inc.",
+    }
+  - {
+      name: React Developer,
+      icon: "icon-3.png",
+      date: "October 2022 - Present",
+      organization: "Filipino Web Development Peers<br>(Non Profit)",
+    }
+  - {
+      name: Wordpress Developer,
+      icon: "icon-2.png",
+      date: "October 2022 - Present",
+      organization: "OMP Security and Investigation Agency Inc.",
+    }
+  
+
+#-------------------------------
+# Education Section
+
+education-title: Education
+education:
+  - {
+      name: Advanced React,
+      date: "January 2023",
+      organization: "Scrimba",
+    }
+  - {
+      name: B.S. in Computer Science,
+      date: "June 2025",
+      organization: "Adamson University,",
+    }
+  - {
+      name: Senior High School,
+      date: "May 2021",
+      organization: "Santa Isabel College of Manila",
+    }
+  - {
+      name: High School,
+      date: "June 2019",
+      organization: "Bangkal High School",
+    }
+
+#-------------------------------
+# Services Section
+
+services-title: Services
+services:
+  - {
+      name: Web App,
+      icon: ti-vector,
+      description: "I make full-stack web applications using the MFRS stack (MongoDB, Flask, React & Serverless).",
+      active: ,# Add true to select section
+    }
+  - {
+      name: Wordpress Site,
+      icon: ti-wordpress,
+      description: "I mainly design and build beautiful responsive websites that load fast, SEO friendly, and easily editable using the Wordpress CMS platform.",
+      active: true, # Add true to select section
+    }
+  - {
+      name: Desktop Application,
+      icon: ti-panel,
+      description: "I develop desktop applications using 3 programming languages, mainly using Swing for Java, DotNet for C# and PySimpleGUI for Python.",
+      active: ,# Add true to select section
+    }
+
+#-------------------------------
+# Portfolio (Section and Page)
+
+# Portfolio Home Section
+portfolio-home-items:
+  - image: "assets/images/portfolio/item-1.png"
+    url: "#"
+
+  - image: "assets/images/portfolio/item-2.png"
+    url: "#"
+
+  - image: "assets/images/portfolio/item-3.png"
+    url: "#"
+
+  - image: "assets/images/portfolio/item-4.png"
+    url: "#"
+
+  - image: "assets/images/portfolio/item-5.png"
+    url: "#"
+
+# Portfolio Page
+portfolio-label:
+  - { title: "UI/UX Design", type: "design" }
+  - { title: "BRANDING", type: "branding" }
+  - { title: "ILLUSTRATION", type: "illustration" }
+
+portfolio-items:
+  - image: "assets/images/portfolio/item-1.png"
+    url: "#"
+    portfolio-type:
+      - type: "design"
+      - type: "illustration"
+
+  - image: "assets/images/portfolio/item-2.png"
+    url: "#"
+    portfolio-type:
+      - type: "branding"
+
+  - image: "assets/images/portfolio/item-3.png"
+    url: "#"
+    portfolio-type:
+      - type: "illustration"
+
+  - image: "assets/images/portfolio/item-6.png"
+    url: "#"
+    portfolio-type:
+      - type: "design"
+      - type: "branding"
+
+  - image: "assets/images/portfolio/item-8.png"
+    url: "#"
+    portfolio-type:
+      - type: "illustration"
+
+  - image: "assets/images/portfolio/item-5.png"
+    url: "#"
+    portfolio-type:
+      - type: "design"
+
+  - image: "assets/images/portfolio/item-1.png"
+    url: "#"
+    portfolio-type:
+      - type: "branding"
+
+  - image: "assets/images/portfolio/item-3.png"
+    url: "#"
+    portfolio-type:
+      - type: "design"
+      - type: "illustration"
+      - type: "branding"
+
+  - image: "assets/images/portfolio/item-7.png"
+    url: "#"
+    portfolio-type:
+      - type: "illustration"
+
+#-------------------------------
+# Testimonials Section
+
+# testimonial-items:
+#   - name: "Jesica Gomez"
+#     image: "assets/images/testimonial/client-1.png"
+#     designation: "CEO, Funder"
+#     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+
+#   - name: "Jesica Gomez"
+#     image: "assets/images/testimonial/client-1.png"
+#     designation: "CEO, Funder"
+#     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+
+#   - name: "Jesica Gomez"
+#     image: "assets/images/testimonial/client-1.png"
+#     designation: "CEO, Funder"
+#     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+
+#-------------------------------
+# Client Slider Section
+
+# client-slider-items:
+#   - logo: "assets/images/clients-logo/abc-rmo-logo.png"
+#     url: "https://abcrmosecurity.com"
+
+#   - logo: "assets/images/clients-logo/omp-logo.png"
+#     url: "#"
+
+#-------------------------------
+# Contact Section
+
+contact-title: Contact Info
+contact-email: adrianejames27@gmail.com
