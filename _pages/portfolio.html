@@ -26,7 +26,18 @@ title: Portfolio
           <img src="{{ site.baseurl }}/{{ item.image }}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
           <div class="hover-overlay">
             <div class="hover-content">
+              {% if item.url %}
               <a class="btn btn-light btn-sm" href="{{ item.url }}">view project</a>
+              {% endif %}
+              {% if item.github %}
+              <a class="btn btn-dark btn-sm ms-3" href="{{ item.github }}">
+                {% if item.url %}
+                <i class="ti-github"></i>
+                {% else %}
+                Visit Github
+                {% endif %}
+              </a>
+              {% endif %}
             </div>
           </div>
         </div>
@@ -38,6 +49,7 @@ title: Portfolio
 <!-- /portfolio -->
 
 <!-- clients -->
+{% if site.data.settings.client-slider-items %}
 <section class="section bg-light">
   <div class="container">
     <div class="row">
@@ -48,4 +60,5 @@ title: Portfolio
     {% include client-slider.html %}
   </div>
 </section>
+{% endif %}
 <!-- /clients -->
