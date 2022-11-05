@@ -45,7 +45,6 @@ social:
   - { icon: "ti-github", link: "https://github.com/lonewanderer27" }
   - { icon: "ti-linkedin", link: "https://linkedin.com/in/jay-puzon" }
   - { icon: "ti-facebook", link: "https://www.facebook.com/jayayayayay" }
-  - { icon: "ti-dribbble", link: "https://dribbble.com/lonewanderer27" }
   - { icon: "ti-youtube", link: "https://www.youtube.com/channel/UCzfuLQUiIMkUxse9qlJio1w" }
 
 
@@ -53,7 +52,7 @@ social:
 # About (Section and Page)
 
 # About Section
-blurb: I am a Front End Web Developer with 1 year of hands-on experience designing, developing and implementing web applications and solutions. Seeking to leverage a broader development experience and hands-on technical expertise in a front-end web development role.
+blurb: I am a Front End Web Developer with a year of hands-on experience designing, developing and implementing web applications and solutions. Seeking to leverage a broader development experience and hands-on technical expertise in a front-end web development role.
 blurb-btn-link: "/about"
 blurb-btn-name: know more
 
@@ -67,11 +66,11 @@ work-process:
 
   - title: "Design and Develop"
     icon: "assets/images/icons/design.png"
-    content: "I create Lo-Fidelity and Hi-Fidelity wireframes. Continuous communication with my client is crucial for refinement of what the final application should look like. Then I finally develop the application using test-driven development method."
+    content: "Lo-Fidelity and Hi-Fidelity wireframes are created. Communication with the client is made for continuous refinement of how the final application should look like. Then the app is finally developed using test-driven development method."
 
   - title: "Deliver"
     icon: "assets/images/icons/print.png"
-    content: "Application is handed over to the client, with source code and documentation included without charge. Continuous support is optional."
+    content: "Application is handed over to the client, with source code and documentation included without charge. Continuous support can also be availed."
 
 # My Team Section
 # team:
@@ -194,59 +193,59 @@ portfolio-home-items:
 
 # Portfolio Page
 portfolio-label:
-  - { title: "UI/UX Design", type: "design" }
-  - { title: "BRANDING", type: "branding" }
-  - { title: "ILLUSTRATION", type: "illustration" }
+  - { title: "API", type: "api" }
+  - { title: "DESKTOP", type: "desktop" }
+  - { title: "WEB APP", type: "webapp" }
 
 portfolio-items:
-  - image: "assets/images/portfolio/item-1.png"
-    url: "#"
-    portfolio-type:
-      - type: "design"
-      - type: "illustration"
+  # - image: "assets/images/portfolio/item-1.png"
+  #   url: "#"
+  #   portfolio-type:
+  #     - type: "design"
+  #     - type: "illustration"
 
-  - image: "assets/images/portfolio/item-2.png"
-    url: "#"
-    portfolio-type:
-      - type: "branding"
+  # - image: "assets/images/portfolio/item-2.png"
+  #   url: "#"
+  #   portfolio-type:
+  #     - type: "branding"
 
-  - image: "assets/images/portfolio/item-3.png"
-    url: "#"
-    portfolio-type:
-      - type: "illustration"
+  # - image: "assets/images/portfolio/item-3.png"
+  #   url: "#"
+  #   portfolio-type:
+  #     - type: "illustration"
 
-  - image: "assets/images/portfolio/item-6.png"
-    url: "#"
-    portfolio-type:
-      - type: "design"
-      - type: "branding"
+  # - image: "assets/images/portfolio/item-6.png"
+  #   url: "#"
+  #   portfolio-type:
+  #     - type: "design"
+  #     - type: "branding"
 
-  - image: "assets/images/portfolio/item-8.png"
-    url: "#"
-    portfolio-type:
-      - type: "illustration"
+  # - image: "assets/images/portfolio/item-8.png"
+  #   url: "#"
+  #   portfolio-type:
+  #     - type: "illustration"
 
-  - image: "assets/images/portfolio/item-5.png"
-    url: "#"
-    portfolio-type:
-      - type: "design"
+  # - image: "assets/images/portfolio/item-5.png"
+  #   url: "#"
+  #   portfolio-type:
+  #     - type: "design"
 
-  - image: "assets/images/portfolio/item-1.png"
-    url: "#"
-    portfolio-type:
-      - type: "branding"
+  # - image: "assets/images/portfolio/item-1.png"
+  #   url: "#"
+  #   portfolio-type:
+  #     - type: "branding"
 
-  - image: "assets/images/portfolio/item-3.png"
-    url: "#"
-    portfolio-type:
-      - type: "design"
-      - type: "illustration"
-      - type: "branding"
+  # - image: "assets/images/portfolio/item-3.png"
+  #   url: "#"
+  #   portfolio-type:
+  #     - type: "design"
+  #     - type: "illustration"
+  #     - type: "branding"
 
-  - image: "assets/images/portfolio/item-7.png"
-    url: "#"
-    portfolio-type:
-      - type: "illustration"
+  # - image: "assets/images/portfolio/item-7.png"
+  #   url: "#"
+  #   portfolio-type:
+  #     - type: "illustration"
 
 #-------------------------------
 # Testimonials Section
@@ -275,10 +274,10 @@ portfolio-items:
 #     url: "https://abcrmosecurity.com"
 
 #   - logo: "assets/images/clients-logo/omp-logo.png"
-#     url: "#"
+#     url: "https://abcrmosecurity.com"
 
 #-------------------------------
 # Contact Section
 
-contact-title: Contact Info
+contact-title: Contact Me
 contact-email: adrianejames27@gmail.com

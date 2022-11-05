@@ -61,10 +61,6 @@ a:hover {
   color: $primary-color;
 }
 
-.slick-slide {
-  outline: 0;
-}
-
 .section {
   padding-top: 80px;
   padding-bottom: 80px;
@@ -217,6 +213,19 @@ a:hover {
 /* /icon */
 
 /* slick slider */
+.client-logo {
+  height: auto;
+  width: 15vh;
+}
+
+.slick-list {
+  margin: auto;
+}
+
+.slick-slide {
+  outline: 0;
+}
+
 .slick-dots{
   text-align: center;
   padding-left: 0;
@@ -272,3 +281,33 @@ textarea.form-control{
   }
 }
 /* /card */
+
+/* /leaves */
+@include mobile {
+  /* Hide the leaves when the screen is too small */
+  @for $i from 4 through 7 {
+    .bg-shape-#{$i} {
+      display: none;
+    }
+  }
+}
+/* /leaves */
+
+/* socials */
+@include tablet {
+  .socials > li {
+    display: inline; 
+    padding: 15px;
+
+    i {
+      font-size: x-large;
+    }
+  }
+
+  @for $j from 5 through 9 {
+    #l#{$j}{
+      display: none;
+    }
+  }
+}
+/* /socials */
