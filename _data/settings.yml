@@ -39,13 +39,13 @@ hero:
   hero-title: Hi I’m Jay!<br>a Front-End <br>Developer
 
 social:
-  # - { icon: "ti-email", link: "mailto:adrianejames27@gmail.com" }
+  - { icon: "ti-email", link: "mailto:adrianejames27@gmail.com" }
   # - { icon: "ti-instagram", link: "https://www.instagram.com/jay27_2" }
   # - { icon: "ti-twitter", link: "https://www.twitter.com/ellewanderer27" }
   - { icon: "ti-github", link: "https://github.com/lonewanderer27" }
   - { icon: "ti-linkedin", link: "https://linkedin.com/in/jay-puzon" }
   - { icon: "ti-facebook", link: "https://www.facebook.com/jayayayayay" }
-  - { icon: "ti-youtube", link: "https://www.youtube.com/channel/UCzfuLQUiIMkUxse9qlJio1w" }
+  # - { icon: "ti-youtube", link: "https://www.youtube.com/channel/UCzfuLQUiIMkUxse9qlJio1w" }
 
 
 #-------------------------------
@@ -176,76 +176,86 @@ services:
 
 # Portfolio Home Section
 portfolio-home-items:
-  - image: "assets/images/portfolio/item-1.png"
-    url: "#"
+  - image: "assets/images/portfolio/The_Coffee_Lounge.png"
+    url: "https://the-coffee-lounge.pages.dev"
+    github: "https://github.com/The-Coffee-Lounge/The-Coffee-Lounge-Website"
 
-  - image: "assets/images/portfolio/item-2.png"
-    url: "#"
+  - image: "assets/images/portfolio/Tenzies.png"
+    url: "https://tenzies-16q.pages.dev"
+    url-text: "Play"
+    github: "https://github.com/lonewanderer27/tenzies"
 
-  - image: "assets/images/portfolio/item-3.png"
-    url: "#"
+  - image: "assets/images/portfolio/JAMMA.webp"
+    url: "https://jamma-site.herokuapp.com/"
+    github: "https://github.com/lonewanderer27/JAMMA"
 
-  - image: "assets/images/portfolio/item-4.png"
-    url: "#"
+  - image: "assets/images/portfolio/hfcomms.png"
+    url: "https://hfcomms.pages.dev"
+    github: "https://github.com/lonewanderer27/h_and_f_commissions"
 
-  - image: "assets/images/portfolio/item-5.png"
-    url: "#"
+  - image: "assets/images/portfolio/Web-Browser-Botseu.png"
+    url: "https://lonewanderer27.github.io/web-browser-botseu"
+    github: "https://github.com/lonewanderer27/web-browser-botseu"
+
+  - image: "assets/images/portfolio/View_More_Projects.png"
+    url: "/portfolio"
+    url-text: "View More Projects"
 
 # Portfolio Page
 portfolio-label:
   - { title: "API", type: "api" }
   - { title: "DESKTOP", type: "desktop" }
   - { title: "WEB APP", type: "webapp" }
+  - { title: "BOT", type: "bot" }
 
 portfolio-items:
-  # - image: "assets/images/portfolio/item-1.png"
-  #   url: "#"
-  #   portfolio-type:
-  #     - type: "design"
-  #     - type: "illustration"
+  - image: "assets/images/portfolio/JAMMA.webp"
+    url: "https://jamma-site.herokuapp.com/"
+    github: "https://github.com/lonewanderer27/JAMMA"
+    portfolio-type:
+      - type: "webapp"
 
-  # - image: "assets/images/portfolio/item-2.png"
-  #   url: "#"
-  #   portfolio-type:
-  #     - type: "branding"
+  - image: "assets/images/portfolio/The_Coffee_Lounge.png"
+    url: "https://the-coffee-lounge.pages.dev"
+    github: "https://github.com/The-Coffee-Lounge/The-Coffee-Lounge-Website"
+    portfolio-type:
+      - type: "webapp"
 
-  # - image: "assets/images/portfolio/item-3.png"
-  #   url: "#"
-  #   portfolio-type:
-  #     - type: "illustration"
+  - image: "assets/images/portfolio/Camp_Buddy_Toolbox_Screenshot.png"
+    github: "https://github.com/lonewanderer27/Camp-Buddy-Toolbox"
+    portfolio-type:
+      - type: "desktop"
 
-  # - image: "assets/images/portfolio/item-6.png"
-  #   url: "#"
-  #   portfolio-type:
-  #     - type: "design"
-  #     - type: "branding"
+  - image: "assets/images/portfolio/JAMMA_Comments.webp"
+    url: "http://jammacomments.herokuapp.com"
+    github: "https://github.com/lonewanderer27/jammacomments"
+    portfolio-type:
+      - type: "webapp"
 
-  # - image: "assets/images/portfolio/item-8.png"
-  #   url: "#"
-  #   portfolio-type:
-  #     - type: "illustration"
+  - image: "assets/images/portfolio/Tenzies.png"
+    url: "https://tenzies-16q.pages.dev/"
+    github: "https://github.com/lonewanderer27/tenzies"
+    portfolio-type:
+      - type: "webapp"
 
-  # - image: "assets/images/portfolio/item-5.png"
-  #   url: "#"
-  #   portfolio-type:
-  #     - type: "design"
+  - image: "assets/images/portfolio/Lotto-Draw-Bot.png"
+    github: "https://github.com/lonewanderer27/lotto-draw-bot"
+    portfolio-type:
+      - type: "bot"
+      - type: "api"
 
-  # - image: "assets/images/portfolio/item-1.png"
-  #   url: "#"
-  #   portfolio-type:
-  #     - type: "branding"
+  - image: "assets/images/portfolio/Web-Browser-Botseu.png"
+    url: "https://lonewanderer27.github.io/web-browser-botseu"
+    github: "https://github.com/lonewanderer27/web-browser-botseu"
+    portfolio-type:
+      - type: "bot"
+      - type: "api"
 
-  # - image: "assets/images/portfolio/item-3.png"
-  #   url: "#"
-  #   portfolio-type:
-  #     - type: "design"
-  #     - type: "illustration"
-  #     - type: "branding"
-
-  # - image: "assets/images/portfolio/item-7.png"
-  #   url: "#"
-  #   portfolio-type:
-  #     - type: "illustration"
+  - image: "assets/images/portfolio/hfcomms.png"
+    url: "https://hfcomms.pages.dev"
+    github: "https://github.com/lonewanderer27/h_and_f_commissions"
+    portfolio-type:
+      - type: "webapp"
 
 #-------------------------------
 # Testimonials Section
