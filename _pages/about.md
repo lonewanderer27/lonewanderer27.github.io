@@ -6,7 +6,9 @@ image: assets/images/about/author.jpg
 # signature: assets/images/about/signature.png
 ---
 
-I am a Front End Web Developer with 1 year of hands-on experience designing, developing and implementing web applications and solutions. Seeking to leverage a broader development experience and hands-on technical expertise in a front-end web development role.
+I turn half cup of coffee :coffee: into code, use *Nix as my daily driver OS and aspires to be a Software Engineer someday.
+
+Hi I'm Jay and I'm a Front End Web Developer with a year of hands-on experience designing, developing and implementing web applications and solutions. Seeking to leverage a broader development experience and hands-on technical expertise in a front-end web development role.
 
 I started out as a backend developer, specializing in making API route endpoints using Flask and Django. I always keep in mind to keep the API Endpoints that I make really fast, but also has an easy to use and concise API, along with proper documentation.
 
@@ -26,4 +28,4 @@ My journey to becoming a software developer really started when I attended Colle
 
 #### Outlook
 
-Someone said in every second, a new Javascript framework is born, and I think that is what makes the Javascript ecosystem exciting. Right now I'm focusing on learning the different libraries that React to improve my front-end dev skills. In the following years, I plan to integrate what I learned so far to create a full-stack web application and become a better-rounded full-stack dev.
+Someone said in every second, a new Javascript framework is born, and I think that is what makes the Javascript ecosystem exciting. Right now I'm focusing on learning the different libraries that React to improve my front-end dev skills. In the following years, I plan to integrate what I learned so far from working professionally and making my side-projects to transition to a full-stack dev.
