@@ -15,7 +15,13 @@
           <div class="hover-overlay">
             <div class="hover-content">
               {% if item.url %}
-              <a class="btn btn-light btn-sm" href="{{ item.url }}">view project</a>
+              <a class="btn btn-light btn-sm" href="{{ item.url }}">
+                {% if item.url-text %}
+                {{ item.url-text }}
+                {% else %}
+                view project
+                {% endif %}
+              </a>
               {% endif %}
               {% if item.github %}
               <a class="btn btn-dark btn-sm ms-3" href="{{ item.github }}">
