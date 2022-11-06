@@ -73,6 +73,9 @@
     const form = document.getElementById("contactForm")
 
     form.addEventListener('submit', (event) => {
+      // hide button form alert
+      $("#contactFormAlert").addClass("d-none").removeClass("d-flex justify-content-between")
+
       event.preventDefault();
       console.log(event)
 
@@ -83,8 +86,8 @@
       emailjs.sendForm("jamma_shop", "template_w28x35w", form).then(
         (response) => {
           console.log("SUCCESS", response.status, response.text)
-          $("#contactToast").toast("show");
-          alert("Thank you for your inquiry. I'll get in touch with you soon!")
+          $("#contactFormAlert").removeClass("d-none").addClass("d-flex justify-content-between")
+          $("#contactForm").trigger("reset")
         },
         (error) => {
           console.log("FAILED", error)
@@ -92,6 +95,12 @@
         }
       )
     })
+
+    // Register event handler for button form alert
+    const closeBtn = document.getElementById("contactFormAlertBtn")
+    closeBtn.addEventListener('click', () => {
+      $("#contactFormAlert").addClass("d-none").removeClass("d-flex justify-content-between")
+    }) 
   };
 
   function mouseParallax(id, left, top, mouseX, mouseY, speed) {

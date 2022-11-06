@@ -7,18 +7,23 @@
       </div>
       <div class="col-lg-8 mx-auto">
         <div class="bg-white rounded text-center p-5 shadow-down">
+          <div id="contactFormAlert" class="alert alert-success d-none" role="alert">
+            &nbsp;<span>Thank you for your inquiry. I'll get in touch with you soon!</span>
+            <i class="ti-close" id="contactFormAlertBtn"></i>
+          </div>
           <h4 class="mb-80">Contact Form</h4>
           <!-- action="https://formspree.io/{{ site.data.settings.contact-email }}" method="POST"  -->
+          
           <form class="row" id="contactForm">
             <div class="col-md-6">
-              <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4">
+              <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4" required>
             </div>
             <div class="col-md-6">
-              <input type="email" id="email" name="email" placeholder="Email Address" class="form-control px-0 mb-4">
+              <input type="email" id="email" name="email" placeholder="Email Address" class="form-control px-0 mb-4"  required>
             </div>
             <div class="col-12">
               <textarea name="message" id="message" class="form-control px-0 mb-4"
-                placeholder="Type Message Here"></textarea>
+                placeholder="Type Message Here" required></textarea>
             </div>
             <div class="col-lg-6 col-10 mx-auto">
               <button type="submit" class="btn btn-primary w-100">send</button>
@@ -30,20 +35,3 @@
   </div>
 </section>
 <!-- /contact -->
-
-<!-- contact toast -->
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-  <div id="contactToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <img src="..." class="rounded me-2" alt="...">
-      <strong class="me-auto">Bootstrap</strong>
-      <small>11 mins ago</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-      Thank you for your inquiry.<br/>
-      I'll get in touch with you soon!
-    </div>
-  </div>
-</div>
-<!-- /contact toast -->
