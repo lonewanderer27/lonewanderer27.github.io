@@ -60,3 +60,9 @@
     }
   }
 }
+
+@include mobile {
+  .btn-group {
+    flex-direction: column;
+  }
+}
