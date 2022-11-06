@@ -10,6 +10,7 @@
 
 # Local Site Directories
 _site/
+docs/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
