@@ -8,12 +8,13 @@
       <div class="col-lg-8 mx-auto">
         <div class="bg-white rounded text-center p-5 shadow-down">
           <h4 class="mb-80">Contact Form</h4>
-          <form action="https://formspree.io/{{ site.data.settings.contact-email }}" method="POST" class="row">
+          <!-- action="https://formspree.io/{{ site.data.settings.contact-email }}" method="POST"  -->
+          <form class="row" id="contactForm">
             <div class="col-md-6">
               <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4">
             </div>
             <div class="col-md-6">
-              <input type="email" id="email" name="_replyto" placeholder="Email Address" class="form-control px-0 mb-4">
+              <input type="email" id="email" name="email" placeholder="Email Address" class="form-control px-0 mb-4">
             </div>
             <div class="col-12">
               <textarea name="message" id="message" class="form-control px-0 mb-4"
@@ -29,3 +30,20 @@
   </div>
 </section>
 <!-- /contact -->
+
+<!-- contact toast -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="contactToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="...">
+      <strong class="me-auto">Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Thank you for your inquiry.<br/>
+      I'll get in touch with you soon!
+    </div>
+  </div>
+</div>
+<!-- /contact toast -->

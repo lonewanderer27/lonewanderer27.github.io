@@ -68,6 +68,30 @@
       mouseParallax("l8", c8left, c8top, x, y, 25);
       mouseParallax("l9", c9left, c9top, x, y, 40);
     };
+
+    // Register event handler for form
+    const form = document.getElementById("contactForm")
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      console.log(event)
+
+      // Initialize emailJS
+      emailjs.init("lXhUBOOBdtCvuRVwT")
+
+      // Send email
+      emailjs.sendForm("jamma_shop", "template_w28x35w", form).then(
+        (response) => {
+          console.log("SUCCESS", response.status, response.text)
+          $("#contactToast").toast("show");
+          alert("Thank you for your inquiry. I'll get in touch with you soon!")
+        },
+        (error) => {
+          console.log("FAILED", error)
+          alert("Inquiry failed to be sent. Check that all fields are filled.")
+        }
+      )
+    })
   };
 
   function mouseParallax(id, left, top, mouseX, mouseY, speed) {
