@@ -113,12 +113,12 @@ experience:
       date: "October 2022 - Present",
       organization: "Filipino Web Development Peers<br>(Non Profit Organization)",
     }
-  - {
-      name: Wordpress Developer,
-      icon: "icon-2.png",
-      date: "October 2022 - Present",
-      organization: "OMP Security and Investigation Agency Inc.",
-    }
+  # - {
+  #     name: Wordpress Developer,
+  #     icon: "icon-2.png",
+  #     date: "October 2022 - Present",
+  #     organization: "OMP Security and Investigation Agency Inc.",
+  #   }
   
 
 #-------------------------------
