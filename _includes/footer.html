@@ -18,6 +18,23 @@
           <p class="text-white paragraph-lg font-secondary">{{ site.data.settings.address }}</p>
         </div>
       </div>
+      <div class="row justify-content-md-center">
+        <div class="col-md-4 socials-footer">
+          <h5 class="text-light">Socials</h5><br/>
+          {% for social in site.data.settings.social %}
+          <li>
+            <a class="text-white fs-3" href="{{ social.link }}">
+              <i class="{{ social.icon }}"></i>
+            </a>
+          </li>
+          {% endfor %}
+          <li>
+            <a rel="me" class="text-white fs-3" href="https://mastodon.social/@lonewanderer27">
+              <i class="fa-brands fa-mastodon"></i>
+            </a>
+          </li>
+        </div>
+      </div>
     </div>
   </div>
   <div class="border-top text-center border-dark py-5">
