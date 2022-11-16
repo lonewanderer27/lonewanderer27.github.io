@@ -2,6 +2,7 @@
 layout: post
 title: Introducing The Coffee Lounge™
 image: /assets/images/blog/2022-04-22-the-coffee-lounge/279094996_1581891715529535_8867864137325537511_n.jpg
+excerpt: "A five-star coffee shop, located in the heart of Metro Manila. Serving exceptional coffee, partnered with our famous bread products, your experience in The Coffee Lounge will be nothing short of extravagant and relaxing."
 tags: [Life]
 author: jay
 ---

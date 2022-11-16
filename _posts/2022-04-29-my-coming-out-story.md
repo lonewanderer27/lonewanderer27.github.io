@@ -1,7 +1,9 @@
 ---
 layout: post
 title: My Coming Out Story
-image: /assets/images/blog/2022-04-29-my-coming-out-story/278895151_1142410886554896_3058577843938228427_n.jpg
+image: /assets/images/blog/2022-04-29-my-coming-out-story/sub-buzz-4723-1650896641-1.jpg
+image_source: "Buzzfeed"
+image_source_url: "https://www.buzzfeed.com/sam_cleal/heartstopper-review"
 tags: [Life, LGBT+]
 author: jay
 ---

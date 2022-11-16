@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Reply to Should Old Friends and Days of Long Ago Should Be Forgotten?
-image: /assets/images/blog/2022-06-20-reply-to-should-old-friends-be-forgotten/266273-e1647793648296-620x422.jpeg
+image: /assets/images/blog/2022-06-20-reply-to-should-old-friends-be-forgotten/FORtT9sVEAYbk_U.jpeg
+image_source: "The Phillippine Star"
+image_source_url: "https://twitter.com/philippinestar/status/1505448553526620165"
 tags: [Life, School]
 author: jay
 ---

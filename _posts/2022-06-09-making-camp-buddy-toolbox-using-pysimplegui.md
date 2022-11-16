@@ -18,7 +18,7 @@ So I thought to myself.. why not make an app that can extract scripts from Camp 
 
 Sooooooo above me is a screenshot of the tool that I'm currently making for a Visual Novel game. It mainly targets those who want to make a python chat bot that speaks exactly like the characters from the Visual Novel.
 
-## Extracting Assets Tab
+### Extracting Assets Tab
 
 ![](/assets/images/blog/2022-06-09-making-camp-buddy-toolbox-using-pysimplegui/172808192-31553218-949d-432a-a740-68266242f98a.png)
 
@@ -29,7 +29,7 @@ The GUI doesn't become unresponsive thanks to perform_long_operation. And the wr
 Though I kinda wish this also works in the QT port as I prefer the look of that instead of Tkinter. But this will do for now!
 
 
-## Extracting Scripts Tab
+### Extracting Scripts Tab
 
 The layout tools worked very well in keeping the check boxes organized
 
@@ -37,7 +37,7 @@ The layout tools worked very well in keeping the check boxes organized
 
 
 
-## About Window
+### About Window
 
 I really like the About window of GNOME / GTK apps so I made mine look similar to it
 
