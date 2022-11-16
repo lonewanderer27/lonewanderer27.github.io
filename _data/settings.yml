@@ -16,6 +16,7 @@ menu:
   - { name: Blog, link: "/blog" }
   - { name: Portfolio, link: "/portfolio" }
   - { name: Contact, link: "/contact" }
+  - { name: GitHub, link: "https://github.com/lonewanderer27"}
 
 #-------------------------------
 # Google Analytics Section
@@ -42,9 +43,10 @@ social:
   # - { icon: "ti-email", link: "mailto:adrianejames27@gmail.com" }
   # - { icon: "ti-instagram", link: "https://www.instagram.com/jay27_2" }
   # - { icon: "ti-twitter", link: "https://www.twitter.com/ellewanderer27" }
-  - { icon: "ti-github", link: "https://github.com/lonewanderer27" }
+  - { icon: "fa-brands fa-github", link: "https://github.com/lonewanderer27" }
   - { icon: "ti-linkedin", link: "https://linkedin.com/in/jay-puzon" }
   - { icon: "ti-facebook", link: "https://www.facebook.com/jayayayayay" }
+  - { icon: "fa-brands fa-mastodon", link: "https://mastodon.social/@lonewanderer27", rel: "me"}
   # - { icon: "ti-youtube", link: "https://www.youtube.com/channel/UCzfuLQUiIMkUxse9qlJio1w" }
 
 
