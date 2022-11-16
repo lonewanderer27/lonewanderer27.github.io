@@ -16,7 +16,7 @@ menu:
   - { name: Blog, link: "/blog" }
   - { name: Portfolio, link: "/portfolio" }
   - { name: Contact, link: "/contact" }
-  - { name: GitHub, link: "https://github.com/lonewanderer27"}
+  - { name: <i class="fa-brands fa-github"></i>, link: "https://github.com/lonewanderer27"}
 
 #-------------------------------
 # Google Analytics Section
