@@ -30,7 +30,7 @@ google-analytics: # UA-XXXXXX-X
 #-------------------------------
 # Comment Section (Disqus)
 
-disqus-identifier: # Add your shortname for Disqus Comment. For example mr-brown
+disqus-identifier: jay-blogs # Add your shortname for Disqus Comment. For example mr-brown
 
 #-------------------------------
 # Hero Section
@@ -39,7 +39,7 @@ hero:
   hero-title: Hi I’m Jay!<br>a Front-End <br>Developer
 
 social:
-  - { icon: "ti-email", link: "mailto:adrianejames27@gmail.com" }
+  # - { icon: "ti-email", link: "mailto:adrianejames27@gmail.com" }
   # - { icon: "ti-instagram", link: "https://www.instagram.com/jay27_2" }
   # - { icon: "ti-twitter", link: "https://www.twitter.com/ellewanderer27" }
   - { icon: "ti-github", link: "https://github.com/lonewanderer27" }
@@ -260,31 +260,21 @@ portfolio-items:
 #-------------------------------
 # Testimonials Section
 
-# testimonial-items:
-#   - name: "Jesica Gomez"
-#     image: "assets/images/testimonial/client-1.png"
-#     designation: "CEO, Funder"
-#     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+testimonial-items:
+  - name: "Anonymous Client"
+    image: "assets/images/testimonial/warren-wong-MOIopAtWD2c-unsplash.jpg"
+    designation: "2nd Year BSIT Student"
+    content: "Overall, the process was fast and Jay is responsive to clients. The requested code was implemented very well and Jay is knowledgeable in the programming. Thank you again!!"
 
-#   - name: "Jesica Gomez"
-#     image: "assets/images/testimonial/client-1.png"
-#     designation: "CEO, Funder"
-#     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-
-#   - name: "Jesica Gomez"
-#     image: "assets/images/testimonial/client-1.png"
-#     designation: "CEO, Funder"
-#     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-
-#-------------------------------
+# -------------------------------
 # Client Slider Section
 
-# client-slider-items:
-#   - logo: "assets/images/clients-logo/abc-rmo-logo.png"
-#     url: "https://abcrmosecurity.com"
+client-slider-items:
+  - logo: "assets/images/clients-logo/abc-rmo-logo-bw.png"
+    url: "https://abcrmosecurity.com"
 
-#   - logo: "assets/images/clients-logo/omp-logo.png"
-#     url: "https://abcrmosecurity.com"
+  - logo: "assets/images/clients-logo/omp-logo-bw.png"
+    url: "https://abcrmosecurity.com"
 
 #-------------------------------
 # Contact Section
