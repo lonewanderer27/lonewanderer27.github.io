@@ -32,6 +32,9 @@ ul {
 img {
   vertical-align: middle;
   border: 0;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
 }
 
 a,
@@ -311,3 +314,18 @@ textarea.form-control{
   }
 }
 /* /socials */
+
+.socials-footer > li {
+  display: inline;
+  padding: 15px;
+
+  i {
+    font-size: x-large;
+  }
+
+  @for $j from 5 through 9 {
+    #l#{$j}{
+      display: none;
+    }
+  }
+}

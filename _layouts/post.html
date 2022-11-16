@@ -6,7 +6,8 @@ layout: default
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h1 class="text-white font-tertiary">Blogs</h1>
+        <h3 class="text-white font-tertiary">{{ page.title | escape }}</h3>
+        <!-- <h1 class="text-white font-tertiary">{{ page.title | escape }}</h1> -->
       </div>
     </div>
   </div>
@@ -25,11 +26,13 @@ layout: default
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3 class="font-tertiary mb-5">{{ page.title | escape }}</h3>
+        <img src="{{page.image | relative_url }}" class="img-fluid rounded float-left mr-5 mb-4" alt="{{page.title}}">
         <p class="font-secondary">Published on {{ page.date | date: '%b %d, %Y' }} by <span class="text-primary">{{ page.author }}</span
             class="text-primary"> on {% for tag in page.tags %}<span>{{ tag }} </span>{% endfor %}</p>
-        <div class="content">
-          <img src="{{page.image | relative_url }}" class="img-fluid rounded float-left mr-5 mb-4" alt="{{page.title}}">
+        {% if page.image_source %}
+        <p class="font-secondary">Header Image on <a href="{{ page.image_source_url }}">{{ page.image_source }}</a></p>
+        {% endif %}
+        <div class="content my-5">
           {{ content }}
         </div>
       </div>

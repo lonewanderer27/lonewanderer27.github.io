@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Making Camp Buddy Toolbox using PySimpleGUI
-image: /assets/images/blog/2022-06-09-making-camp-buddy-toolbox-using-pysimplegui/DxD1hLgUwAAo-Od.jpg
+image_source: "RealPython"
+image: /assets/images/blog/2022-06-09-making-camp-buddy-toolbox-using-pysimplegui/Get-Started-with-PySimpleGUI_Watermarked.webp
+image_source_url: "https://realpython.com/pysimplegui-python"
 tags: [code]
 author: jay
 ---
