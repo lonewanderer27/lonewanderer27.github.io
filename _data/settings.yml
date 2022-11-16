@@ -52,7 +52,7 @@ social:
 # About (Section and Page)
 
 # About Section
-blurb: I am a Front End Web Developer with a year of hands-on experience designing, developing and implementing web applications and solutions. Seeking to leverage a broader development experience and hands-on technical expertise in a front-end web development role.
+blurb: With a year of hands-on experience designing, developing and implementing web applications and solutions. <br/><br/>Seeking to leverage a broader development experience and hands-on technical expertise in a front-end web development role.
 blurb-btn-link: "/about"
 blurb-btn-name: know more
 
@@ -113,12 +113,12 @@ experience:
       date: "October 2022 - Present",
       organization: "Filipino Web Development Peers<br>(Non Profit Organization)",
     }
-  # - {
-  #     name: Wordpress Developer,
-  #     icon: "icon-2.png",
-  #     date: "October 2022 - Present",
-  #     organization: "OMP Security and Investigation Agency Inc.",
-  #   }
+  - {
+      name: Wordpress Developer,
+      icon: "icon-2.png",
+      date: "November 2022 - Present",
+      organization: "OMP Security and Investigation Agency Inc.",
+    }
   
 
 #-------------------------------
@@ -153,21 +153,21 @@ education:
 services-title: Services
 services:
   - {
-      name: Web App,
-      icon: ti-vector,
-      description: "I make full-stack web applications using the MFRS stack (MongoDB, Flask, React & Serverless).",
+      name: Full-Stack Web App,
+      icon: ti-world,
+      description: "I design and build highly interactive web apps that uses frameworks and tools primarily from the MERN stack.",
       active: ,# Add true to select section
     }
   - {
       name: Wordpress Site,
       icon: ti-wordpress,
-      description: "I mainly design and build beautiful responsive websites that load fast, SEO friendly, and easily editable using the Wordpress CMS platform.",
+      description: "I design and implement websites by creating a custom WordPress theme that is mobile-responsive, SEO friendly and highly customizable.",
       active: true, # Add true to select section
     }
   - {
       name: Desktop Application,
-      icon: ti-panel,
-      description: "I develop desktop applications using 3 programming languages, mainly using Swing for Java, DotNet for C# and PySimpleGUI for Python.",
+      icon: ti-desktop,
+      description: "I develop desktop applications in 3 programming languages, Java Swing, C# DotNet and Python PySimpleGUI.",
       active: ,# Add true to select section
     }
 
