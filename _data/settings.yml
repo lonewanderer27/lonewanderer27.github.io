@@ -129,8 +129,8 @@ experience:
 education-title: Education
 education:
   - {
-      name: Advanced React,
-      date: "January 2023",
+      name: Javascript Deep Dive,
+      date: "November 14 2022",
       organization: "Scrimba",
     }
   - {
