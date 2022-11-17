@@ -6,11 +6,9 @@ image: assets/images/about/author.jpg
 # signature: assets/images/about/signature.png
 ---
 
-Hi I'm Jay and I'm a Front End Web Developer with a year of hands-on experience designing, developing and implementing web applications and solutions. Seeking to leverage a broader development experience and hands-on technical expertise in a front-end web development role.
+Hi I'm Jay, a Front End Web Developer with a year of hands-on experience designing, developing and implementing web applications and solutions. 
 
-I started out as a backend developer, specializing in making API route endpoints using Flask and Django. I always keep in mind to keep the API Endpoints that I make really fast, but also has an easy to use and concise API, along with proper documentation.
-
-Then I moved to front-end development by making fully interactive web applications using React, while also leveraging my experience with designing backend API routes to build a series of full-stack web applications.   
+I am passionate in creating highly interactive web applications with responsive design that look good on every user's device. When assigned to a task, I make sure that it is efficiently done and passed ahead of the deadline.
 
 #### Professional Life
 
@@ -26,4 +24,6 @@ My journey to becoming a software developer really started when I started my fre
 
 #### Outlook
 
-Someone said that in every second, a new Javascript framework is born, and I think that is what makes the Javascript ecosystem exciting. Right now I'm focusing on learning the different libraries that React to improve my front-end dev skills. In the following years, I plan to integrate what I learned so far from working professionally and making my side-projects to transition to a full-stack dev.
+Someone said that in every second, a new Javascript framework is born, and that is what makes the Javascript ecosystem exciting for me. 
+
+Right now I'm focusing on learning the different libraries that React to improve my front-end dev skills. In the following years, I plan to integrate what I learned so far from working professionally and making my side-projects to transition to being a full-stack developer.
