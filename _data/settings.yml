@@ -264,9 +264,14 @@ portfolio-items:
 # Testimonials Section
 
 testimonial-items:
-  - name: "Anonymous Client"
+  - anonymous: true
+    image: "assets/images/testimonial/aleksandr-popov-VQzk4AbvA8I-unsplash.jpg"
+    designation: "BSIT Student"
+    content: "You have a lot of talents that you're already using and I know that there's so much more for you to discover. In terms of the system that you helped us with, it was so smooth and easy to understand plus you have a great personality which is a contributing factor. Hope that you will grow in your chosen field and may you have all the clients that you want to have in order to succeed in life. 🥳"
+
+  - anonymous: true
     image: "assets/images/testimonial/warren-wong-MOIopAtWD2c-unsplash.jpg"
-    designation: "2nd Year BSIT Student"
+    designation: "BSIT Student"
     content: "Overall, the process was fast and Jay is responsive to clients. The requested code was implemented very well and Jay is knowledgeable in the programming. Thank you again!!"
 
 # -------------------------------
