@@ -133,6 +133,7 @@ education:
       name: Javascript Deep Dive,
       date: "November 14 2022",
       organization: "Scrimba",
+      certificate: "https://scrimba.com/certificate/u2Nz6eAV/gjavascript"
     }
   - {
       name: B.S. in Computer Science,
