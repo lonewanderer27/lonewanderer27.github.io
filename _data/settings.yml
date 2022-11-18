@@ -264,6 +264,11 @@ portfolio-items:
 # Testimonials Section
 
 testimonial-items:
+  - name: "Zyrich Kio"
+    image: "assets/images/testimonial/283451609_965697714116930_7308708947337824576_n.jpeg"
+    designation: "Computer Science Student"
+    content: "Efficient yung communication. Minemake sure if natanggap yung sinend. Sa program, di mo need mag alala sa deadline dahil speed gumawa and at the same time complete yung content and nagagawa lahat ng instructions. Overall, excellent and smooth service."
+
   - anonymous: true
     image: "assets/images/testimonial/aleksandr-popov-VQzk4AbvA8I-unsplash.jpg"
     designation: "BSIT Student"
