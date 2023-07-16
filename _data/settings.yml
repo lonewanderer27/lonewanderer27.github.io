@@ -181,17 +181,17 @@ services:
 # Portfolio Home Section
 portfolio-home-items:
   - image: "assets/images/portfolio/The_Coffee_Lounge.png"
-    url: "https://the-coffee-lounge.pages.dev"
-    github: "https://github.com/The-Coffee-Lounge/The-Coffee-Lounge-Website"
+    url: "https://the-coffee-lounge-app.vercel.app"
+    github: "https://github.com/The-Coffee-Lounge/The-Coffee-Lounge-App"
 
   - image: "assets/images/portfolio/Tenzies.png"
     url: "https://tenzies-16q.pages.dev"
     url-text: "Play"
     github: "https://github.com/lonewanderer27/tenzies"
 
-  - image: "assets/images/portfolio/JAMMA.webp"
-    url: "https://jamma-site.herokuapp.com/"
-    github: "https://github.com/lonewanderer27/JAMMA"
+  - image: "assets/images/portfolio/JAMMA.png"
+    url: "https://jamma-shop.vercel.app/"
+    github: "https://github.com/lonewanderer27/JAMMA_App"
 
   - image: "assets/images/portfolio/hfcomms.png"
     url: "https://hfcomms.pages.dev"
@@ -213,15 +213,15 @@ portfolio-label:
   - { title: "BOT", type: "bot" }
 
 portfolio-items:
-  - image: "assets/images/portfolio/JAMMA.webp"
-    url: "https://jamma-site.herokuapp.com/"
-    github: "https://github.com/lonewanderer27/JAMMA"
+  - image: "assets/images/portfolio/JAMMA.png"
+    url: "https://jamma-shop.vercel.app/"
+    github: "https://github.com/lonewanderer27/JAMMA_App"
     portfolio-type:
       - type: "webapp"
 
   - image: "assets/images/portfolio/The_Coffee_Lounge.png"
-    url: "https://the-coffee-lounge.pages.dev"
-    github: "https://github.com/The-Coffee-Lounge/The-Coffee-Lounge-Website"
+    url: "https://the-coffee-lounge-app.vercel.app"
+    github: "https://github.com/The-Coffee-Lounge/The-Coffee-Lounge-App"
     portfolio-type:
       - type: "webapp"
 
