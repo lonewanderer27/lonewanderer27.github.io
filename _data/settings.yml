@@ -181,7 +181,7 @@ services:
 # Portfolio Home Section
 portfolio-home-items:
   - image: "assets/images/portfolio/The_Coffee_Lounge.png"
-    url: "https://the-coffee-lounge-app.vercel.app"
+    url: "https://coffee-lounge-app.vercel.app"
     github: "https://github.com/The-Coffee-Lounge/The-Coffee-Lounge-App"
 
   - image: "assets/images/portfolio/Tenzies.png"
@@ -220,7 +220,7 @@ portfolio-items:
       - type: "webapp"
 
   - image: "assets/images/portfolio/The_Coffee_Lounge.png"
-    url: "https://the-coffee-lounge-app.vercel.app"
+    url: "https://coffee-lounge-app.vercel.app"
     github: "https://github.com/The-Coffee-Lounge/The-Coffee-Lounge-App"
     portfolio-type:
       - type: "webapp"
