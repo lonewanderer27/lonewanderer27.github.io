@@ -119,7 +119,7 @@ experience:
   - {
       name: PHP Developer,
       icon: "icon-2.png",
-      date: "November 2022 - Present",
+      date: "November 2022 - January 2023",
       organization: "OMP Security Inc.",
     }
   
@@ -207,9 +207,12 @@ portfolio-home-items:
   #   url: "https://lonewanderer27.github.io/web-browser-botseu"
   #   github: "https://github.com/lonewanderer27/web-browser-botseu"
 
-  - image: "assets/images/portfolio/View_More_Projects.png"
-    url: "/portfolio"
-    url-text: "View More Projects"
+  # - image: "assets/images/portfolio/View_More_Projects.png"
+  #   url: "/portfolio"
+  #   url-text: "View More Projects"
+portfolio-home-btn-link: "/portfolio"
+portfolio-home-btn-name: View More Projects
+
 
 # Portfolio Page
 portfolio-label:
