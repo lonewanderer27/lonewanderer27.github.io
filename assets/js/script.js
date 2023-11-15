@@ -83,7 +83,7 @@
       emailjs.init("lXhUBOOBdtCvuRVwT")
 
       // Send email
-      emailjs.sendForm("jamma_shop", "template_w28x35w", form).then(
+      emailjs.sendForm("service_ianjms", "template_w28x35w", form).then(
         (response) => {
           console.log("SUCCESS", response.status, response.text)
           $("#contactFormAlert").removeClass("d-none").addClass("d-flex justify-content-between")
