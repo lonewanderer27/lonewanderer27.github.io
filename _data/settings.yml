@@ -122,7 +122,24 @@ experience:
       date: "November 2022 - January 2023",
       organization: "OMP Security Inc.",
     }
-  
+
+#-------------------------------
+# Certificates Section
+certificates-title: Certifications
+certificates:
+  - {
+      name: Learn React,
+      date: "September 2024",
+      organization: "Scrimba",
+      certificate: "https://v2.scrimba.com/certificate-cert2CsEjr6BTPCjR2r6GqCgcfc4y5MpTb6twi"
+    }
+  - {
+      name: Javascript Deep Dive,
+      date: "November 2022",
+      organization: "Scrimba",
+      certificate: "https://scrimba.com/certificate/u2Nz6eAV/gjavascript"
+    }
+
 
 #-------------------------------
 # Education Section
@@ -134,17 +151,11 @@ education:
       # date: "June 2025",
       organization: "Adamson University,",
     }
-  - {
-      name: Javascript Deep Dive,
-      # date: "November 14 2022",
-      organization: "Scrimba",
-      certificate: "https://scrimba.com/certificate/u2Nz6eAV/gjavascript"
-    }
-  - {
-      name: Senior High School,
-      # date: "May 2021",
-      organization: "Santa Isabel College of Manila",
-    }
+  # - {
+  #     name: Senior High School,
+  #     # date: "May 2021",
+  #     organization: "Santa Isabel College of Manila",
+  #   }
   # - {
   #     name: High School,
   #     date: "June 2019",
