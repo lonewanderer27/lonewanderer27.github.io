@@ -14,11 +14,21 @@
 
     <div class="collapse navbar-collapse text-center" id="navigation">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
+        {% assign page_url = page.url | remove: '.html' | strip %}
+        {% if page_url == '' or page_url == '/' %}
+          <li class="nav-item active">
+        {% else %}
+          <li class="nav-item">
+        {% endif %}
           <a class="nav-link" href="{{ site.baseurl }}/">Home</a>
         </li>
         {% for link in site.data.settings.menu %}
-          <li class="nav-item {{ class }}">
+          {% assign link_url = link.link | strip %}
+          {% if page_url == link_url %}
+            <li class="nav-item active">
+          {% else %}
+            <li class="nav-item">
+          {% endif %}
             <a class="nav-link" href="{{ link.link }}">{{ link.name }}</a>
           </li>
         {% endfor %}
