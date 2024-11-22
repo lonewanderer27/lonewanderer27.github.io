@@ -192,7 +192,7 @@ services:
 # Portfolio Home Section
 portfolio-home-items:
   - image: "assets/images/portfolio/The_Coffee_Lounge.png"
-    url: "https://the-coffee-lounge.web.app"
+    url: "https://coffee-lounge.vercel.app"
     github: "https://github.com/The-Coffee-Lounge/The-Coffee-Lounge-App"
 
   - image: "assets/images/portfolio/Tenzies.png"
@@ -200,9 +200,13 @@ portfolio-home-items:
     url-text: "Play"
     github: "https://github.com/lonewanderer27/tenzies"
 
-  - image: "assets/images/portfolio/JAMMA.png"
-    url: "https://jamma-shop.vercel.app/"
-    github: "https://github.com/lonewanderer27/JAMMA_App"
+  - image: "assets/images/portfolio/JS5.png"
+    url: "https://js5.vercel.app"
+    github: "https://github.com/lonewanderer27/js5"
+
+  # - image: "assets/images/portfolio/JAMMA.png"
+  #   url: "https://jamma-shop.vercel.app/"
+  #   github: "https://github.com/lonewanderer27/JAMMA_App"
 
   - image: "assets/images/portfolio/ompsec.png"
     url: "https://ompsecurity.com"              
