@@ -299,19 +299,19 @@ portfolio-items:
 # Testimonials Section
 
 testimonial-items:
-  - name: "Zyrich Kio"
+  - anonymous: true
     image: "assets/images/testimonial/283451609_965697714116930_7308708947337824576_n.jpeg"
-    designation: "Computer Science Student"
+    # designation: "B.S. C.S. Student"
     content: "Efficient yung communication. Minemake sure if natanggap yung sinend. Sa program, di mo need mag alala sa deadline dahil speed gumawa and at the same time complete yung content and nagagawa lahat ng instructions. Overall, excellent and smooth service."
 
   - anonymous: true
     image: "assets/images/testimonial/aleksandr-popov-VQzk4AbvA8I-unsplash.jpg"
-    designation: "BSIT Student"
+    # designation: "B.S. I.T. Student"
     content: "You have a lot of talents that you're already using and I know that there's so much more for you to discover. In terms of the system that you helped us with, it was so smooth and easy to understand plus you have a great personality which is a contributing factor. Hope that you will grow in your chosen field and may you have all the clients that you want to have in order to succeed in life. 🥳"
 
   - anonymous: true
     image: "assets/images/testimonial/warren-wong-MOIopAtWD2c-unsplash.jpg"
-    designation: "BSIT Student"
+    # designation: "BSIT Student"
     content: "Overall, the process was fast and Jay is responsive to clients. The requested code was implemented very well and Jay is knowledgeable in the programming. Thank you again!!"
 
 # -------------------------------
