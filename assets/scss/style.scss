@@ -12,6 +12,10 @@ VERSION:	Versoin Number
 [TABLE OF CONTENTS]
 -------------------------------------------------------------------*/
 
+@view-transition {
+  navigation: auto;
+}
+
 @import 'variables';
 
 @import 'mixins';
