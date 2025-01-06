@@ -37,7 +37,7 @@ disqus-identifier: jay-blogs # Add your shortname for Disqus Comment. For exampl
 # Hero Section
 
 hero:
-  hero-title: Hi I’m Jay!<br>a Front-Stack <br>Developer
+  hero-title: Hi I’m Jay!<br>a Full-Stack <br>Developer
 
 social:
   - { icon: "ti-email", link: "mailto:adrianejames27@gmail.com" }
