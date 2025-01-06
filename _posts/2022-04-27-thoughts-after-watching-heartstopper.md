@@ -1,7 +1,7 @@
 ---
 layout: post
 title: My thoughts after watching Heartstopper
-image: /assets/images/blog/2022-04-27-im-gay-nerd/279405975_1585282945190412_906502809197478862_n.jpg
+image: /assets/images/blog/2022-04-27-thoughts-after-watching-heartstopper/279405975_1585282945190412_906502809197478862_n.jpg
 tags: [Life, LGBT+, Heartstopper, charlie]
 author: jay
 published: true
@@ -16,4 +16,4 @@ But I just really wanna get this out of my chest. There is still part of me that
 
 So here ya go ya'll, I'm part of the rainbow 🙂 🏳️‍🌈 ❤️
 
-![](../assets/img/2022-04-27-im-gay-nerd/279397337_1585283891856984_6085453319711835818_n.jpg)
+![](../assets/img/2022-04-27-thoughts-after-watching-heartstopper/279397337_1585283891856984_6085453319711835818_n.jpg)

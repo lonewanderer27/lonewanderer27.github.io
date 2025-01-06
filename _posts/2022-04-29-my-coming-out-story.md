@@ -6,12 +6,12 @@ image_source: "Buzzfeed"
 image_source_url: "https://www.buzzfeed.com/sam_cleal/heartstopper-review"
 tags: [Life, LGBT+]
 author: jay
-published: false
+published: true
 ---
 
 It has been 3-4 years since I discovered I was gay, it was a really hard time for me, but I think I'm ready to tell my story.
 
-I still remember before starting Grade 10, I prayed to God, hoping that no one would bully me anymore and that I'll have more friends this time around. (I was bullied for a lot of reasons back in Grade 6 to 9, and added the factor that I didn't had a lot of friends because I was super shy and don't know how to talk. It was terrible basically)
+I still remember before starting Grade 10, I was really hoping that no one would bully me anymore and that I'll have more friends this time around. (I was bullied for a lot of reasons back in Grade 6 to 9, and added the factor that I didn't had a lot of friends because I was super shy and don't know how to talk. It was terrible basically)
 
 My wish came true and I was super grateful, then with this new friend group I met a guy. He's a really funny one, he would always make us laugh but specially me, his jokes, because of that I think out of all people we've been the most closest. I would describe him as my best friend at the time to be honest.
 Then one day he told me he's got crush on a girl, someone that is out of our circle but pretty close to us. He was rejected and I don't blame the girl because she's pretty much the aral muna type of person. This is when my best friend started to be sad, really really sad, not just because of the rejection but also some family issues that affected him.
