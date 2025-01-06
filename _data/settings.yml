@@ -144,21 +144,21 @@ education:
 services-title: Services
 services:
   - {
-      name: Wordpress Site,
+      name: WordPress Site,
       icon: ti-wordpress,
-      description: "I design and implement websites by creating a custom WordPress theme that is mobile-responsive, SEO friendly and highly customizable.",
+      description: "I create custom WordPress websites that are mobile-responsive, SEO-friendly, and highly customizable.",
       active: false
     }
   - {
       name: Single Page App,
       icon: ti-world,
-      description: "I design and build highly interactive web applications using frameworks and tools primarily from the MERN stack.",
+      description: "I design and build highly interactive web applications using frameworks and tools, primarily from the MERN stack.",
       active: true
     }
   - {
-      name: Mobile Application,
+      name: Mobile Application",
       icon: ti-mobile,
-      description: "I specialize in developing mobile applications using Ionic React and React Native. I can create user-friendly mobile apps that can run on both iOS and Android platforms.",
+      description: "I specialize in developing mobile applications using Ionic React and React Native that run on both iOS and Android platforms.",
       active: false
     }
 
