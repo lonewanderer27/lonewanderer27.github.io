@@ -1,10 +1,10 @@
 ---
 layout: post
-title: I'm Gay Nerd.
+title: My thoughts after watching Heartstopper
 image: /assets/images/blog/2022-04-27-im-gay-nerd/279405975_1585282945190412_906502809197478862_n.jpg
 tags: [Life, LGBT+, Heartstopper, charlie]
 author: jay
-published: false
+published: true
 ---
 
 I've recently watched Netflix's Heartstopper and I just related so much to Charlie. There's never been an instance that a character in a movie or series, that made me feel so seen as a person.
