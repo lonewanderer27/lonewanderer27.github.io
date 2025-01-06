@@ -73,6 +73,11 @@ a:hover {
   padding-top: 80px;
   padding-bottom: 80px;
 
+  @include mobile {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
   &-title {
     margin-bottom: 80px;
     font-family: $secondary-font;

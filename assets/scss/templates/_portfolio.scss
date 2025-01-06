@@ -1,6 +1,19 @@
 .page-title {
   padding: 250px 0 150px;
 
+  @include mobile {
+    padding-top: 120px !important;
+    padding-bottom: 50px !important;
+  }
+
+  @include tablet {
+    padding: 150px 0;
+  }
+
+  @include desktop {
+    padding: 180px 0;
+  }
+
   .container {
     position: relative;
     z-index: 1;
