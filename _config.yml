@@ -3,6 +3,12 @@ description: Software Engineer from Philippines. Linux connoisseur. Digital free
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://lonewanderer27.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/banner.png
+
 destination: docs/
 
 # Build settings
@@ -12,6 +18,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-redirect-from
+  - jekyll-seo-tag
 compress_html:
   clippings: all
   comments: all

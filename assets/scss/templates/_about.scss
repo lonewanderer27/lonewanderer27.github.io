@@ -1,5 +1,19 @@
 .page-title-alt{
   padding: 350px 0 70px;
+
+  @include mobile {
+    padding-top: 120px !important;
+    padding-bottom: 50px !important;
+    text-align: center;
+  }
+
+  @include tablet {
+    padding: 150px 0;
+  }
+
+  @include desktop {
+    padding: 180px 0;
+  }
 }
 
 .border-thick{
@@ -39,6 +53,10 @@
     position: absolute;
     left: 100px;
     bottom: 100px;
+    
+    @include mobile {
+      visibility: hidden;
+    }
   }
 
   .bg-shape-5{

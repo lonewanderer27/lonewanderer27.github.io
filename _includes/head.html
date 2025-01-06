@@ -9,7 +9,10 @@
   <!-- theme meta -->
   <meta name="theme-name" content="kross-jekyll" />
 
-    
+  <!-- additional metadata -->
+  <meta property="og:image" content="{%if site.data.settings.logo %}{{ site.data.settings.banner | relative_url }}{%endif%}">
+  <meta property="twitter:image" content="{%if site.data.settings.logo %}{{ site.data.settings.banner | relative_url }}{%endif%}">
+  
   {% if site.author %}
   <meta name="author" content="{{ . }}">
   {% endif %}
@@ -38,5 +41,6 @@
 
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/a94d6b1d27.js" crossorigin="anonymous"></script>
-
+  
+  {%seo%}
 </head>
