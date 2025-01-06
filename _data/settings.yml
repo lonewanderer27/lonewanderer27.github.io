@@ -78,12 +78,12 @@ work-process:
 #-------------------------------
 # Skills Section
 
-skills-title: Skills
-skills:
-  - { name: FastAPI, color: "#2b6194", value: "70%" }
-  - { name: React, color: "#3fdfff", value: "90%" }
-  - { name: PHP, color: "#4e388b", value: "70%" }
-  - { name: Android Dev, color: "#3DDC84", value: "70%" }
+# skills-title: Skills
+# skills:
+#   - { name: FastAPI, color: "#2b6194", value: "70%" }
+#   - { name: React, color: "#3fdfff", value: "90%" }
+#   - { name: PHP, color: "#4e388b", value: "70%" }
+#   - { name: Android Dev, color: "#3DDC84", value: "70%" }
 
 #-------------------------------
 # Experience Section
@@ -135,7 +135,7 @@ education:
   - {
       name: B.S. in Computer Science,
       # date: "June 2025",
-      organization: "Adamson University,",
+      organization: "Adamson University",
     }
 
 #-------------------------------
@@ -156,7 +156,7 @@ services:
       active: true
     }
   - {
-      name: Mobile Application",
+      name: Mobile Application,
       icon: ti-mobile,
       description: "I specialize in developing mobile applications using Ionic React and React Native that run on both iOS and Android platforms.",
       active: false
