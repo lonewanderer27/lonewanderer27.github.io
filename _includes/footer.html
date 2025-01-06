@@ -3,23 +3,17 @@
   <div class="section">
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-lg-4 col-12">
           <h5 class="text-light">Email</h5>
           <p class="text-white paragraph-lg font-secondary">
             <a class="text-white" href="mailto:{{ site.data.settings.email }}">{{ site.data.settings.email }}</a>
           </p>
         </div>
-        <div class="col-md-4">
+        <div class="col-lg-4 col-12">
           <h5 class="text-light">Phone</h5>
           <p class="text-white paragraph-lg font-secondary">{{ site.data.settings.phone }}</p>
         </div>
-        <div class="col-md-4">
-          <h5 class="text-light">Address</h5>
-          <p class="text-white paragraph-lg font-secondary">{{ site.data.settings.address }}</p>
-        </div>
-      </div>
-      <div class="row justify-content-md-center">
-        <div class="col-md-4 socials-footer">
+        <div class="col-lg-4 col-12 socials-footer">
           <h5 class="text-light">Socials</h5><br/>
           {% for social in site.data.settings.social %}
           <li>

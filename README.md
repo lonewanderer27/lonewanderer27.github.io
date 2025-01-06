@@ -21,7 +21,7 @@ Make sure GitHub Pages is enabled for your repo. It might take some time for the
 
 Things you can customize in `_data/settings.yml` (no HTML/CSS):
 
-- Theme General Settings ( name, logo, email, phone, address )
+- Theme General Settings ( name, logo, email, phone )
 - Hero Section
 - About Section
 - Team Section
