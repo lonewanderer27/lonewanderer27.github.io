@@ -171,20 +171,13 @@ portfolio-home-items:
     url: "https://coffee-lounge.vercel.app"
     github: "https://github.com/The-Coffee-Lounge/The-Coffee-Lounge-App"
 
-  - image: "assets/images/portfolio/Tenzies.png"
-    url: "https://tenzies-16q.pages.dev"
-    url-text: "Play"
-    github: "https://github.com/lonewanderer27/tenzies"
-
   - image: "assets/images/portfolio/JS5.png"
     url: "https://js5.vercel.app"
     github: "https://github.com/lonewanderer27/js5"
 
-  - image: "assets/images/portfolio/ompsec.png"
-    url: "https://ompsecurity.com"              
-
-  - image: "assets/images/portfolio/abcrmo.png"
-    url: "https://abcrmosecurity.com"
+  - image: "assets/images/portfolio/chat-ur-meyts.png"
+    url: "https://chat-ur-meyts.vercel.app"
+    github: "https://github.com/lonewanderer27/Chat-Ur-Meyts"
 
 portfolio-home-btn-link: "/portfolio"
 portfolio-home-btn-name: View More Projects
@@ -210,24 +203,25 @@ portfolio-items:
     portfolio-type:
       - type: "webapp"
 
+  - image: "assets/images/portfolio/chat-ur-meyts.png"
+    url: "https://chat-ur-meyts.vercel.app"
+    github: "https://github.com/lonewanderer27/Chat-Ur-Meyts"
+    portfolio-type:
+      - type: "webapp"
+
   - image: "assets/images/portfolio/ompsec.png"
     url: "https://ompsecurity.com"
     portfolio-type:
       - type: "webapp"
 
-  - image: "assets/images/portfolio/abcrmo.png"
-    url: "https://abcrmosecurity.com"
-    portfolio-type:
-      - type: "webapp"
-
-  - image: "assets/images/portfolio/Camp_Buddy_Toolbox_Screenshot.png"
-    github: "https://github.com/lonewanderer27/Camp-Buddy-Toolbox"
-    portfolio-type:
-      - type: "desktop"
-
   - image: "assets/images/portfolio/Tenzies.png"
     url: "https://tenzies-16q.pages.dev/"
     github: "https://github.com/lonewanderer27/tenzies"
+    portfolio-type:
+      - type: "webapp"
+
+  - image: "assets/images/portfolio/abcrmo.png"
+    url: "https://abcrmosecurity.com"
     portfolio-type:
       - type: "webapp"
 
@@ -243,6 +237,11 @@ portfolio-items:
     portfolio-type:
       - type: "bot"
       - type: "api"
+
+  - image: "assets/images/portfolio/Camp_Buddy_Toolbox_Screenshot.png"
+    github: "https://github.com/lonewanderer27/Camp-Buddy-Toolbox"
+    portfolio-type:
+      - type: "desktop"
 
 #-------------------------------
 # Testimonials Section
