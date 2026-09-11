@@ -1,0 +1,16 @@
+{
+  "name": "lonewanderer27-github-io",
+  "private": true,
+  "packageManager": "pnpm@11.0.3",
+  "scripts": {
+    "css:build": "tailwindcss -i ./_tailwind/main.css -o ./assets/css/main.css --minify",
+    "css:watch": "tailwindcss -i ./_tailwind/main.css -o ./assets/css/main.css --watch",
+    "dev": "pnpm css:build && concurrently --kill-others --names css,jekyll \"pnpm:css:watch\" \"bundle exec jekyll serve\""
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/typography": "^0.5.20",
+    "concurrently": "^10.0.5",
+    "tailwindcss": "^4.3.3"
+  }
+}
