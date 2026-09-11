@@ -15,19 +15,19 @@ redirect_from: /projects
                     [&>label:not(:first-child)]:rounded-tl-none [&>label:not(:first-child)]:rounded-bl-none
                     [&>label:not(:last-child)]:rounded-tr-none [&>label:not(:last-child)]:rounded-br-none">
           <label class="inline-block text-center align-middle select-none cursor-pointer border-0 relative z-[1] font-secondary capitalize font-semibold leading-[1.5] rounded-[5px] text-[15px] px-[30px] py-[10px] bg-primary text-white transition-all duration-200 ease-[ease] has-[:checked]:bg-primary-lite">
-            <input type="radio" name="shuffle-filter" value="all" checked="checked" class="absolute pointer-events-none [clip:rect(0,0,0,0)]" />All
+            <input type="radio" name="portfolio-filter" value="all" checked="checked" class="absolute pointer-events-none [clip:rect(0,0,0,0)]" />All
           </label>
           {% for label in site.data.settings.portfolio-label %}
           <label class="inline-block text-center align-middle select-none cursor-pointer border-0 relative z-[1] font-secondary capitalize font-semibold leading-[1.5] rounded-[5px] text-[15px] px-[30px] py-[10px] bg-primary text-white transition-all duration-200 ease-[ease] has-[:checked]:bg-primary-lite">
-            <input type="radio" name="shuffle-filter" value="{{ label.type }}" class="absolute pointer-events-none [clip:rect(0,0,0,0)]" />{{ label.title }}
+            <input type="radio" name="portfolio-filter" value="{{ label.type }}" class="absolute pointer-events-none [clip:rect(0,0,0,0)]" />{{ label.title }}
           </label>
           {% endfor %}
         </div>
       </div>
     </div>
-    <div class="flex flex-wrap -mx-[15px] shuffle-wrapper">
+    <div data-portfolio-grid class="grid grid-cols-1 gap-x-[30px] sm:grid-cols-2 lg:grid-cols-3">
       {% for item in site.data.settings.portfolio-items %}
-      <div class="relative w-full px-[15px] mb-6 sm:w-1/2 lg:w-1/3 shuffle-item" data-groups="[{% for portfolio in item.portfolio-type %}{% if forloop.first == true %}{% else %},{% endif %}&quot;{{ portfolio.type }}&quot;{% endfor %}]">
+      <div class="relative w-full px-[15px] mb-6" data-groups="[{% for portfolio in item.portfolio-type %}{% if forloop.first == true %}{% else %},{% endif %}&quot;{{ portfolio.type }}&quot;{% endfor %}]">
         <div class="relative rounded overflow-hidden group">
           <img src="{{ site.baseurl }}/{{ item.image }}" alt="portfolio-image" class="max-w-full rounded w-full block scale-110 transition-all duration-300 ease-[ease] group-hover:scale-100">
           <div class="absolute inset-0 rounded-[inherit] bg-black/30 invisible opacity-0 transition-all duration-300 ease-[ease] group-hover:visible group-hover:opacity-100">
