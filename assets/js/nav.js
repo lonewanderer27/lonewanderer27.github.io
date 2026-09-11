@@ -1,6 +1,11 @@
 // Mobile navigation toggle. Replaces Bootstrap's collapse plugin.
-// Visibility is driven by the `hidden` attribute rather than a class, so the
-// menu leaves the accessibility tree and the tab order when it is closed.
+//
+// Toggles the `hidden` utility class rather than the `hidden` attribute:
+// Tailwind's Preflight declares [hidden]{display:none!important}, and for
+// !important declarations the cascade-layer order is INVERTED, so a base-layer
+// important rule beats an important utility. That made the desktop nav
+// impossible to reveal with lg:flex!. `display:none` removes the menu from the
+// accessibility tree and the tab order either way.
 (function () {
   "use strict";
 
@@ -11,6 +16,6 @@
   toggle.addEventListener("click", function () {
     var open = toggle.getAttribute("aria-expanded") === "true";
     toggle.setAttribute("aria-expanded", String(!open));
-    menu.hidden = open;
+    menu.classList.toggle("hidden", open);
   });
 })();
