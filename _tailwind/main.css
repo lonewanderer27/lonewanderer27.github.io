@@ -11,12 +11,22 @@
  *     @import "tailwindcss";
  *     @plugin "@tailwindcss/typography";
  *
- * Note the cascade during the overlap: these layers lose to Bootstrap's
- * unlayered rules, because unlayered CSS outranks any @layer. That is fine
- * for utilities whose names do not exist in Bootstrap 4 (mb-6, px-6, p-12),
- * which is what the conversion targets. Avoid emitting a class name that
- * Bootstrap also defines with a different value (mb-4, mt-4, pt-4) until
- * step G; use an arbitrary value such as mb-[1rem] in those few spots.
+ * Two cascade rules apply while both stylesheets are loaded:
+ *
+ * 1. Unlayered CSS outranks any @layer, and !important outranks a normal
+ *    declaration regardless of layer. So a plain element rule such as
+ *    `ul { margin: 0 }` or any Bootstrap utility beats a Tailwind utility.
+ *    Where that matters, use the `!` modifier (ms-12!) and drop it at step G.
+ *
+ * 2. Never emit a class name Bootstrap also defines with a DIFFERENT value.
+ *    Bootstrap's spacing scale is m/p + t/b/l/r/x/y + 0-5, all !important:
+ *      0, 1, 2  -> same value as Tailwind, safe to reuse
+ *      3, 4, 5  -> DIFFERENT (bs-3=1rem, bs-4=1.5rem, bs-5=3rem), never reuse
+ *    Targets outside 0-5 are always safe: mb-6, px-6, p-12, py-20.
+ *    Use an arbitrary value for anything in the unsafe range: py-[20px].
+ *    This one is easy to miss because it fails as a silent size change, not
+ *    an error: `py-5` for .section's 20px mobile padding silently rendered
+ *    Bootstrap's 48px instead.
  */
 @layer theme, base, components, utilities;
 @import "tailwindcss/theme.css" layer(theme);
