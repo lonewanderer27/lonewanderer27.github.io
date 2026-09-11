@@ -41,9 +41,9 @@ redirect_from: /projects
               {% endif %}
               {% if item.github %}
               {% if item.url %}
-              {% include ui/button.html variant="dark" size="sm" href=item.github label='<i class="ti-github"></i>' %}
+              {% include ui/button.html variant="dark" size="sm" href=item.github label='<i class="ti-github"></i>' extra="ms-4" %}
               {% else %}
-              {% include ui/button.html variant="dark" size="sm" href=item.github label="Visit Github" %}
+              {% include ui/button.html variant="dark" size="sm" href=item.github label="Visit Github" extra="ms-4" %}
               {% endif %}
               {% endif %}
             </div>
