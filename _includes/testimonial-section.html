@@ -6,13 +6,15 @@
       <div class="relative w-full px-[15px] text-center">
         <h2 class="text-h2 font-secondary text-white mb-12">Testimonials</h2>
       </div>
-      <div class="relative w-full px-[15px] mx-auto lg:w-5/6 testimonial-slider">
+      <div class="relative w-full px-[15px] mx-auto lg:w-5/6">
+        <div data-carousel="testimonials"
+             class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {% for testimonial-item in site.data.settings.testimonial-items %}
         <!-- slider-item -->
-        <div class="text-center [&_strong]:text-secondary [&_strong]:font-normal">
+          <div class="w-full shrink-0 snap-center text-center [&_strong]:text-secondary [&_strong]:font-normal">
           <i class="ti-quote-right text-white text-[45px] mb-6 inline-block"></i>
           <p class="text-white mb-6">{{ testimonial-item.content }}</p>
-          <img class="max-w-full h-auto rounded-full mb-6 inline-block!" src="{{ testimonial-item.image | relative_url }}"
+          <img class="max-w-full h-auto rounded-full mb-6 inline-block" src="{{ testimonial-item.image | relative_url }}"
             alt="{{ testimonial-item.name }}">
           {% if testimonial-item.anonymous %}
           <h4 class="text-h4 font-secondary text-white">Anonymous Client</h4>
@@ -24,7 +26,9 @@
             {% endif %}
           {% endif %}
         </div>
-        {% endfor %}
+          {% endfor %}
+        </div>
+        <div data-carousel-dots="testimonials" class="flex justify-center pt-2"></div>
       </div>
     </div>
   </div>

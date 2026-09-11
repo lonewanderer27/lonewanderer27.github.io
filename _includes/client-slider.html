@@ -1,8 +1,18 @@
 {% if site.data.settings.client-slider-items %}
-<div class="client-logo-slider flex! items-center!">
+{%- comment -%}
+  Was a slick carousel with autoplay. With only a handful of logos there is
+  nothing to page through, so this is a centred row that scroll-snaps if it
+  ever overflows. Removes slick and jQuery; loses the autoplay rotation.
+
+  The logo width was 15vh, which slick happened to cap at its slide width.
+  Without slick that cap is gone and the logos grow without bound on a tall
+  viewport, so this is a fixed 135px -- what 15vh actually resolved to at a
+  typical window height.
+{%- endcomment -%}
+<div class="flex items-center justify-center snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
   {% for slider-item in site.data.settings.client-slider-items %}
-  <a href="{{ slider-item.url }}" class="text-center block outline-0 p-6">
-    <img class="max-w-full h-auto w-[15vh] inline!" src="{{ site.baseurl }}/{{ slider-item.logo }}" alt="client-logo">
+  <a href="{{ slider-item.url }}" class="shrink-0 snap-center text-center block outline-0 p-6">
+    <img class="max-w-full h-auto w-[135px]" src="{{ site.baseurl }}/{{ slider-item.logo }}" alt="client-logo">
   </a>
   {% endfor %}
 </div>
