@@ -26,10 +26,10 @@
 {%- endcase -%}
 
 {%- case include.variant -%}
-  {%- when "transparent" -%}{%- assign tone = "bg-transparent text-primary font-bold hover:text-primary" -%}
-  {%- when "light" -%}{%- assign tone = "bg-[#f8f9fa] text-[#212529] hover:bg-[#e2e6ea]" -%}
-  {%- when "dark" -%}{%- assign tone = "bg-[#343a40] text-white hover:bg-[#23272b]" -%}
-  {%- else -%}{%- assign tone = "bg-primary text-white hover:bg-primary-lite active:bg-primary-lite" -%}
+  {%- when "transparent" -%}{%- assign tone = "bg-transparent! text-primary! font-bold hover:text-primary!" -%}
+  {%- when "light" -%}{%- assign tone = "bg-[#f8f9fa]! text-[#212529]! hover:bg-[#e2e6ea]!" -%}
+  {%- when "dark" -%}{%- assign tone = "bg-[#343a40]! text-white! hover:bg-[#23272b]!" -%}
+  {%- else -%}{%- assign tone = "bg-primary! text-white! hover:bg-primary-lite! active:bg-primary-lite!" -%}
 {%- endcase -%}
 
 {%- assign classes = base | append: " " | append: size | append: " " | append: tone -%}
