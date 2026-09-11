@@ -3,9 +3,9 @@ layout: page
 title: Blogs
 ---
 <!-- blog -->
-<section class="section">
-  <div class="container">
-    <div class="row">
+<section class="py-[20px] sm:py-20">
+  <div class="container-page">
+    <div class="flex flex-wrap -mx-[15px]">
       {% for post in site.posts %}
       {% include post.html %}
       {% endfor %}
@@ -17,8 +17,8 @@ title: Blogs
 <!-- clients -->
 <!-- {% if site.data.settings.client-slider-items %}
 <section class="section bg-light">
-  <div class="container">
-    <div class="row">
+  <div class="container-page">
+    <div class="flex flex-wrap -mx-[15px]">
       <div class="col-12 text-center">
         <h2 class="section-title">My Clients</h2>
       </div>
