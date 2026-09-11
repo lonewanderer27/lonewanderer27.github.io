@@ -1,18 +1,18 @@
 {% if site.data.settings.team %}
 <!-- team -->
-<section class="section bg-cover" data-background="{{ site.baseurl }}/assets/images/backgrounds/team-bg.png">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title">My Team</h2>
+<section class="py-[20px] sm:py-20 bg-cover bg-center bg-no-repeat" data-background="{{ site.baseurl }}/assets/images/backgrounds/team-bg.png">
+  <div class="container-page">
+    <div class="flex flex-wrap -mx-[15px]">
+      <div class="relative w-full px-[15px] text-center">
+        <h2 class="text-h2 font-secondary mb-20!">My Team</h2>
       </div>
       {% for team-member in site.data.settings.team %}
-      <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
-        <div class="card text-center">
-          <img src="{{ team-member.image | relative_url }}" class="card-img-top">
-          <div class="card-body">
-            <h4 class="card-title">{{ team-member.title }}</h4>
-            <p class="text-light font-secondary">{{ team-member.designation }}</p>
+      <div class="relative w-full px-[15px] mb-6 md:mb-0 sm:w-1/2 md:w-1/3">
+        <div class="relative flex flex-col min-w-0 break-words rounded bg-white bg-clip-border text-center">
+          <img src="{{ team-member.image | relative_url }}" class="w-full rounded-t">
+          <div class="flex-auto p-[1.25rem]">
+            <h4 class="text-h4 font-secondary mb-[0.75rem]!">{{ team-member.title }}</h4>
+            <p class="text-muted! font-secondary">{{ team-member.designation }}</p>
           </div>
         </div>
       </div>
