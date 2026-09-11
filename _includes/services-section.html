@@ -1,17 +1,17 @@
 {% if site.data.settings.services %}
 <!-- services -->
-<section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title">{{ site.data.settings.services-title }}</h2>
+<section class="py-[20px] sm:py-20">
+  <div class="container-page">
+    <div class="flex flex-wrap -mx-[15px]">
+      <div class="relative w-full px-[15px] text-center">
+        <h2 class="text-h2 font-secondary mb-20!">{{ site.data.settings.services-title }}</h2>
       </div>
       {% for service in site.data.settings.services %}
-      <div class="col-md-4 mb-4 mb-md-0">
-        <div class="card hover-shadow shadow">
-          <div class="card-body {% if service.active %}active-bg-primary{% endif %} text-center px-4 py-5">
-            <i class="{{ service.icon }} icon mb-5 d-inline-block"></i>
-            <h4 class="mb-4">{{ service.name }}</h4>
+      <div class="relative w-full px-[15px] mb-6 md:mb-0 md:w-1/3">
+        <div class="relative flex flex-col min-w-0 break-words rounded bg-white bg-clip-border shadow-soft transition-all duration-200 ease-[ease] hover:shadow-lift">
+          <div class="flex-auto text-center px-6 py-12 {% if service.active %}bg-primary transition-all duration-300 ease-[ease] [&_*]:text-white!{% endif %}">
+            <i class="{{ service.icon }} text-[45px] mb-12 inline-block"></i>
+            <h4 class="text-h4 font-secondary mb-6!">{{ service.name }}</h4>
             <p>{{ service.description }}</p>
           </div>
         </div>
