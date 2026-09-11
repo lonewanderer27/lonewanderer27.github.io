@@ -1,0 +1,133 @@
+/* TRANSITION IMPORT — not the final form.
+ *
+ * Bootstrap and the SCSS are still loaded while templates are converted one
+ * at a time, so Tailwind deliberately ships WITHOUT Preflight for now:
+ * Preflight unsets heading sizes and would break every page the moment this
+ * file is linked, long before the templates are ready for it.
+ *
+ * At teardown (plan step G), when bootstrap.min.css and assets/scss/ are
+ * deleted, replace this whole block with:
+ *
+ *     @import "tailwindcss";
+ *     @plugin "@tailwindcss/typography";
+ *
+ * Note the cascade during the overlap: these layers lose to Bootstrap's
+ * unlayered rules, because unlayered CSS outranks any @layer. That is fine
+ * for utilities whose names do not exist in Bootstrap 4 (mb-6, px-6, p-12),
+ * which is what the conversion targets. Avoid emitting a class name that
+ * Bootstrap also defines with a different value (mb-4, mt-4, pt-4) until
+ * step G; use an arbitrary value such as mb-[1rem] in those few spots.
+ */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+
+/* Scanner roots. Jekyll's docs/ output is gitignored so v4 already skips it,
+   but be explicit so a stale build can never contribute phantom classes.
+   _data is included because reusable class strings live in the UI partials
+   and may be referenced from data files. */
+@source "../_includes";
+@source "../_layouts";
+@source "../_pages";
+@source "../_posts";
+@source "../_data";
+@source "../index.html";
+@source "../404.html";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Brand — ported from assets/scss/_variables.scss */
+  --color-primary: #41228e;
+  --color-primary-lite: #5a2fc4; /* was lighten($primary-color, 10%) */
+  --color-secondary: #2bfdff;
+  --color-body-text: #4c4c4c;
+  --color-muted: #999999;
+  --color-line: #c7c7c7;
+  --color-ink: #222222; /* was the .bg-dark override */
+  --color-haze: #eaeaea; /* was $gray */
+
+  /* Breakpoints pinned to Bootstrap 4's, so template diffs stay pure class
+     translation with no breakpoint shift mixed in. Unpin deliberately later. */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+
+  /* Type */
+  --font-primary: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-secondary: "Figtree", ui-serif, Georgia, serif;
+
+  /* Fluid headings — replaces the fixed px + @include desktop pairs in
+     assets/scss/_typography.scss. Upper bounds match the old fixed sizes. */
+  --text-h1: clamp(2.75rem, 6vw, 5rem); /* 44px → 80px */
+  --text-h2: clamp(2.25rem, 5vw, 3.75rem); /* 36px → 60px */
+  --text-h3: 2.5rem; /* 40px */
+  --text-h4: 1.375rem; /* 22px */
+  --text-h5: 1.125rem; /* 18px */
+  --text-h6: 0.875rem; /* 14px */
+  --text-paragraph-lg: 1.375rem; /* 22px, was .paragraph-lg */
+
+  /* Custom shadows from _common.scss and _homepage.scss */
+  --shadow-soft: 0 18px 39.1px 6.9px rgb(224 241 255 / 0.34);
+  --shadow-lift: 0 18px 40px 8px rgb(224 241 255 / 0.54);
+  --shadow-glow: 0 0 80.75px 14.25px rgb(224 241 255 / 0.34);
+
+  /* The skill-meter wave from _homepage.scss. The translate is repeated in
+     each keyframe because an animation that sets transform overrides the
+     -translate-x-1/2 utility wholesale. */
+  --animate-wave: wave 6s linear infinite;
+  --animate-wave-slow: wave 10s linear -5s infinite;
+
+  @keyframes wave {
+    50% {
+      transform: translateX(-50%) rotate(180deg);
+    }
+    100% {
+      transform: translateX(-50%) rotate(360deg);
+    }
+  }
+}
+
+/* Bootstrap's stepped container widths, reproduced exactly. Tailwind v4 ships
+   a `container` utility but dropped v3's centering and padding config, so this
+   is a named utility rather than an override of theirs. */
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 15px;
+
+  @media (width >= 576px) {
+    max-width: 540px;
+  }
+  @media (width >= 768px) {
+    max-width: 720px;
+  }
+  @media (width >= 992px) {
+    max-width: 960px;
+  }
+  @media (width >= 1200px) {
+    max-width: 1140px;
+  }
+}
+
+/* TRANSITIONAL NEUTRALISERS — delete at teardown (plan step G).
+ *
+ * Tailwind scans templates for candidate strings, so Bootstrap class names
+ * that happen to be valid Tailwind utilities get generated too. Most are
+ * harmless because Bootstrap declares them unlayered and with !important, so
+ * Bootstrap wins. These are the exceptions, where Tailwind sets a property
+ * Bootstrap never sets and therefore takes effect unopposed.
+ */
+@layer utilities {
+  /* The nav still carries Bootstrap's .collapse class, and Bootstrap toggles
+     it with `display`. Tailwind's .collapse is `visibility: collapse`, which
+     computes to `hidden` on non-table elements and blanks the desktop nav. */
+  .collapse {
+    visibility: visible;
+  }
+}
+
+@view-transition {
+  navigation: auto;
+}
