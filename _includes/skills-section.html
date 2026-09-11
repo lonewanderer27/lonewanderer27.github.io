@@ -4,7 +4,7 @@
   <div class="container-page">
     <div class="flex flex-wrap -mx-[15px]">
       <div class="relative w-full px-[15px] text-center">
-        <h2 class="text-h2 font-secondary mb-20!">{{ site.data.settings.skills-title }}</h2>
+        <h2 class="text-h2 font-secondary mb-20">{{ site.data.settings.skills-title }}</h2>
       </div>
       {% for skill in site.data.settings.skills %}
       <div class="relative w-full px-[15px] mb-6 lg:mb-0 sm:w-1/2 lg:w-1/4">
@@ -20,7 +20,7 @@
                  data-progress="{{ skill.value }}"></div>
           </div>
           <div class="px-[1.25rem] py-[0.75rem] bg-white">
-            <h4 class="text-h4 font-secondary mb-[0.75rem]!">{{ skill.name }} ({{ skill.value }})</h4>
+            <h4 class="text-h4 font-secondary mb-[0.75rem]">{{ skill.name }} ({{ skill.value }})</h4>
           </div>
         </div>
       </div>

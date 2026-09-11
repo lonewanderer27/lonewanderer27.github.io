@@ -38,7 +38,7 @@ jobs:
       # Tailwind becomes the only stylesheet and the output grows several-fold.
       - name: Check tailwind output is not empty
         run: |
-          floor=2000
+          floor=20000
           size=$(wc -c < assets/css/main.css)
           echo "assets/css/main.css = ${size} bytes (floor ${floor})"
           if [ "$size" -lt "$floor" ]; then

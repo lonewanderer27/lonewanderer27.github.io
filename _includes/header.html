@@ -2,11 +2,11 @@
      .nav-bg on it during scroll. All styling comes from utilities, and the
      scrolled state is expressed with the [&.nav-bg]: variant. -->
 <header class="navigation fixed top-0 inset-x-0 z-[1030] transition-all duration-300 ease-[ease]
-               p-[20px] bg-[var(--color-primary)]
-               [&.nav-bg]:bg-[var(--color-primary)] [&.nav-bg]:py-0 [&.nav-bg]:px-[20px]
+               p-[20px] bg-primary
+               [&.nav-bg]:bg-primary [&.nav-bg]:py-0 [&.nav-bg]:px-[20px]
                lg:py-[20px] lg:px-[130px] lg:bg-transparent
                lg:[&.nav-bg]:py-0 lg:[&.nav-bg]:px-[100px]">
-  <nav class="relative flex! flex-wrap items-center justify-between py-2 px-[1rem]">
+  <nav class="relative flex flex-wrap items-center justify-between py-2 px-[1rem]">
     <a class="inline-block py-[0.3125rem] me-4 whitespace-nowrap font-secondary text-[40px] leading-[inherit]" href="{{ site.baseurl }}/">
       {% if site.data.settings.logo %}
         <img src="{{ site.data.settings.logo | absolute_url }}" alt="{{ site.data.settings.title }}">
@@ -25,16 +25,16 @@
       <ul class="flex flex-col list-none pl-0 mb-0 lg:flex-row">
         {% assign page_url = page.url | remove: '.html' | strip %}
         {% if page_url == '' or page_url == '/' %}
-          <li><a class="block py-[5px] px-[15px] font-secondary uppercase text-white! font-bold" href="{{ site.baseurl }}/">Home</a></li>
+          <li><a class="block py-[5px] px-[15px] font-secondary uppercase text-white font-bold" href="{{ site.baseurl }}/">Home</a></li>
         {% else %}
-          <li><a class="block py-[5px] px-[15px] font-secondary uppercase text-white!" href="{{ site.baseurl }}/">Home</a></li>
+          <li><a class="block py-[5px] px-[15px] font-secondary uppercase text-white" href="{{ site.baseurl }}/">Home</a></li>
         {% endif %}
         {% for link in site.data.settings.menu %}
           {% assign link_url = link.link | strip %}
           {% if page_url == link_url %}
-            <li><a class="block py-[5px] px-[15px] font-secondary uppercase text-white! font-bold" href="{{ link.link }}">{{ link.name }}</a></li>
+            <li><a class="block py-[5px] px-[15px] font-secondary uppercase text-white font-bold" href="{{ link.link }}">{{ link.name }}</a></li>
           {% else %}
-            <li><a class="block py-[5px] px-[15px] font-secondary uppercase text-white!" href="{{ link.link }}">{{ link.name }}</a></li>
+            <li><a class="block py-[5px] px-[15px] font-secondary uppercase text-white" href="{{ link.link }}">{{ link.name }}</a></li>
           {% endif %}
         {% endfor %}
       </ul>

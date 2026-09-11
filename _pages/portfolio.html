@@ -14,11 +14,11 @@ redirect_from: /projects
                     [&>label]:relative [&>label]:flex-initial [&>label]:mb-0!
                     [&>label:not(:first-child)]:rounded-tl-none [&>label:not(:first-child)]:rounded-bl-none
                     [&>label:not(:last-child)]:rounded-tr-none [&>label:not(:last-child)]:rounded-br-none">
-          <label class="inline-block text-center align-middle select-none cursor-pointer border-0 relative z-[1] font-secondary capitalize! font-semibold leading-[1.5]! rounded-[5px] text-[15px]! px-[30px] py-[10px] bg-primary! text-white! transition-all duration-200 ease-[ease] has-[:checked]:bg-primary-lite!">
+          <label class="inline-block text-center align-middle select-none cursor-pointer border-0 relative z-[1] font-secondary capitalize font-semibold leading-[1.5] rounded-[5px] text-[15px] px-[30px] py-[10px] bg-primary text-white transition-all duration-200 ease-[ease] has-[:checked]:bg-primary-lite">
             <input type="radio" name="shuffle-filter" value="all" checked="checked" class="absolute pointer-events-none [clip:rect(0,0,0,0)]" />All
           </label>
           {% for label in site.data.settings.portfolio-label %}
-          <label class="inline-block text-center align-middle select-none cursor-pointer border-0 relative z-[1] font-secondary capitalize! font-semibold leading-[1.5]! rounded-[5px] text-[15px]! px-[30px] py-[10px] bg-primary! text-white! transition-all duration-200 ease-[ease] has-[:checked]:bg-primary-lite!">
+          <label class="inline-block text-center align-middle select-none cursor-pointer border-0 relative z-[1] font-secondary capitalize font-semibold leading-[1.5] rounded-[5px] text-[15px] px-[30px] py-[10px] bg-primary text-white transition-all duration-200 ease-[ease] has-[:checked]:bg-primary-lite">
             <input type="radio" name="shuffle-filter" value="{{ label.type }}" class="absolute pointer-events-none [clip:rect(0,0,0,0)]" />{{ label.title }}
           </label>
           {% endfor %}
@@ -62,7 +62,7 @@ redirect_from: /projects
   <div class="container-page">
     <div class="flex flex-wrap -mx-[15px]">
       <div class="relative w-full px-[15px] text-center">
-        <h2 class="text-h2 font-secondary mb-20!">My Clients</h2>
+        <h2 class="text-h2 font-secondary mb-20">My Clients</h2>
       </div>
     </div>
     {% include client-slider.html %}

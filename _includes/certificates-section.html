@@ -4,7 +4,7 @@
   <div class="container-page">
     <div class="flex flex-wrap -mx-[15px]">
       <div class="relative w-full px-[15px] text-center">
-        <h2 class="text-h2 font-secondary mb-20!">{{ site.data.settings.certificates-title }}</h2>
+        <h2 class="text-h2 font-secondary mb-20">{{ site.data.settings.certificates-title }}</h2>
       </div>
       {% for item in site.data.settings.certificates %}
       <div class="relative w-full px-[15px] mb-20 md:w-1/2">
@@ -13,15 +13,15 @@
             <i class="ti-medall text-[45px] text-[#c8d5ef] size-[100px] leading-[100px]! text-center bg-white shadow-soft rounded-full block"></i>
           </div>
           <div>
-            <p class="text-black! mb-1">{{ item.date }}</p>
+            <p class="text-black mb-1">{{ item.date }}</p>
             <h4 class="text-h4 font-secondary">
               {% if item.certificate %}
-              <a href="{{ item.certificate }}" class="underline! text-primary!" title="View certificate">{{ item.name }}</a>
+              <a href="{{ item.certificate }}" class="underline text-primary" title="View certificate">{{ item.name }}</a>
               {% else %}
               {{ item.name }}
               {% endif %}
             </h4>
-            <p class="mb-0 text-muted!">{{ item.organization }}</p>
+            <p class="mb-0 text-muted">{{ item.organization }}</p>
           </div>
         </div>
       </div>

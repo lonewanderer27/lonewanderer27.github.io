@@ -3,11 +3,11 @@ layout: default
 image: assets/image/banner.png
 ---
 <!-- page title -->
-<section class="bg-primary relative pt-[120px] pb-[50px] [text-align:center] sm:py-[180px] sm:[text-align:start] lg:pt-[350px] lg:pb-[70px]">
+<section class="bg-primary relative pt-[120px] pb-[50px] text-center sm:py-[180px] sm:text-start lg:pt-[350px] lg:pb-[70px]">
   <div class="container-page relative z-[1]">
     <div class="flex flex-wrap -mx-[15px]">
       <div class="relative w-full px-[15px]">
-        <h1 class="text-h1 font-secondary text-white!" style="view-transition-name: about-page-title;">{{ page.title }}</h1>
+        <h1 class="text-h1 font-secondary text-white" style="view-transition-name: about-page-title;">{{ page.title }}</h1>
       </div>
     </div>
   </div>
@@ -30,7 +30,7 @@ image: assets/image/banner.png
       </div>
       <div class="relative w-full px-[15px] text-center md:w-1/3 lg:-mt-[230px]">
         <div class="relative mb-6 before:content-[''] before:absolute before:inset-0 before:-z-10 before:shadow-glow">
-          <img src="{{ site.baseurl }}/{{ page.image }}" alt="{{ page.author }}" class="max-w-full h-auto w-full rounded-[15px] border-[10px]! border-white!">
+          <img src="{{ site.baseurl }}/{{ page.image }}" alt="{{ page.author }}" class="max-w-full h-auto w-full rounded-[15px] border-[10px] border-white">
         </div>
         {% if page.signature %}
         <img src="{{ site.baseurl }}/{{ page.signature }}" alt="signature" class="max-w-full h-auto mx-auto">
@@ -52,7 +52,7 @@ image: assets/image/banner.png
   <div class="container-page">
     <div class="flex flex-wrap -mx-[15px]">
       <div class="relative w-full px-[15px] text-center">
-        <h2 class="text-h2 font-secondary mb-20!">My Clients</h2>
+        <h2 class="text-h2 font-secondary mb-20">My Clients</h2>
       </div>
     </div>
     {% include client-slider.html %}

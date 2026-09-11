@@ -7,9 +7,9 @@
     <div class="flex flex-wrap -mx-[15px]">
       <div class="relative w-full px-[15px] text-center">
         {% if include.heading == "h3" %}
-        <h3 class="text-h3 font-secondary text-white!">{{ include.title }}</h3>
+        <h3 class="text-h3 font-secondary text-white">{{ include.title }}</h3>
         {% else %}
-        <h1 class="text-h1 font-secondary text-white!"{% if include.transition %} style="view-transition-name: {{ include.transition }};"{% endif %}>{{ include.title }}</h1>
+        <h1 class="text-h1 font-secondary text-white"{% if include.transition %} style="view-transition-name: {{ include.transition }};"{% endif %}>{{ include.title }}</h1>
         {% endif %}
       </div>
     </div>

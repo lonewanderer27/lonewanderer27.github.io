@@ -4,20 +4,20 @@
     <div class="container-page">
       <div class="flex flex-wrap -mx-[15px]">
         <div class="relative w-full px-[15px] lg:w-1/3">
-          <h5 class="text-h5 font-secondary text-muted!">Email</h5>
-          <p class="text-white! text-paragraph-lg! font-secondary">
-            <a class="text-white!" href="mailto:{{ site.data.settings.email }}">{{ site.data.settings.email }}</a>
+          <h5 class="text-h5 font-secondary text-muted">Email</h5>
+          <p class="text-white text-paragraph-lg font-secondary">
+            <a class="text-white" href="mailto:{{ site.data.settings.email }}">{{ site.data.settings.email }}</a>
           </p>
         </div>
         <div class="relative w-full px-[15px] lg:w-1/3">
-          <h5 class="text-h5 font-secondary text-muted!">Phone</h5>
-          <p class="text-white! text-paragraph-lg! font-secondary">{{ site.data.settings.phone }}</p>
+          <h5 class="text-h5 font-secondary text-muted">Phone</h5>
+          <p class="text-white text-paragraph-lg font-secondary">{{ site.data.settings.phone }}</p>
         </div>
         <div class="relative w-full px-[15px] lg:w-1/3">
-          <h5 class="text-h5 font-secondary text-muted!">Socials</h5><br/>
+          <h5 class="text-h5 font-secondary text-muted">Socials</h5><br/>
           {% for social in site.data.settings.social %}
           <li class="inline p-[15px]">
-            <a class="text-white!" href="{{ social.link }}">
+            <a class="text-white" href="{{ social.link }}">
               <i class="{{ social.icon }} text-[x-large]"></i>
             </a>
           </li>
@@ -27,7 +27,7 @@
     </div>
   </div>
   <div class="border-t border-t-[#343a40] text-center py-12">
-    <p class="mb-0 text-muted!">{{site.data.settings.copyright | markdownify}}</p>
+    <p class="mb-0 text-muted">{{site.data.settings.copyright | markdownify}}</p>
   </div>
 </footer>
 <!-- /footer -->

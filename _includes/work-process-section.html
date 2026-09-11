@@ -4,12 +4,12 @@
   <div class="container-page">
     <div class="flex flex-wrap -mx-[15px] justify-around">
       <div class="relative w-full px-[15px] text-center">
-        <h2 class="text-h2 font-secondary mb-20!">Work Process</h2>
+        <h2 class="text-h2 font-secondary mb-20">Work Process</h2>
       </div>
       {% for work in site.data.settings.work-process %}
       <div class="relative w-full px-[15px] text-center pt-[1rem] transition-all duration-200 ease-[ease] hover:shadow-lift md:w-1/3 lg:w-1/4">
         <img src="{{ work.icon | relative_url }}" class="max-w-full h-auto mb-6 mx-auto" alt="icon">
-        <h4 class="text-h4 font-secondary mb-6!">{{ work.title }}</h4>
+        <h4 class="text-h4 font-secondary mb-6">{{ work.title }}</h4>
         <p>{{ work.content | markdownify }}</p>
       </div>
       {% endfor %}
