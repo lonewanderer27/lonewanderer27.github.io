@@ -1,36 +1,41 @@
-<header class="navigation fixed-top">
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand font-tertiary h3" href="{{ site.baseurl }}/">
+<!-- The `navigation` class is kept purely as a JS hook: script.js toggles
+     .nav-bg on it during scroll. All styling comes from utilities, and the
+     scrolled state is expressed with the [&.nav-bg]: variant. -->
+<header class="navigation fixed top-0 inset-x-0 z-[1030] transition-all duration-300 ease-[ease]
+               p-[20px] bg-[var(--color-primary)]
+               [&.nav-bg]:bg-[var(--color-primary)] [&.nav-bg]:py-0 [&.nav-bg]:px-[20px]
+               lg:py-[20px] lg:px-[130px] lg:bg-transparent
+               lg:[&.nav-bg]:py-0 lg:[&.nav-bg]:px-[100px]">
+  <nav class="relative flex! flex-wrap items-center justify-between py-2 px-[1rem]">
+    <a class="inline-block py-[0.3125rem] me-4 whitespace-nowrap font-secondary text-[40px] leading-[inherit]" href="{{ site.baseurl }}/">
       {% if site.data.settings.logo %}
         <img src="{{ site.data.settings.logo | absolute_url }}" alt="{{ site.data.settings.title }}">
-        {% else if %}
-        <h3 class="text-white font-tertiary">{{site.data.settings.title}}</h3>
+      {% else %}
+        <span class="text-white font-secondary text-[40px]">{{ site.data.settings.title }}</span>
       {% endif %}
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button type="button" data-nav-toggle aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"
+      class="py-1 px-3 text-[1.25rem] leading-none bg-transparent rounded border border-white/10 text-white/50 lg:hidden">
+      <svg class="inline-block size-[1.5em] align-middle" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/>
+      </svg>
     </button>
 
-    <div class="collapse navbar-collapse text-center" id="navigation">
-      <ul class="navbar-nav ml-auto">
+    <div id="navigation" hidden class="w-full items-center text-center lg:w-auto lg:ms-auto lg:flex!">
+      <ul class="flex flex-col list-none pl-0 mb-0 lg:flex-row">
         {% assign page_url = page.url | remove: '.html' | strip %}
         {% if page_url == '' or page_url == '/' %}
-          <li class="nav-item active">
+          <li><a class="block py-[5px] px-[15px] font-secondary uppercase text-white! font-bold" href="{{ site.baseurl }}/">Home</a></li>
         {% else %}
-          <li class="nav-item">
+          <li><a class="block py-[5px] px-[15px] font-secondary uppercase text-white!" href="{{ site.baseurl }}/">Home</a></li>
         {% endif %}
-          <a class="nav-link" href="{{ site.baseurl }}/">Home</a>
-        </li>
         {% for link in site.data.settings.menu %}
           {% assign link_url = link.link | strip %}
           {% if page_url == link_url %}
-            <li class="nav-item active">
+            <li><a class="block py-[5px] px-[15px] font-secondary uppercase text-white! font-bold" href="{{ link.link }}">{{ link.name }}</a></li>
           {% else %}
-            <li class="nav-item">
+            <li><a class="block py-[5px] px-[15px] font-secondary uppercase text-white!" href="{{ link.link }}">{{ link.name }}</a></li>
           {% endif %}
-            <a class="nav-link" href="{{ link.link }}">{{ link.name }}</a>
-          </li>
         {% endfor %}
       </ul>
     </div>
