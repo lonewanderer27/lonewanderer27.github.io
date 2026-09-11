@@ -25,7 +25,7 @@ image: assets/image/banner.png
 <section class="pt-[48px] pb-[20px] sm:pb-20">
   <div class="container-page">
     <div class="flex flex-wrap -mx-[15px]">
-      <div class="relative w-full px-[15px] md:w-2/3">
+      <div class="relative w-full px-[15px] md:w-2/3 prose max-w-none prose-headings:font-secondary prose-headings:text-black prose-headings:leading-[1.2] prose-p:text-[15px] prose-p:leading-[1.8] prose-p:text-body-text prose-li:text-[15px] prose-li:leading-[1.8] prose-li:text-body-text prose-a:text-[#007bff] prose-a:no-underline hover:prose-a:text-primary prose-strong:font-secondary prose-strong:text-[22px] prose-strong:font-normal prose-strong:text-black prose-strong:leading-[1.5] prose-blockquote:border-s-2 prose-blockquote:border-s-primary prose-blockquote:bg-haze prose-blockquote:not-italic">
         {{ content }}
       </div>
       <div class="relative w-full px-[15px] text-center md:w-1/3 lg:-mt-[230px]">
@@ -33,7 +33,7 @@ image: assets/image/banner.png
           <img src="{{ site.baseurl }}/{{ page.image }}" alt="{{ page.author }}" class="max-w-full h-auto w-full rounded-[15px] border-[10px]! border-white!">
         </div>
         {% if page.signature %}
-        <img src="{{ site.baseurl }}/{{ page.signature }}" alt="signature" class="max-w-full h-auto">
+        <img src="{{ site.baseurl }}/{{ page.signature }}" alt="signature" class="max-w-full h-auto mx-auto">
         {% endif %}
         <h4 class="text-h4 font-secondary">{{ page.author }}</h4>
       </div>
