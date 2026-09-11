@@ -61,18 +61,6 @@
 /* /education */
 
 /* service */
-.hover-bg-primary {
-  transition: .3s ease;
-
-  &:hover {
-    background: $primary-color;
-
-    * {
-      color: $white;
-    }
-  }
-}
-
 .active-bg-primary {
   transition: .3s ease;
   background: $primary-color;

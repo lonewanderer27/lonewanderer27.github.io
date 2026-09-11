@@ -64,16 +64,6 @@
   }
 }
 
-.filter-controls {
-  li {
-    cursor: pointer;
-
-    &.active {
-      font-weight: bold;
-    }
-  }
-}
-
 @include mobile {
   .btn-group {
     flex-direction: column;
