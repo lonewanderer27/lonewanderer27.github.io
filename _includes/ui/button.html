@@ -17,19 +17,19 @@
   during the overlap would hand control back to Bootstrap.
 {%- endcomment -%}
 
-{%- assign base = "inline-block text-center align-middle select-none border-0 relative z-[1] font-secondary capitalize! leading-[1.5]! rounded-[5px] transition-all duration-200 ease-[ease] focus:outline-none" -%}
+{%- assign base = "inline-block text-center align-middle select-none border-0 relative z-[1] font-secondary capitalize leading-[1.5] rounded-[5px] transition-all duration-200 ease-[ease] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" -%}
 
 {%- case include.size -%}
-  {%- when "sm" -%}{%- assign size = "text-[15px]! px-[30px] py-[10px]" -%}
-  {%- when "xs" -%}{%- assign size = "text-[15px]! px-[10px] py-[5px]" -%}
-  {%- else -%}{%- assign size = "text-[22px]! px-[44px] py-[16px]" -%}
+  {%- when "sm" -%}{%- assign size = "text-[15px] px-[30px] py-[10px]" -%}
+  {%- when "xs" -%}{%- assign size = "text-[15px] px-[10px] py-[5px]" -%}
+  {%- else -%}{%- assign size = "text-[22px] px-[44px] py-[16px]" -%}
 {%- endcase -%}
 
 {%- case include.variant -%}
-  {%- when "transparent" -%}{%- assign tone = "bg-transparent! text-primary! font-bold hover:text-primary!" -%}
-  {%- when "light" -%}{%- assign tone = "bg-[#f8f9fa]! text-[#212529]! hover:bg-[#e2e6ea]! font-semibold" -%}
-  {%- when "dark" -%}{%- assign tone = "bg-[#343a40]! text-white! hover:bg-[#23272b]! font-semibold" -%}
-  {%- else -%}{%- assign tone = "bg-primary! text-white! hover:bg-primary-lite! active:bg-primary-lite! font-semibold" -%}
+  {%- when "transparent" -%}{%- assign tone = "bg-transparent text-primary font-bold hover:text-primary" -%}
+  {%- when "light" -%}{%- assign tone = "bg-[#f8f9fa] text-[#212529] hover:bg-[#e2e6ea] font-semibold" -%}
+  {%- when "dark" -%}{%- assign tone = "bg-[#343a40] text-white hover:bg-[#23272b] font-semibold" -%}
+  {%- else -%}{%- assign tone = "bg-primary text-white hover:bg-primary-lite active:bg-primary-lite font-semibold" -%}
 {%- endcase -%}
 
 {%- assign classes = base | append: " " | append: size | append: " " | append: tone -%}
