@@ -1,36 +1,32 @@
 {% if site.data.settings.portfolio-home-items %}
 <!-- portfolio -->
-<section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title" style="view-transition-name: portfolio-page-title;">Portfolio</h2>
+<section class="py-[20px] sm:py-20">
+  <div class="container-page">
+    <div class="flex flex-wrap -mx-[15px]">
+      <div class="relative w-full px-[15px] text-center">
+        <h2 class="text-h2 font-secondary mb-20!" style="view-transition-name: portfolio-page-title;">Portfolio</h2>
       </div>
     </div>
-    <div class="row shuffle-wrapper">
+    <div class="flex flex-wrap -mx-[15px] shuffle-wrapper">
       {% for item in site.data.settings.portfolio-home-items %}
-      <div class="col-lg-4 col-sm-6 col-12 mb-4 shuffle-item">
-        <div class="position-relative rounded hover-wrapper">
-          <img src="{{ site.baseurl }}/{{ item.image }}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
-          <div class="hover-overlay">
-            <div class="hover-content">
+      <div class="relative w-full px-[15px] mb-6 sm:w-1/2 lg:w-1/3 shuffle-item">
+        <div class="relative rounded overflow-hidden group">
+          <img src="{{ site.baseurl }}/{{ item.image }}" alt="portfolio-image" class="max-w-full rounded w-full block scale-110 transition-all duration-300 ease-[ease] group-hover:scale-100">
+          <div class="absolute inset-0 rounded-[inherit] bg-black/30 invisible opacity-0 transition-all duration-300 ease-[ease] group-hover:visible group-hover:opacity-100">
+            <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center">
               {% if item.url %}
-              <a class="btn btn-light btn-sm" href="{{ item.url }}">
-                {% if item.url-text %}
-                {{ item.url-text }}
-                {% else %}
-                view project
-                {% endif %}
-              </a>
+              {% if item.url-text %}
+              {% include ui/button.html variant="light" size="sm" href=item.url label=item.url-text %}
+              {% else %}
+              {% include ui/button.html variant="light" size="sm" href=item.url label="view project" %}
+              {% endif %}
               {% endif %}
               {% if item.github %}
-              <a class="btn btn-dark btn-sm ms-3" href="{{ item.github }}">
-                {% if item.url %}
-                <i class="ti-github"></i>
-                {% else %}
-                Visit Github
-                {% endif %}
-              </a>
+              {% if item.url %}
+              {% include ui/button.html variant="dark" size="sm" href=item.github label='<i class="ti-github"></i>' %}
+              {% else %}
+              {% include ui/button.html variant="dark" size="sm" href=item.github label="Visit Github" %}
+              {% endif %}
               {% endif %}
             </div>
           </div>
@@ -38,9 +34,9 @@
       </div>
       {% endfor %}
     </div>
-    <div class="row">
-      <div class="col-12 text-center">
-        <a href="{{ site.data.settings.portfolio-home-btn-link }}" class="btn btn-transparent">{{ site.data.settings.portfolio-home-btn-name }}</a>
+    <div class="flex flex-wrap -mx-[15px]">
+      <div class="relative w-full px-[15px] text-center">
+        {% include ui/button.html variant="transparent" href=site.data.settings.portfolio-home-btn-link label=site.data.settings.portfolio-home-btn-name %}
       </div>
     </div>
   </div>
