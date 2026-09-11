@@ -17,7 +17,6 @@ docs/
 
 # Ruby Gems
 .bundle
-Gemfile.lock
 
 # Log Files
 *.log
