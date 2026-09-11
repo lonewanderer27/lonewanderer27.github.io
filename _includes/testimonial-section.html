@@ -1,26 +1,26 @@
 {% if site.data.settings.testimonial-items %}
 <!-- testimonial -->
-<section class="section bg-primary position-relative testimonial-bg-shapes">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title text-white mb-5">Testimonials</h2>
+<section class="py-[20px] sm:py-20 bg-primary relative">
+  <div class="container-page relative z-[1]">
+    <div class="flex flex-wrap -mx-[15px]">
+      <div class="relative w-full px-[15px] text-center">
+        <h2 class="text-h2 font-secondary text-white! mb-12!">Testimonials</h2>
       </div>
-      <div class="col-lg-10 mx-auto testimonial-slider">
+      <div class="relative w-full px-[15px] mx-auto lg:w-5/6 testimonial-slider">
         {% for testimonial-item in site.data.settings.testimonial-items %}
         <!-- slider-item -->
-        <div class="text-center testimonial-content">
-          <i class="ti-quote-right text-white icon mb-4 d-inline-block"></i>
-          <p class="text-white mb-4 ">{{ testimonial-item.content }}</p>
-          <img class="img-fluid rounded-circle mb-4 d-inline-block" src="{{ testimonial-item.image | relative_url }}"
+        <div class="text-center [&_strong]:text-secondary! [&_strong]:font-normal!">
+          <i class="ti-quote-right text-white! text-[45px] mb-6 inline-block"></i>
+          <p class="text-white! mb-6!">{{ testimonial-item.content }}</p>
+          <img class="max-w-full h-auto rounded-full mb-6 inline-block!" src="{{ testimonial-item.image | relative_url }}"
             alt="{{ testimonial-item.name }}">
           {% if testimonial-item.anonymous %}
-          <h4 class="text-white">Anonymous Client</h4>
+          <h4 class="text-h4 font-secondary text-white!">Anonymous Client</h4>
           </br>
           {% else %}
-          <h4 class="text-white">{{ testimonial-item.name }}</h4>
+          <h4 class="text-h4 font-secondary text-white!">{{ testimonial-item.name }}</h4>
             {% if testimonial-item.designation %}
-            <h6 class="text-light mb-4">{{ testimonial-item.designation }}</h6>
+            <h6 class="text-h6 font-secondary text-muted! mb-6!">{{ testimonial-item.designation }}</h6>
             {% endif %}
           {% endif %}
         </div>
@@ -29,12 +29,12 @@
     </div>
   </div>
   <!-- bg shapes -->
-  <img src="{{ site.baseurl }}/assets/images/backgrounds/map.png" alt="map" class="img-fluid bg-map">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-v.png" alt="bg-shape" class="img-fluid bg-shape-1">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-orange.png" alt="bg-shape" class="img-fluid bg-shape-2">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-sm.png" alt="bg-shape" class="img-fluid bg-shape-3">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-pink-round.png" alt="bg-shape" class="img-fluid bg-shape-4">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan.png" alt="bg-shape" class="img-fluid bg-shape-5">
+  <img src="{{ site.baseurl }}/assets/images/backgrounds/map.png" alt="map" class="max-w-full h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-v.png" alt="bg-shape" class="max-w-full h-auto absolute left-[100px] top-[-50px]">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-orange.png" alt="bg-shape" class="max-w-full h-auto absolute right-[150px] top-[50px]">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-sm.png" alt="bg-shape" class="max-w-full h-auto absolute right-[50px] top-[200px]">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-pink-round.png" alt="bg-shape" class="max-w-full h-auto absolute left-[100px] bottom-[200px] hidden sm:block">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan.png" alt="bg-shape" class="max-w-full h-auto absolute right-[200px] bottom-[-50px] hidden sm:block">
 </section>
 <!-- /testimonial -->
 {% endif %}
