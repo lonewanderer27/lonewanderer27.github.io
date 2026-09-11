@@ -1,10 +1,10 @@
 <!-- about -->
-<section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-10 mx-auto text-center">
-        <p class="font-secondary paragraph-lg text-dark">{{ site.data.settings.blurb }}</p>
-        <a href="{{ site.data.settings.blurb-btn-link }}" class="btn btn-transparent" style="view-transition-name: about-page-title;">{{ site.data.settings.blurb-btn-name }}</a>
+<section class="py-[20px] sm:py-20">
+  <div class="container-page">
+    <div class="flex flex-wrap -mx-[15px]">
+      <div class="relative w-full px-[15px] mx-auto text-center lg:w-5/6">
+        <p class="font-secondary text-paragraph-lg! text-black!">{{ site.data.settings.blurb }}</p>
+        {% include ui/button.html variant="transparent" href=site.data.settings.blurb-btn-link label=site.data.settings.blurb-btn-name style="view-transition-name: about-page-title;" %}
       </div>
     </div>
   </div>
