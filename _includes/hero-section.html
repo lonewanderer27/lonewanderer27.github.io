@@ -1,37 +1,37 @@
 <!-- hero area -->
-<section class="hero-area bg-primary" id="parallax">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-11 mx-auto">
-        <h1 class="text-white font-tertiary">{{ site.data.settings.hero.hero-title }}</h1>
+<section class="bg-primary relative pt-[250px] pb-[150px] overflow-hidden md:pt-[300px] md:pb-[200px] md:overflow-visible" id="parallax">
+  <div class="container-page">
+    <div class="flex flex-wrap -mx-[15px]">
+      <div class="relative w-full px-[15px] mx-auto lg:w-[91.666667%]">
+        <h1 class="text-h1 font-secondary text-white! relative z-[2]">{{ site.data.settings.hero.hero-title }}</h1>
       </div>
     </div>
   </div>
-  <div class="layer-bg w-100">
-    <img class="img-fluid w-100" src="{{ site.baseurl }}/assets/images/illustrations/leaf-bg.png" alt="bg-shape">
+  <div class="absolute bottom-0 left-0 w-full">
+    <img class="max-w-full h-auto w-full" src="{{ site.baseurl }}/assets/images/illustrations/leaf-bg.png" alt="bg-shape">
   </div>
-  <div class="layer" id="l2">
+  <div class="absolute z-[1] top-[190px] left-[-250px]" id="l2">
     <img src="{{ site.baseurl }}/assets/images/illustrations/dots-cyan.png" alt="bg-shape">
   </div>
-  <div class="layer" id="l3">
+  <div class="absolute z-[1] top-[200px] left-[40%]" id="l3">
     <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-orange.png" alt="bg-shape">
   </div>
-  <div class="layer" id="l4">
+  <div class="absolute z-[1] top-[200px] right-[40%]" id="l4">
     <img src="{{ site.baseurl }}/assets/images/illustrations/dots-orange.png" alt="bg-shape">
   </div>
-  <div class="layer" id="l5">
+  <div class="absolute z-[1] top-[100px] right-[-150px] hidden md:block" id="l5">
     <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-yellow.png" alt="bg-shape">
   </div>
-  <div class="layer" id="l6">
+  <div class="absolute z-[1] bottom-[-20px] left-[10%] hidden md:block" id="l6">
     <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan.png" alt="bg-shape">
   </div>
-  <div class="layer" id="l7">
+  <div class="absolute z-[1] bottom-[100px] left-[20%] hidden md:block" id="l7">
     <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-orange.png" alt="bg-shape">
   </div>
-  <div class="layer" id="l8">
+  <div class="absolute z-[1] bottom-[160px] right-[45%] hidden md:block" id="l8">
     <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-pink-round.png" alt="bg-shape">
   </div>
-  <div class="layer" id="l9">
+  <div class="absolute z-[1] bottom-[100px] right-[-10px] hidden md:block" id="l9">
     <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan-2.png" alt="bg-shape">
   </div>
   {% include social-icon.html %}
