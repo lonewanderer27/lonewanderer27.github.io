@@ -1,7 +1,7 @@
 (function ($) {
   "use strict";
 
-  window.onload = function () {
+  window.addEventListener("load", function () {
     // Register event handler for form
     const form = document.getElementById("contactForm");
 
@@ -38,5 +38,5 @@
     closeBtn.addEventListener('click', () => {
       $("#contactFormAlert").addClass("hidden").removeClass("flex justify-between")
     }) 
-  };
+  });
 })(jQuery);

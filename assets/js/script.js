@@ -3,6 +3,7 @@
 
   // Sticky Menu
   $(window).scroll(function () {
+    if (!$(".navigation").length) return;
     if ($(".navigation").offset().top > 100) {
       $(".navigation").addClass("nav-bg");
     } else {
@@ -32,8 +33,17 @@
   });
 
   /* ########################################### hero parallax ############################################## */
-  window.onload = function () {
+  window.addEventListener("load", function () {
     var parallaxBox = document.getElementById("parallax");
+
+    // The layers only exist on the homepage. This block never ran before,
+    // because emailForm.js assigned window.onload after script.js did and
+    // silently replaced it, so the missing guard was never reached.
+    if (!parallaxBox || !document.getElementById("l2")) return;
+
+    // Pointer-driven motion is opt-out for anyone who asked for less of it.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     var /* chl1 = document.getElementById('BEVDUG_KBZ8020').offsetLeft,
                        c1top = document.getElementById('l1').offsetTop, */
       c2left = document.getElementById("l2").offsetLeft,
@@ -101,7 +111,7 @@
     // closeBtn.addEventListener('click', () => {
     //   $("#contactFormAlert").addClass("d-none").removeClass("d-flex justify-content-between")
     // }) 
-  };
+  });
 
   function mouseParallax(id, left, top, mouseX, mouseY, speed) {
     var obj = document.getElementById(id);
