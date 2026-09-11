@@ -1,42 +1,38 @@
-(function ($) {
+// Contact form submission via EmailJS. Previously a jQuery IIFE.
+(function () {
   "use strict";
 
-  window.addEventListener("load", function () {
-    // Register event handler for form
-    const form = document.getElementById("contactForm");
+  var form = document.getElementById("contactForm");
+  var alertBox = document.getElementById("contactFormAlert");
+  var closeBtn = document.getElementById("contactFormAlertBtn");
+  if (!form || !alertBox) return;
 
-    form.addEventListener("submit", (event) => {
-      // hide button form alert
-      $("#contactFormAlert")
-        .addClass("hidden")
-        .removeClass("flex justify-between");
+  function hideAlert() {
+    alertBox.classList.add("hidden");
+    alertBox.classList.remove("flex", "justify-between");
+  }
 
-      event.preventDefault();
-      console.log(event);
+  function showAlert() {
+    alertBox.classList.remove("hidden");
+    alertBox.classList.add("flex", "justify-between");
+  }
 
-      // Initialize emailJS
-      emailjs.init("lXhUBOOBdtCvuRVwT");
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    hideAlert();
 
-      // Send email
-      emailjs.sendForm("service_ianjms", "template_w28x35w", form).then(
-        (response) => {
-          console.log("SUCCESS", response.status, response.text);
-          $("#contactFormAlert")
-            .removeClass("hidden")
-            .addClass("flex justify-between");
-          $("#contactForm").trigger("reset");
-        },
-        (error) => {
-          console.log("FAILED", error);
-          alert("Inquiry failed to be sent. Check that all fields are filled.");
-        }
-      );
-    });
-
-    // Register event handler for button form alert
-    const closeBtn = document.getElementById("contactFormAlertBtn")
-    closeBtn.addEventListener('click', () => {
-      $("#contactFormAlert").addClass("hidden").removeClass("flex justify-between")
-    }) 
+    emailjs.init("lXhUBOOBdtCvuRVwT");
+    emailjs.sendForm("service_ianjms", "template_w28x35w", form).then(
+      function () {
+        showAlert();
+        form.reset();
+      },
+      function (error) {
+        console.error("Inquiry failed to send", error);
+        alert("Inquiry failed to be sent. Check that all fields are filled.");
+      }
+    );
   });
-})(jQuery);
+
+  if (closeBtn) closeBtn.addEventListener("click", hideAlert);
+})();
