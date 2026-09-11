@@ -20,6 +20,33 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      # MUST precede the Jekyll build: this writes assets/css/main.css, which
+      # Jekyll then copies into docs/.
+      - run: pnpm css:build
+
+      # A missing or mis-scoped Tailwind build produces an unstyled page, not
+      # an error, so fail loudly here instead of shipping a broken site.
+      # The floor is deliberately low while Bootstrap still carries most of the
+      # styling and few templates are converted; raise it at teardown, when
+      # Tailwind becomes the only stylesheet and the output grows several-fold.
+      - name: Check tailwind output is not empty
+        run: |
+          floor=2000
+          size=$(wc -c < assets/css/main.css)
+          echo "assets/css/main.css = ${size} bytes (floor ${floor})"
+          if [ "$size" -lt "$floor" ]; then
+            echo "::error::Tailwind output is only ${size} bytes (<${floor})." \
+                 "The @source globs in _tailwind/main.css probably match nothing."
+            exit 1
+          fi
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1.2' # matches .ruby-version
