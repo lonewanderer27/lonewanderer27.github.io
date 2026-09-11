@@ -8,8 +8,8 @@
     form.addEventListener("submit", (event) => {
       // hide button form alert
       $("#contactFormAlert")
-        .addClass("d-none")
-        .removeClass("d-flex justify-content-between");
+        .addClass("hidden")
+        .removeClass("flex justify-between");
 
       event.preventDefault();
       console.log(event);
@@ -22,8 +22,8 @@
         (response) => {
           console.log("SUCCESS", response.status, response.text);
           $("#contactFormAlert")
-            .removeClass("d-none")
-            .addClass("d-flex justify-content-between");
+            .removeClass("hidden")
+            .addClass("flex justify-between");
           $("#contactForm").trigger("reset");
         },
         (error) => {
@@ -36,7 +36,7 @@
     // Register event handler for button form alert
     const closeBtn = document.getElementById("contactFormAlertBtn")
     closeBtn.addEventListener('click', () => {
-      $("#contactFormAlert").addClass("d-none").removeClass("d-flex justify-content-between")
+      $("#contactFormAlert").addClass("hidden").removeClass("flex justify-between")
     }) 
   };
 })(jQuery);
