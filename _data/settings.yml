@@ -91,25 +91,25 @@ experience-title: Experience
 experience:
   - {
       name: Salesforce Developer,
-      icon: "icon-1.png",
+      icon: cloud-code,
       date: "Jun 2026 - Present",
       organization: "Scape Australia",
     }
   - {
       name: Full Stack Engineer,
-      icon: "icon-2.png",
+      icon: stack-2,
       date: "Feb 2025 - Jun 2026",
       organization: "Stratpoint Technologies",
     }
   - {
       name: AI Engineer,
-      icon: "icon-3.png",
+      icon: brain,
       date: "Sep 2025 - Dec 2025",
       organization: "Upwork (Freelance)",
     }
   - {
       name: WordPress Developer,
-      icon: "icon-1.png",
+      icon: brand-wordpress,
       date: "Jun 2022 - Jan 2023",
       organization: "OMP Security Inc, ARSIA Inc.",
     }

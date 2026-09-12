@@ -8,7 +8,9 @@
       </div>
       {% for experience in site.data.settings.experience %}
       <div class="relative w-full px-3.75 text-center md:w-1/3 lg:w-1/4">
-        <img class="mx-auto" src="{{ site.baseurl }}/assets/images/experience/{{ experience.icon }}" alt="{{ site.data.settings.experience-title }} icon">
+        <span class="size-25 mx-auto mb-4 grid place-items-center bg-surface shadow-soft dark:shadow-black/50 rounded-full">
+          {% include ui/icon.html name=experience.icon class="size-11 text-icon-soft" %}
+        </span>
         <p class="mb-0">{{ experience.date }}</p>
         <h4 class="text-h4 font-secondary">{{ experience.name }}</h4>
         <h6 class="text-h6 font-secondary text-muted">{{ experience.organization }}</h6>
