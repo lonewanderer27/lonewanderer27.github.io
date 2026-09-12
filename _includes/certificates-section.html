@@ -1,6 +1,6 @@
 {% if site.data.settings.certificates %}
 <!-- certificates -->
-<section class="py-5 sm:py-20 relative">
+<section class="py-5 sm:py-20 relative dots">
   <div class="container-page">
     <div class="flex flex-wrap -mx-3.75">
       <div class="relative w-full px-3.75 text-center">
@@ -12,7 +12,7 @@
              which is the case in the two-up layout at tablet width. -->
         <div class="flex flex-col items-center text-center @min-[22rem]:flex-row @min-[22rem]:items-start @min-[22rem]:text-start">
           <div class="mb-4 @min-[22rem]:mb-0 @min-[22rem]:me-4 @min-[32rem]:me-12">
-            <span class="size-25 grid place-items-center bg-surface shadow-soft dark:shadow-black/50 rounded-full">
+            <span class="size-25 grid place-items-center material rounded-full">
               {% include ui/icon.html name=item.icon class="size-11 text-icon-soft" %}
             </span>
           </div>
@@ -25,15 +25,15 @@
               {{ item.name }}
               {% endif %}
             </h4>
-            <p class="mb-0 text-muted">{{ item.organization }}</p>
+            <!-- body-text, not muted: this section carries the dot grid, and muted
+                 measures 1.78:1 on a dot in light mode. -->
+            <p class="mb-0">{{ item.organization }}</p>
           </div>
         </div>
       </div>
       {% endfor %}
     </div>
   </div>
-  <!-- bg image -->
-  <img class="max-w-full h-auto absolute left-0 -top-75 -z-10 w-full dark:opacity-20" src="{{ site.baseurl }}/assets/images/backgrounds/education-bg.png" alt="bg-image">
 </section>
 <!-- /certificates -->
 {% endif %}
