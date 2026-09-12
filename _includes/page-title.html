@@ -3,7 +3,9 @@
   Params: heading (h1|h3), title, transition (view-transition-name)
 
   The bg-primary slab and its seven illustration PNGs are gone; the ambient
-  ground is the backdrop.
+  ground is the backdrop, and the top padding came down with them -- 250px
+  was sized for the slab, and the header is only ~100px, so the rest was
+  dead gap. 150px matches the hero and the about page.
 
   `transition` is an opt-in, and the caller owns it -- both heading branches
   take it. It must be unique in the document and must name something that
@@ -12,7 +14,7 @@
   _tailwind/main.css. Post titles pass a per-post name so a blog card can
   morph into the post it links to.
 {%- endcomment -%}
-<section class="relative pt-30 pb-12.5 sm:py-45 lg:pt-62.5 lg:pb-37.5">
+<section class="relative pt-30 pb-12.5 sm:pt-37.5 sm:pb-45 lg:pb-37.5">
   <div class="container-page relative z-1">
     <div class="flex flex-wrap -mx-3.75">
       <div class="relative w-full px-3.75 text-center">
