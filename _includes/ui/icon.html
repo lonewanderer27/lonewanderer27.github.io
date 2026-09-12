@@ -1,0 +1,59 @@
+{%- comment -%}
+  Icon. Inline Tabler Icons (MIT), replacing the themify-icons webfont and the
+  Font Awesome CDN kit.
+
+  Params:
+    name  - icon name, matching a `when` below; falls back to "medal"
+    class - classes on the <svg>; pass a size-* utility, since the 24x24
+            width/height attributes are dropped in favour of the class
+    extra - extra classes appended verbatim
+
+  Icons are inlined rather than loaded as a font because the site uses a
+  dozen of them: the themify woff alone was 55KB, plus 13KB of CSS, to draw
+  eight glyphs. Sizing is a size-* utility, not a font-size, so the old
+  `text-[45px] leading-25!` line-height centring trick is gone -- wrap the
+  call in `grid place-items-center` instead.
+
+  Colour comes from `stroke="currentColor"`, so `text-*` utilities (and the
+  semantic tokens that get re-pointed for dark mode) keep working unchanged.
+
+  Every icon here is decorative and sits next to its own label, so they are
+  all aria-hidden; give the *link* an aria-label where the icon is the only
+  content.
+{%- endcomment -%}
+
+{%- assign icon_class = include.class | default: "size-6" -%}
+{%- if include.extra -%}{%- assign icon_class = icon_class | append: " " | append: include.extra -%}{%- endif -%}
+
+{%- case include.name -%}
+  {%- when "x" -%}
+    {%- assign d = '<path d="M18 6l-12 12" /><path d="M6 6l12 12" />' -%}
+  {%- when "brand-github" -%}
+    {%- assign d = '<path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />' -%}
+  {%- when "brand-linkedin" -%}
+    {%- assign d = '<path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10" />' -%}
+  {%- when "device-mobile" -%}
+    {%- assign d = '<path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14" /><path d="M11 4h2" /><path d="M12 17v.01" />' -%}
+  {%- when "world" -%}
+    {%- assign d = '<path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M3.6 9h16.8" /><path d="M3.6 15h16.8" /><path d="M11.5 3a17 17 0 0 0 0 18" /><path d="M12.5 3a17 17 0 0 1 0 18" />' -%}
+  {%- when "bolt" -%}
+    {%- assign d = '<path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" />' -%}
+  {%- when "quote" -%}
+    {%- assign d = '<path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" /><path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5" />' -%}
+  {%- when "school" -%}
+    {%- assign d = '<path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" /><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" />' -%}
+  {%- when "sparkles" -%}
+    {%- assign d = '<path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2m0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2m-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6" />' -%}
+  {%- when "brand-nextjs" -%}
+    {%- assign d = '<path d="M9 15v-6l7.745 10.65a9 9 0 1 1 2.255 -1.993" /><path d="M15 12v-3" />' -%}
+  {%- when "brand-react" -%}
+    {%- assign d = '<path d="M6.306 8.711c-2.602 .723 -4.306 1.926 -4.306 3.289c0 2.21 4.477 4 10 4c.773 0 1.526 -.035 2.248 -.102" /><path d="M17.692 15.289c2.603 -.722 4.308 -1.926 4.308 -3.289c0 -2.21 -4.477 -4 -10 -4c-.773 0 -1.526 .035 -2.25 .102" /><path d="M6.305 15.287c-.676 2.615 -.485 4.693 .695 5.373c1.913 1.105 5.703 -1.877 8.464 -6.66c.387 -.67 .733 -1.339 1.036 -2" /><path d="M17.694 8.716c.677 -2.616 .487 -4.696 -.694 -5.376c-1.913 -1.105 -5.703 1.877 -8.464 6.66c-.387 .67 -.733 1.34 -1.037 2" /><path d="M12 5.424c-1.925 -1.892 -3.82 -2.766 -5 -2.084c-1.913 1.104 -1.226 5.877 1.536 10.66c.386 .67 .793 1.304 1.212 1.896" /><path d="M12 18.574c1.926 1.893 3.821 2.768 5 2.086c1.913 -1.104 1.226 -5.877 -1.536 -10.66c-.375 -.65 -.78 -1.283 -1.212 -1.897" /><path d="M11.5 12.866a1 1 0 1 0 1 -1.732a1 1 0 0 0 -1 1.732" />' -%}
+  {%- when "brand-flutter" -%}
+    {%- assign d = '<path d="M7 14l-3 -3l8 -8h6l-11 11" /><path d="M14 21l-5 -5l5 -5h5l-5 5l5 5l-5 0" />' -%}
+  {%- when "brand-javascript" -%}
+    {%- assign d = '<path d="M20 4l-2 14.5l-6 2l-6 -2l-2 -14.5l16 0" /><path d="M7.5 8h3v8l-2 -1" /><path d="M16.5 8h-2.5a.5 .5 0 0 0 -.5 .5v3a.5 .5 0 0 0 .5 .5h1.423a.5 .5 0 0 1 .495 .57l-.418 2.93l-2 .5" />' -%}
+  {%- else -%}
+    {%- assign d = '<path d="M12 4v3m-4 -3v6m8 -6v6" /><path d="M12 18.5l-3 1.5l.5 -3.5l-2 -2l3 -.5l1.5 -3l1.5 3l3 .5l-2 2l.5 3.5l-3 -1.5" />' -%}
+{%- endcase -%}
+
+<svg class="{{ icon_class }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">{{ d }}</svg>

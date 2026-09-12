@@ -1,6 +1,7 @@
 ################ CSS Plugins #####################
-css:
-  - "/assets/plugins/themify-icons/themify-icons.css"
+# Icons are inline SVG (see _includes/ui/icon.html), not a webfont, so no
+# icon stylesheet is listed here.
+css: []
 
 ################ JS Plugins ######################
 js:

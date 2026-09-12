@@ -34,7 +34,7 @@
           {% for testimonial-item in site.data.settings.testimonial-items %}
           <!-- slider-item -->
           <figure class="w-full shrink-0 snap-center text-center">
-            <i class="ti-quote-right text-white text-[45px] mb-6 inline-block"></i>
+            {% include ui/icon.html name="quote" class="size-11 text-white mb-6 inline-block" %}
             <blockquote class="text-white mb-6 [&_p]:mb-0 [&_strong]:text-secondary [&_strong]:font-normal">
               {{ testimonial-item.content | markdownify }}
             </blockquote>

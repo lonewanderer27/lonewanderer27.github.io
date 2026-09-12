@@ -41,8 +41,8 @@ hero:
   hero-title: Hi I’m Jay!<br>a Full-Stack <br>Engineer
 
 social:
-  - { icon: "fa-brands fa-github", link: "https://github.com/lonewanderer27" }
-  - { icon: "ti-linkedin", link: "https://linkedin.com/in/jay-puzon" }
+  - { icon: "brand-github", name: "GitHub", link: "https://github.com/lonewanderer27" }
+  - { icon: "brand-linkedin", name: "LinkedIn", link: "https://linkedin.com/in/jay-puzon" }
 
 #-------------------------------
 # About (Section and Page)
@@ -173,19 +173,19 @@ services-title: Services
 services:
   - {
       name: Mobile Application,
-      icon: ti-mobile,
+      icon: device-mobile,
       description: "I build cross-platform mobile apps with Flutter for both iOS and Android, shipped through Fastlane, Firebase App Distribution and TestFlight.",
       active: false
     }
   - {
       name: Full Stack Web App,
-      icon: ti-world,
+      icon: world,
       description: "I design and build full stack web applications, handling both frontend and backend, using React, Next.js, Node.js, Deno and PostgreSQL.",
       active: true
     }
   - {
       name: AI Integration,
-      icon: ti-bolt,
+      icon: bolt,
       description: "I integrate LLMs and computer vision into products — RAG over your own data with vector embeddings, plus containerized inference APIs.",
       active: false
     }
