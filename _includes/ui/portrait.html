@@ -1,0 +1,49 @@
+{%- comment -%}
+  Cutout portrait standing in front of a material panel.
+
+  Params:
+    src     - the 800w image (required)
+    src-sm  - the 400w image, for the 1x srcset candidate
+    alt     - alt text; the portrait is content, not decoration, so pass it
+    extra   - classes on the wrapper (width, centring, margins)
+    eager   - "true" on the hero copy, which is the LCP candidate
+    transition - view-transition-name, set on the <img> and not the wrapper
+
+  The name goes on the image on purpose. The hero and the about page show the
+  same file at the same width, so naming it makes that navigation a near-pure
+  translate: the figure travels and the panel and glow stay behind in the root
+  cross-fade. Naming the wrapper instead would drag the whole assembly, and
+  would snapshot a backdrop-filter element away from the ambient ground it is
+  filtering.
+
+  Why a panel rather than a frame: the source is a transparent cutout now, so
+  a bordered box around it reads as an empty box with a person floating in
+  it. Standing the figure in front of a panel instead uses the transparency
+  -- the head and shoulders break above the panel's top edge, which is the
+  one composition a cutout can do and a rectangular photo cannot.
+
+  The 34% panel edge is measured, not guessed: the alpha channel puts the
+  head at 6.7-30% of the frame height and the shoulders from ~34%, so the
+  edge lands on the shoulder line. Re-measure if the photo is recropped.
+
+  Paint order is DOM order here, not z-index: glow, then panel, then the
+  image last so it sits on top. The panel's backdrop-filter therefore blurs
+  the glow behind it, which is the point.
+
+  sizes is a flat 400px because every call site caps the portrait at
+  max-w-100; widen that and this needs updating too.
+{%- endcomment -%}
+<div class="relative {{ include.extra }}">
+  <div aria-hidden="true"
+       class="absolute left-[8%] right-[12%] top-[2%] h-[42%] rounded-full bg-[radial-gradient(ellipse_at_center,var(--color-hero-1)_0%,transparent_70%)]"></div>
+  <div aria-hidden="true"
+       class="absolute inset-x-0 top-[34%] bottom-0 material rounded-card shadow-sheet dark:shadow-none"></div>
+  <img src="{{ include.src | relative_url }}"
+       {% if include.src-sm %}srcset="{{ include.src-sm | relative_url }} 400w, {{ include.src | relative_url }} 800w"
+       sizes="400px"{% endif %}
+       alt="{{ include.alt }}"
+       {% if include.eager %}fetchpriority="high"{% else %}loading="lazy"{% endif %}
+       decoding="async"
+       {% if include.transition %}style="view-transition-name: {{ include.transition }};"{% endif %}
+       class="relative w-full h-auto">
+</div>

@@ -3,12 +3,21 @@
   its own column rather than the viewport: once the column is wide enough for
   a side-by-side layout it takes one, whichever grid it happens to sit in.
   This is what the dead .card-lg rule in _blog.scss was reaching for.
+
+  The image and the title carry per-post view-transition-names so the card
+  morphs into the post it links to (_layouts/post.html names the same two
+  things). `named` gates them: this include also renders the "Similar
+  Stories" list at the bottom of a post page, which contains the post you are
+  already reading, and a view-transition-name repeated in one document does
+  not degrade -- it aborts the whole transition.
 {%- endcomment -%}
+{%- assign named = true -%}
+{%- if post.url == page.url -%}{%- assign named = false -%}{%- endif -%}
 <div class="@container relative w-full px-3.75 mb-6 sm:w-1/2 lg:w-1/3">
-  <article class="relative flex flex-col min-w-0 wrap-break-word rounded bg-surface bg-clip-border shadow-soft dark:shadow-black/50 @min-[24rem]:flex-row">
-    <img class="w-full rounded h-50 object-cover @min-[24rem]:w-[42%] @min-[24rem]:h-auto @min-[24rem]:self-stretch" src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+  <article class="relative flex flex-col min-w-0 wrap-break-word rounded-card material bg-clip-border shadow-card dark:shadow-none @min-[24rem]:flex-row">
+    <img class="w-full rounded-t-card h-50 object-cover @min-[24rem]:w-[42%] @min-[24rem]:h-auto @min-[24rem]:self-stretch @min-[24rem]:rounded-t-none @min-[24rem]:rounded-s-card" src="{{ post.image | relative_url }}" alt="{{ post.title }}"{% if named %} style="view-transition-name: post-image-{{ post.slug }};"{% endif %}>
     <div class="flex-auto p-5">
-      <h4 class="text-h4 font-secondary mb-3">
+      <h4 class="text-h4 font-secondary mb-3"{% if named %} style="view-transition-name: post-title-{{ post.slug }};"{% endif %}>
         <a class="text-heading hover:text-accent" href="{{ post.url | relative_url }}">{{ post.title }}</a>
       </h4>
       <p>{% assign curlyend = '}' %}{{ post.excerpt | markdownify | strip_html | replace: "{% include JB/setup %", "" | replace: curlyend, "" | truncatewords: 30 }}</p>

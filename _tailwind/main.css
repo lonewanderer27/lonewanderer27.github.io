@@ -25,7 +25,18 @@
   --color-primary-lite: #5a2fc4; /* was lighten($primary-color, 10%) */
   --color-secondary: #2bfdff;
   --color-body-text: #4c4c4c;
-  --color-muted: #999999;
+  /* Quiet text. Two tokens because one cannot do both jobs: --color-muted
+     labels sit on the near-black footer, --color-subtle sits on a light page
+     ground or a material. Darkening one for the page made the footer
+     illegible, which is why this was stuck at a single failing value.
+
+     --color-subtle is only 17 levels lighter than --color-body-text, because
+     AA leaves almost no tonal room below body text on a light ground. Size
+     and weight carry the hierarchy here, not tone: the experience block is
+     already text-h6 under a text-h4. The value clears 4.5:1 on every light
+     surface including a dot, so it stays valid if a section gains the grid. */
+  --color-muted: #999999; /* on --color-footer only */
+  --color-subtle: #5d5d5d; /* on a page ground or a material */
   --color-line: #c7c7c7;
   --color-ink: #222222; /* was the .bg-dark override */
   --color-haze: #eaeaea; /* was $gray */
@@ -43,6 +54,56 @@
   --color-footer-line: #343a40;
   --color-input-text: #495057;
   --color-icon-soft: #c8d5ef; /* the pale medal glyph */
+
+  /* iOS-style translucent materials, thin -> thick by how much of the
+     backdrop survives. Heavier than iOS's real values on purpose: iOS
+     composites text on a material with blend modes that pull colour from the
+     backdrop (vibrancy), and CSS has no equivalent, so text here has to clear
+     4.5:1 on the material alone.
+
+     Alpha lives in the token, not in a /modifier at the call site, because
+     the light and dark treatments differ in alpha as well as hue -- and
+     because the two opt-outs at the bottom of this file then re-point tokens
+     only, with no call-site churn. Colour tokens emit as var(), so unlike the
+     shadows they DO re-point in the dark block. */
+  --color-material-thin: rgb(255 255 255 / 0.55); /* chrome over content: the nav bar */
+  --color-material: rgb(255 255 255 / 0.62); /* cards, discs, buttons */
+  --color-material-thick: rgb(255 255 255 / 0.8); /* panels carrying body copy */
+  --color-material-brand: rgb(65 34 142 / 0.72); /* tinted, for white-on-material chrome */
+
+  /* Hairlines. iOS ships rgb(60 60 67 / 0.29) light and rgb(84 84 88 / 0.6)
+     dark for separators; these are the same idea at this site's weight.
+     --color-material-edge is the lit top edge that gives a material its
+     thickness; --color-separator is the neutral rule between things. */
+  --color-separator: rgb(60 60 67 / 0.18);
+  /* A DARK hairline in light mode, not a white one. White at 0.55 over a
+     light ground is a 1.09x delta -- invisible, which left the icon discs
+     with no visible surface at all (cards got away with it because they also
+     carry shadow-card). 0.16 gives a 1.31x delta on the ground and only
+     1.11x on material-brand, so the purple discs keep a soft edge rather
+     than a drawn outline. Dark mode keeps the white lit edge below. */
+  --color-material-edge: rgb(60 60 67 / 0.16);
+
+  /* The hero carries its own wash on top of the global one. It can run much
+     hotter than the sitewide values because the hero holds no muted text --
+     the global ground is capped by muted sitting at 4.52:1 on a bare section,
+     and brightening it everywhere would push that under. Keeping the strong
+     wash local decouples the two. */
+  --color-hero-1: rgb(65 34 142 / 0.34);
+  --color-hero-2: rgb(43 253 255 / 0.2);
+
+  /* The dot grid that differentiates one section from the next. Replaces
+     bg-dots.png, which was black at 13% alpha over a transparent field and so
+     was invisible in dark mode -- it was an inline style with no dark
+     handling. As a token it re-points like everything else. */
+  --color-dot: rgb(65 34 142 / 0.12);
+
+  /* The ambient ground -- three washes behind everything, which is what makes
+     a translucent surface read as translucent at all. Tokens rather than
+     literals in the include, so the dark block re-points them. */
+  --color-ambient-1: rgb(65 34 142 / 0.06); /* primary */
+  --color-ambient-2: rgb(43 253 255 / 0.06); /* secondary cyan */
+  --color-ambient-3: rgb(183 156 255 / 0.06); /* the dark-mode accent, as a mid tone */
 
   /* Breakpoints pinned to Bootstrap 4's, so template diffs stay pure class
      translation with no breakpoint shift mixed in. Unpin deliberately later. */
@@ -65,10 +126,26 @@
   --text-h6: 0.875rem; /* 14px */
   --text-paragraph-lg: 1.375rem; /* 22px, was .paragraph-lg */
 
-  /* Custom shadows from _common.scss and _homepage.scss */
-  --shadow-soft: 0 18px 39.1px 6.9px rgb(224 241 255 / 0.34);
-  --shadow-lift: 0 18px 40px 8px rgb(224 241 255 / 0.54);
-  --shadow-glow: 0 0 80.75px 14.25px rgb(224 241 255 / 0.34);
+  /* Flat neutral depth, replacing the three pale-blue glow tokens from
+     _common.scss / _homepage.scss. A glow is the opposite of flat, and it was
+     also the reason eight files carried a dark:shadow-black/50 override.
+
+     In dark mode a shadow under a translucent surface reads as dirt, and iOS
+     does not use one -- separation comes from the material's own lift and its
+     separator. So call sites pair these with dark:shadow-none, which is FEWER
+     overrides than before, not more. The pairing is still needed at the call
+     site (not here) because Tailwind inlines a --shadow-* token's value into
+     the utility at build time, so re-pointing one in the dark block does
+     nothing. */
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 4px 12px rgb(0 0 0 / 0.06);
+  --shadow-sheet: 0 8px 32px rgb(0 0 0 / 0.1);
+
+  /* Shape. Custom names rather than overriding --radius-sm/md/lg, so
+     Tailwind's defaults stay available and every call site says which role it
+     means. 8/12px: modern without looking like an app screenshot pasted into
+     a web page. rounded-full stays for discs and avatars. */
+  --radius-control: 0.5rem; /* 8px  -- buttons, inputs, chips */
+  --radius-card: 0.75rem; /* 12px -- cards, panels, sheets */
 
   /* The skill-meter wave from _homepage.scss. The translate is repeated in
      each keyframe because an animation that sets transform overrides the
@@ -108,6 +185,72 @@
   }
 }
 
+/* Translucent materials. Three-to-four declarations repeated across ~20 call
+ * sites, one of which would otherwise be an arbitrary value carrying a var()
+ * -- which is what @utility exists for. Unlike @apply it composes with
+ * variants ([&.nav-bg]:material-thin, hover:bg-material-thick) and stays a
+ * single source of truth.
+ *
+ * Three traps, all found by building this rather than by reading docs:
+ *
+ * 1. Do NOT hand-write -webkit-backdrop-filter. Lightning CSS adds it, and
+ *    writing the pair by hand makes it dedupe the two identical declarations
+ *    down to the prefixed one alone -- which drops Firefox, since Firefox
+ *    supports only the unprefixed property. Tailwind's own backdrop-*
+ *    utilities escape this because their values are var() chains it cannot
+ *    compare.
+ * 2. The `border` shorthand here sorts AFTER border-x-0 / border-t-0 at equal
+ *    specificity, so trimming a material's border to one edge needs `!` on
+ *    the trim (see the header).
+ * 3. A @utility body cannot contain @media, so the reduced-transparency and
+ *    @supports opt-outs are at the bottom of this file, re-pointing tokens.
+ *
+ * backdrop-filter blurs what is BEHIND the element, so all of these are only
+ * meaningful over a textured ground. That is what ui/ambient.html is for --
+ * over a flat colour the blur output equals its input and nothing but a tint
+ * remains. */
+@utility material-thin {
+  background-color: var(--color-material-thin);
+  /* A thin material blurs MORE, not less: less backdrop detail survives to
+     compensate for the lower alpha. */
+  backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid var(--color-material-edge);
+}
+
+@utility material {
+  background-color: var(--color-material);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--color-material-edge);
+}
+
+@utility material-thick {
+  background-color: var(--color-material-thick);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--color-material-edge);
+}
+
+@utility material-brand {
+  background-color: var(--color-material-brand);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--color-material-edge);
+}
+
+/* Section differentiation. Every section became the same flat field once the
+ * Kross texture PNGs came out, so alternating sections carry a dot grid.
+ *
+ * It earns its place twice over. It is what the materials blur: the ambient
+ * wash is low-frequency, so blurring it changes almost nothing, whereas a
+ * 1px grid at 20px blur smears into a visible frost. And unlike the PNG it
+ * replaces (black at 13% alpha, invisible on a dark ground) it re-points for
+ * dark mode like any other token.
+ *
+ * 22px spacing is close to the old PNG's rhythm. background-position is
+ * pinned so the grid does not shift when a section's padding changes. */
+@utility dots {
+  background-image: radial-gradient(var(--color-dot) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-position: 0 0;
+}
 
 @layer base {
   /* Tells the browser both themes are supported, so it renders scrollbars,
@@ -162,7 +305,7 @@
 /* Automatic dark theme.
  *
  * Re-points the semantic tokens rather than restating rules, so every
- * bg-surface / text-heading / shadow-soft in the templates follows along. The
+ * bg-surface / text-heading / material in the templates follows along. The
  * hue is carried over from the brand purple so the dark ground sits under the
  * primary sections rather than fighting them.
  *
@@ -175,7 +318,17 @@
     --color-surface-alt: #161320;
     --color-heading: #f3f1f8;
     --color-body-text: #b9b4c7;
+    /* muted is footer-only, so it keeps the theme's original value: on
+       --color-footer (#0d0b12) it measures 5.38:1.
+
+       subtle is the one that had to move. A translucent dark material
+       composites LIGHTER than the opaque --color-surface it replaced, so
+       quiet text measured 3.46:1 on a card where it had been 4.79:1 -- a
+       regression this redesign introduced. No ambient value fixes it (even a
+       near-zero wash only reaches 4.17:1), because the lift comes from the
+       material tint itself. This value clears 4.5:1 on all three steps. */
     --color-muted: #8a8398;
+    --color-subtle: #9d95ad;
     --color-line: #332c44;
     --color-link: #8ab4ff;
     --color-link-hover: #b79cff;
@@ -186,11 +339,38 @@
     --color-input-text: #cfc9dc;
     --color-icon-soft: #4b4266;
 
+    --color-material-thin: rgb(40 34 56 / 0.4);
+    --color-material: rgb(40 34 56 / 0.55);
+    --color-material-thick: rgb(40 34 56 / 0.78);
+    --color-material-brand: rgb(48 25 105 / 0.68);
+    --color-separator: rgb(235 235 245 / 0.14);
+    --color-material-edge: rgb(255 255 255 / 0.14);
+
+    /* A dark ground swallows a wash faster than a light one, so these run
+       hotter than their light values rather than cooler -- but only a little.
+       At 0.18/0.14/0.16 the composited ground came out rgb(53 68 104), a
+       visibly blue field rather than a faint tint, and it cost contrast on
+       everything sitting above it. */
+    /* Matched to the light values by LIFT, not by alpha: what matters is how
+       far the hero ground sits from the global one, and a dark ground needs a
+       higher alpha to move the same perceptual distance. Both come out at
+       ~1.7x. Verified against the h1 and the social discs. */
+    --color-hero-1: rgb(124 77 255 / 0.3);
+    --color-hero-2: rgb(43 253 255 / 0.12);
+
+    /* The light dot is the brand purple; on a dark ground it has to be the
+       light accent instead, or the grid disappears. */
+    --color-dot: rgb(183 156 255 / 0.14);
+
+    --color-ambient-1: rgb(65 34 142 / 0.12);
+    --color-ambient-2: rgb(43 253 255 / 0.08);
+    --color-ambient-3: rgb(183 156 255 / 0.1);
+
     /* NOT the shadows. Tailwind inlines a --shadow-* token's value into the
-       utility at build time -- .shadow-soft carries the literal colour, not
-       var(--shadow-soft) -- so re-pointing the token here would emit and do
-       nothing. The call sites carry dark:shadow-<colour> instead, which
-       overrides --tw-shadow-color and keeps the geometry. */
+       utility at build time -- .shadow-card carries the literal colour, not
+       var(--shadow-card) -- so re-pointing the token here would emit and do
+       nothing. The call sites carry dark:shadow-none instead: in dark mode
+       the hairline separator does the separating, the way iOS does it. */
   }
 
   /* The page ground is darker than a card, so body cannot reuse --color-surface. */
@@ -199,6 +379,145 @@
   }
 }
 
+/* Material opt-outs. Both re-point the tokens rather than touching call
+ * sites, and both sit after the dark block so they win in either theme. The
+ * backdrop-filter still runs, but with nothing translucent to show through it
+ * is visually inert.
+ *
+ * Note these also flatten the AMBIENT ground, not just the materials: a
+ * translucency-sensitive reader should not be handed a decorative wash
+ * either.
+ *
+ * prefers-reduced-transparency is a real OS setting (macOS/iOS "Reduce
+ * transparency", Windows "Transparency effects"). prefers-contrast lands on
+ * the same values. */
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  :root {
+    --color-material-thin: var(--color-surface);
+    --color-material: var(--color-surface);
+    --color-material-thick: var(--color-surface);
+    --color-material-brand: var(--color-primary);
+    --color-material-edge: var(--color-line);
+    --color-ambient-1: transparent;
+    --color-ambient-2: transparent;
+    --color-ambient-3: transparent;
+  }
+}
+
+/* Browsers and in-app webviews without backdrop-filter would otherwise show a
+   55%-opaque veil over raw page content -- worse than no material at all. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root {
+    --color-material-thin: var(--color-surface);
+    --color-material: var(--color-surface);
+    --color-material-thick: var(--color-surface);
+    --color-material-brand: var(--color-primary);
+    --color-material-edge: var(--color-line);
+    --color-ambient-1: transparent;
+    --color-ambient-2: transparent;
+    --color-ambient-3: transparent;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Cross-document view transitions
+
+   The site is a multi-page app, so this is the whole mechanism: the native
+   `@view-transition` rule below, plus a short list of `view-transition-name`s
+   in the templates. Four rules keep that list from turning into a pile of
+   accidental morphs.
+
+   1. A NAME IS ONLY SPENT WHERE BOTH PAGES REALLY HAVE THE ELEMENT. Every
+      name is one half of a pair: the hero portrait with the about portrait
+      (the same image file at the same width, so it is close to a pure
+      translate), the home "Portfolio" heading with the portfolio page's
+      title, a blog card with the post it links to. An unpaired name animates
+      as a lone enter/exit, which is what the root fade already does -- it
+      buys nothing, and it reads as a glitch when the two elements are only
+      loosely related. That is why the about page's <h1> is not paired with
+      the hero's: one is three lines of "Hi I'm Jay!", the other is "About
+      Me", and morphing between them squashes the text.
+
+   2. A NAME MUST BE UNIQUE PER DOCUMENT. A duplicate does not degrade
+      gracefully, it aborts the entire transition. `_includes/post.html`
+      therefore drops its `post-*` names when the card is the post you are
+      already reading, because `_layouts/post.html`'s "Similar Stories" list
+      includes it.
+
+   3. NAMING LIFTS AN ELEMENT OUT OF ITS ANCESTORS. It leaves behind the
+      clip, the stacking context and the z-index of where it lived, and gets
+      its own group in the transition's flat layer tree -- painted above
+      `root` in capture order. So the portfolio grid names the clipping
+      wrapper and not the <img> inside it (which would fly unclipped at its
+      idle scale-110), and the ambient wash is left unnamed rather than
+      spending the transition on top of the content it is supposed to sit
+      behind. See _includes/ui/ambient.html.
+
+   4. ONLY `position: fixed` CHROME IS WORTH NAMING AS PERSISTENT. A group
+      animates from its old viewport box to its new one, so naming a
+      document-flow element that sits at a different scroll offset on the
+      next page (the footer, the contact block) makes it *slide* the
+      difference. The header is viewport-anchored, so its two boxes coincide
+      and naming it holds it still while the content moves underneath.
+--------------------------------------------------------------------------- */
 @view-transition {
   navigation: auto;
+}
+
+/* Honour the OS setting. `navigation: none` is the documented opt-out and
+   turns navigation back into a plain load -- cheaper and more honest than
+   zeroing out the animations below, which would still snapshot both pages. */
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}
+
+/* The pairs above are morphs, not fades, so they get a longer ease-out curve
+   and settle rather than arriving at speed. `group` carries the position and
+   size animation; `image-pair` cross-fades the two snapshots inside it. */
+::view-transition-group(*),
+::view-transition-image-pair(*) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+
+/* `root` is everything that was not named -- the page body, minus the header.
+   The UA default is a symmetric opacity cross-fade, which dips through the
+   ambient ground in the middle. Instead the outgoing page is HELD opaque and
+   the incoming one fades in over it with a short rise, so there is never a
+   frame where neither page is solid. This is what the named header earns:
+   the bar stays put while the content lifts underneath it.
+
+   `mix-blend-mode: normal` is load-bearing. The UA sets `plus-lighter` on
+   both snapshots, which is only correct for a symmetric cross-fade -- layered
+   over an opaque old snapshot it composites additively and blows out the
+   midpoint. The `(root)` selectors outrank the `(*)` ones above. */
+@keyframes view-transition-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  /* Held, not faded. It is covered by the incoming page, then discarded. */
+  animation: none;
+}
+
+::view-transition-new(root) {
+  animation: view-transition-rise 300ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* Duration only. The group wraps BOTH snapshots, so animating its transform
+   here would carry the outgoing page along with the rise; it exists to set
+   the transition's overall length. */
+::view-transition-group(root) {
+  animation-duration: 300ms;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
 }

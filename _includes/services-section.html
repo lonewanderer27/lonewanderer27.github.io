@@ -1,6 +1,6 @@
 {% if site.data.settings.services %}
 <!-- services -->
-<section class="py-5 sm:py-20">
+<section class="py-5 sm:py-20 dots">
   <div class="container-page">
     <div class="flex flex-wrap -mx-3.75">
       <div class="relative w-full px-3.75 text-center">
@@ -8,8 +8,15 @@
       </div>
       {% for service in site.data.settings.services %}
       <div class="relative w-full px-3.75 mb-6 md:mb-0 md:w-1/3">
-        <div class="relative flex flex-col min-w-0 wrap-break-word rounded bg-surface bg-clip-border shadow-soft dark:shadow-black/50 transition-all duration-200 ease-[ease] hover:shadow-lift dark:hover:shadow-black/60">
-          <div class="flex-auto text-center px-6 py-12 {% if service.active %}bg-primary transition-all duration-300 ease-[ease] **:text-white!{% endif %}">
+        <!-- The active card is tinted on the CARD, not on an inner div. As a
+             child it had no radius of its own, so its square corners cut
+             across the card's 12px one, and it sat inside the card's 1px
+             material border, leaving a hairline ring of card showing around
+             it. Swapping material -> material-brand on the wrapper removes
+             both, and keeps one backdrop-filter per card instead of nesting
+             a second one inside the first. -->
+        <div class="relative flex flex-col min-w-0 wrap-break-word rounded-card {% if service.active %}material-brand{% else %}material{% endif %} bg-clip-border shadow-card dark:shadow-none transition-all duration-200 ease-[ease] hover:shadow-sheet">
+          <div class="flex-auto text-center px-6 py-12 {% if service.active %}**:text-white!{% endif %}">
             {% include ui/icon.html name=service.icon class="size-11 mb-12 inline-block" %}
             <h4 class="text-h4 font-secondary mb-6">{{ service.name }}</h4>
             <p>{{ service.description }}</p>

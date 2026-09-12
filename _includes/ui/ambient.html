@@ -1,0 +1,36 @@
+{%- comment -%}
+  The ambient ground. Three soft washes behind everything, and the reason any
+  material on this site reads as translucent at all: backdrop-filter blurs
+  what is behind an element, so over a flat colour the blur output equals its
+  input and nothing but a tint survives.
+
+  Deliberately NOT blurred. The plan called for blur-3xl on each blob, but a
+  radial-gradient that fades to transparent is already soft, so the filter
+  would double the compositing cost for no visible change -- and it would make
+  this layer a `filter` ancestor, which in WebKit breaks backdrop-filter on
+  anything nested inside it. Without the filter that hazard does not exist.
+
+  It sits at -z-10, which works because of CSS background propagation: `html`
+  has no background of its own, so body's background-color is painted as the
+  page canvas and body is then treated as having none. That puts this layer
+  ABOVE the canvas and below every block background. Give `html` a background
+  and this layer disappears behind it.
+
+  This layer is deliberately NOT given a view-transition-name, even though it
+  is the same fixed wash on every page. Two reasons. It is identical across a
+  navigation, so leaving it inside the root snapshot means it cross-fades
+  against a copy of itself, which is a visual no-op. And naming it would be
+  actively wrong: a named element is pulled out of the root snapshot into its
+  own group, and groups paint in capture order ABOVE `root` -- so the -z-10
+  wash would spend the whole transition covering the page content. Its
+  z-index only works in the real page, not in the transition's layer tree.
+
+  Positions are in vmax so the washes scale with the larger viewport axis
+  rather than reflowing at breakpoints. Fixed, so `blur`-free or not, only one
+  viewport's worth is ever composited.
+{%- endcomment -%}
+<div aria-hidden="true" class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+  <div class="absolute -top-[20vmax] -left-[15vmax] size-[70vmax] bg-[radial-gradient(circle_at_center,var(--color-ambient-1)_0%,transparent_70%)]"></div>
+  <div class="absolute -top-[10vmax] -right-[25vmax] size-[60vmax] bg-[radial-gradient(circle_at_center,var(--color-ambient-2)_0%,transparent_70%)]"></div>
+  <div class="absolute bottom-[5vmax] left-[10vmax] size-[55vmax] bg-[radial-gradient(circle_at_center,var(--color-ambient-3)_0%,transparent_70%)]"></div>
+</div>

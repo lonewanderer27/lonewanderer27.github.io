@@ -39,6 +39,9 @@ disqus-identifier: jay-blogs # Add your shortname for Disqus Comment. For exampl
 
 hero:
   hero-title: Hi I’m Jay!<br>a Full-Stack <br>Engineer
+  hero-image: assets/images/about/author-800.webp
+  hero-image-sm: assets/images/about/author-400.webp
+  hero-image-alt: Adriane (Ian) James
 
 social:
   - { icon: "brand-github", name: "GitHub", link: "https://github.com/lonewanderer27" }
