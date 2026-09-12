@@ -2,7 +2,7 @@ name: Build and deploy site
 
 on:
   push:
-    branches: [version4-tailwindcss]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
