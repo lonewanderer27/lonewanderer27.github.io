@@ -1,27 +1,29 @@
 {% if site.data.settings.certificates %}
 <!-- certificates -->
-<section class="section position-relative">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-title">{{ site.data.settings.certificates-title }}</h2>
+<section class="py-[20px] sm:py-20 relative">
+  <div class="container-page">
+    <div class="flex flex-wrap -mx-[15px]">
+      <div class="relative w-full px-[15px] text-center">
+        <h2 class="text-h2 font-secondary mb-20">{{ site.data.settings.certificates-title }}</h2>
       </div>
-      {% for certificates in site.data.settings.certificates %}
-      <div class="col-lg-6 col-md-6 mb-80">
-        <div class="d-flex">
-          <div class="mr-lg-5 mr-3">
-            <i class="ti-medall icon icon-light icon-bg bg-white shadow rounded-circle d-block"></i>
+      {% for item in site.data.settings.certificates %}
+      <div class="@container relative w-full px-[15px] mb-20 md:w-1/2">
+        <!-- Stacks when the column is too narrow for an icon beside the text,
+             which is the case in the two-up layout at tablet width. -->
+        <div class="flex flex-col items-center text-center @min-[22rem]:flex-row @min-[22rem]:items-start @min-[22rem]:text-start">
+          <div class="mb-4 @min-[22rem]:mb-0 @min-[22rem]:me-[1rem] @min-[32rem]:me-12">
+            <i class="ti-medall text-[45px] text-icon-soft size-[100px] leading-[100px]! text-center bg-surface shadow-soft dark:shadow-black/50 rounded-full block"></i>
           </div>
           <div>
-            <p class="text-dark mb-1">{{ certificates.date }}</p>
-            <h4>
-              {% if certificates.certificate %}
-              <a href="{{ certificates.certificate }}" class="edu-cert" title="View certificate">{{ certificates.name }}</a>
+            <p class="text-heading mb-1">{{ item.date }}</p>
+            <h4 class="text-h4 font-secondary">
+              {% if item.certificate %}
+              <a href="{{ item.certificate }}" class="underline text-accent" title="View certificate">{{ item.name }}</a>
               {% else %}
-              {{ certificates.name }}
+              {{ item.name }}
               {% endif %}
             </h4>
-            <p class="mb-0 text-light">{{ certificates.organization }}</p>
+            <p class="mb-0 text-muted">{{ item.organization }}</p>
           </div>
         </div>
       </div>
@@ -29,7 +31,7 @@
     </div>
   </div>
   <!-- bg image -->
-  <img class="img-fluid edu-bg-image w-100" src="{{ site.baseurl }}/assets/images/backgrounds/education-bg.png" alt="bg-image">
+  <img class="max-w-full h-auto absolute left-0 top-[-300px] -z-10 w-full dark:opacity-20" src="{{ site.baseurl }}/assets/images/backgrounds/education-bg.png" alt="bg-image">
 </section>
 <!-- /certificates -->
 {% endif %}

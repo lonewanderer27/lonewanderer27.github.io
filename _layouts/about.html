@@ -3,39 +3,39 @@ layout: default
 image: assets/image/banner.png
 ---
 <!-- page title -->
-<section class="page-title-alt bg-primary position-relative">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h1 class="text-white font-tertiary" style="view-transition-name: about-page-title;">{{ page.title }}</h1>
+<section class="bg-primary relative pt-[120px] pb-[50px] text-center sm:py-[180px] sm:text-start lg:pt-[350px] lg:pb-[70px]">
+  <div class="container-page relative z-[1]">
+    <div class="flex flex-wrap -mx-[15px]">
+      <div class="relative w-full px-[15px]">
+        <h1 class="text-h1 font-secondary text-white" style="view-transition-name: about-page-title;">{{ page.title }}</h1>
       </div>
     </div>
   </div>
   <!-- background shapes -->
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-bg-top.png" alt="illustrations" class="bg-shape-1 w-100">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-sm.png" alt="illustrations" class="bg-shape-2">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-yellow.png" alt="illustrations" class="bg-shape-3">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-orange.png" alt="illustrations" class="bg-shape-4">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-cyan.png" alt="illustrations" class="bg-shape-5">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan-lg.png" alt="illustrations" class="bg-shape-6">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-bg-top.png" alt="illustrations" class="max-w-full h-auto absolute left-0 top-0 w-full">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-sm.png" alt="illustrations" class="max-w-full h-auto absolute left-[70px] top-[100px]">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-yellow.png" alt="illustrations" class="max-w-full h-auto absolute left-[30%] top-[50px] rotate-180">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-orange.png" alt="illustrations" class="max-w-full h-auto absolute left-[100px] bottom-[100px] hidden sm:block">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-cyan.png" alt="illustrations" class="max-w-full h-auto absolute left-[40%] bottom-[-25px] hidden sm:block">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan-lg.png" alt="illustrations" class="max-w-full h-auto absolute bottom-[100px] right-[-100px] hidden sm:block">
 </section>
 <!-- /page title -->
 
 <!-- about -->
-<section class="section pt-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8">
+<section class="pt-[48px] pb-[20px] sm:pb-20">
+  <div class="container-page">
+    <div class="flex flex-wrap -mx-[15px]">
+      <div class="relative w-full px-[15px] md:w-2/3 prose dark:prose-invert max-w-none prose-headings:font-secondary prose-headings:text-heading prose-headings:leading-[1.2] prose-p:text-[15px] prose-p:leading-[1.8] prose-p:text-body-text prose-li:text-[15px] prose-li:leading-[1.8] prose-li:text-body-text prose-a:text-link prose-a:no-underline hover:prose-a:text-link-hover prose-strong:font-secondary prose-strong:text-[22px] prose-strong:font-normal prose-strong:text-heading prose-strong:leading-[1.5] prose-blockquote:border-s-2 prose-blockquote:border-s-primary prose-blockquote:bg-haze prose-blockquote:not-italic">
         {{ content }}
       </div>
-      <div class="col-md-4 text-center drag-lg-top">
-        <div class="shadow-down mb-4">
-          <img src="{{ site.baseurl }}/{{ page.image }}" alt="{{ page.author }}" class="img-fluid w-100 rounded-lg border-thick border-white">
+      <div class="relative w-full px-[15px] text-center md:w-1/3 lg:-mt-[230px]">
+        <div class="relative mb-6 before:content-[''] before:absolute before:inset-0 before:-z-10 before:shadow-glow dark:before:shadow-black/50">
+          <img src="{{ site.baseurl }}/{{ page.image }}" alt="{{ page.author }}" class="max-w-full h-auto w-full rounded-[15px] border-[10px] border-white">
         </div>
         {% if page.signature %}
-        <img src="{{ site.baseurl }}/{{ page.signature }}" alt="signature" class="img-fluid">
+        <img src="{{ site.baseurl }}/{{ page.signature }}" alt="signature" class="max-w-full h-auto mx-auto">
         {% endif %}
-        <h4>{{ page.author }}</h4>
+        <h4 class="text-h4 font-secondary">{{ page.author }}</h4>
       </div>
     </div>
   </div>
@@ -48,11 +48,11 @@ image: assets/image/banner.png
 
 
 {% if site.data.settings.client-slider-items %}
-<section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title">My Clients</h2>
+<section class="py-[20px] sm:py-20">
+  <div class="container-page">
+    <div class="flex flex-wrap -mx-[15px]">
+      <div class="relative w-full px-[15px] text-center">
+        <h2 class="text-h2 font-secondary mb-20">My Clients</h2>
       </div>
     </div>
     {% include client-slider.html %}

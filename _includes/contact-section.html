@@ -1,34 +1,32 @@
 <!-- contact -->
-<section class="section section-on-footer" data-background="{{site.baseurl}}/assets/images/backgrounds/bg-dots.png">
-  <div class="container">
-    <div class="row">
+<section class="py-[20px] sm:py-20 -mb-[250px]" style="background-image: url({{site.baseurl}}/assets/images/backgrounds/bg-dots.png)">
+  <div class="container-page">
+    <div class="flex flex-wrap -mx-[15px]">
       {% if page.title != "Contact" %}
-      <div class="col-12 text-center">
-        <h2 class="section-title">{{ site.data.settings.contact-title }}</h2>
+      <div class="relative w-full px-[15px] text-center">
+        <h2 class="text-h2 font-secondary mb-20">{{ site.data.settings.contact-title }}</h2>
       </div>
       {% endif %}
-      <div class="col-lg-8 mx-auto">
-        <div class="bg-white rounded text-center p-5 shadow-down">
-          <div id="contactFormAlert" class="alert alert-success d-none" role="alert">
+      <div class="relative w-full px-[15px] mx-auto lg:w-2/3">
+        <div class="bg-surface rounded text-center p-12 relative before:content-[''] before:absolute before:inset-0 before:-z-10 before:shadow-glow dark:before:shadow-black/50">
+          <div id="contactFormAlert" class="hidden relative py-3 px-5 mb-4 rounded border border-[#c3e6cb] bg-[#d4edda] text-[#155724]" role="alert">
             &nbsp;<span>Thank you for your inquiry. I'll get in touch with you soon!</span>
             <i class="ti-close" id="contactFormAlertBtn"></i>
           </div>
-          <!-- <h4 class="mb-80">Contact Form</h4> -->
-          <!-- action="https://formspree.io/{{ site.data.settings.contact-email }}" method="POST"  -->
-          
-          <form class="row" id="contactForm">
-            <div class="col-md-6">
-              <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4" required>
+
+          <form class="flex flex-wrap -mx-[15px]" id="contactForm">
+            <div class="relative w-full px-[15px] md:w-1/2">
+              <input type="text" id="name" name="name" placeholder="Full Name" class="block w-full h-[60px] py-[0.375rem] px-0 mb-6 text-[1rem] leading-[1.5] text-input-text bg-surface border-b-[1px] border-b-line rounded-none focus:border-b-primary focus:outline-none" required>
             </div>
-            <div class="col-md-6">
-              <input type="email" id="email" name="email" placeholder="Email Address" class="form-control px-0 mb-4"  required>
+            <div class="relative w-full px-[15px] md:w-1/2">
+              <input type="email" id="email" name="email" placeholder="Email Address" class="block w-full h-[60px] py-[0.375rem] px-0 mb-6 text-[1rem] leading-[1.5] text-input-text bg-surface border-b-[1px] border-b-line rounded-none focus:border-b-primary focus:outline-none" required>
             </div>
-            <div class="col-12">
-              <textarea name="message" id="message" class="form-control px-0 mb-4"
+            <div class="relative w-full px-[15px]">
+              <textarea name="message" id="message" class="block w-full h-[120px] py-[0.375rem] px-0 mb-6 text-[1rem] leading-[1.5] text-input-text bg-surface border-b-[1px] border-b-line rounded-none focus:border-b-primary focus:outline-none"
                 placeholder="Type Message Here" required></textarea>
             </div>
-            <div class="col-lg-6 col-10 mx-auto">
-              <button type="submit" class="btn btn-primary w-100">send</button>
+            <div class="relative px-[15px] mx-auto w-5/6 lg:w-1/2">
+              {% include ui/button.html tag="button" type="submit" label="send" extra="w-full" %}
             </div>
           </form>
         </div>

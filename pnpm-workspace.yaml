@@ -1,0 +1,5 @@
+# @parcel/watcher backs `tailwindcss --watch`; its install script builds a
+# native binding. Approved explicitly so `pnpm install` is non-interactive
+# both locally and in CI (pnpm 11 fails the install otherwise).
+allowBuilds:
+  '@parcel/watcher': true

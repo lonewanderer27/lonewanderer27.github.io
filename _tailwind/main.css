@@ -1,0 +1,194 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@source "../_includes";
+@source "../_layouts";
+@source "../_pages";
+@source "../_posts";
+@source "../_data";
+@source "../index.html";
+@source "../404.html";
+
+@theme {
+  /* Brand — ported from assets/scss/_variables.scss */
+  --color-primary: #41228e;
+  --color-primary-lite: #5a2fc4; /* was lighten($primary-color, 10%) */
+  --color-secondary: #2bfdff;
+  --color-body-text: #4c4c4c;
+  --color-muted: #999999;
+  --color-line: #c7c7c7;
+  --color-ink: #222222; /* was the .bg-dark override */
+  --color-haze: #eaeaea; /* was $gray */
+
+  /* Semantic surfaces and text. These are the values the templates ask for,
+     so the dark theme is a matter of re-pointing them (see @layer base) and
+     not of adding a dark: variant to every element. */
+  --color-surface: #ffffff; /* cards, form fields, icon discs */
+  --color-surface-alt: #f8f9fa; /* the tinted band behind "My Clients" */
+  --color-heading: #000000;
+  --color-link: #007bff;
+  --color-link-hover: #41228e;
+  --color-accent: #41228e; /* brand colour used as text ON the page ground */
+  --color-footer: #222222;
+  --color-footer-line: #343a40;
+  --color-input-text: #495057;
+  --color-icon-soft: #c8d5ef; /* the pale medal glyph */
+
+  /* Breakpoints pinned to Bootstrap 4's, so template diffs stay pure class
+     translation with no breakpoint shift mixed in. Unpin deliberately later. */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+
+  /* Type */
+  --font-primary: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-secondary: "Figtree", ui-serif, Georgia, serif;
+
+  /* Fluid headings — replaces the fixed px + @include desktop pairs in
+     assets/scss/_typography.scss. Upper bounds match the old fixed sizes. */
+  --text-h1: clamp(2.75rem, 6vw, 5rem); /* 44px → 80px */
+  --text-h2: clamp(2.25rem, 5vw, 3.75rem); /* 36px → 60px */
+  --text-h3: 2.5rem; /* 40px */
+  --text-h4: 1.375rem; /* 22px */
+  --text-h5: 1.125rem; /* 18px */
+  --text-h6: 0.875rem; /* 14px */
+  --text-paragraph-lg: 1.375rem; /* 22px, was .paragraph-lg */
+
+  /* Custom shadows from _common.scss and _homepage.scss */
+  --shadow-soft: 0 18px 39.1px 6.9px rgb(224 241 255 / 0.34);
+  --shadow-lift: 0 18px 40px 8px rgb(224 241 255 / 0.54);
+  --shadow-glow: 0 0 80.75px 14.25px rgb(224 241 255 / 0.34);
+
+  /* The skill-meter wave from _homepage.scss. The translate is repeated in
+     each keyframe because an animation that sets transform overrides the
+     -translate-x-1/2 utility wholesale. */
+  --animate-wave: wave 6s linear infinite;
+  --animate-wave-slow: wave 10s linear -5s infinite;
+
+  @keyframes wave {
+    50% {
+      transform: translateX(-50%) rotate(180deg);
+    }
+    100% {
+      transform: translateX(-50%) rotate(360deg);
+    }
+  }
+}
+
+/* Bootstrap's stepped container widths, reproduced exactly. Tailwind v4 ships
+   a `container` utility but dropped v3's centering and padding config, so this
+   is a named utility rather than an override of theirs. */
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 15px;
+
+  @media (width >= 576px) {
+    max-width: 540px;
+  }
+  @media (width >= 768px) {
+    max-width: 720px;
+  }
+  @media (width >= 992px) {
+    max-width: 960px;
+  }
+  @media (width >= 1200px) {
+    max-width: 1140px;
+  }
+}
+
+
+@layer base {
+  /* Tells the browser both themes are supported, so it renders scrollbars,
+     form controls and autofill to match instead of leaving them light. */
+  :root {
+    color-scheme: light dark;
+  }
+
+  body {
+    background-color: var(--color-surface);
+    overflow-x: hidden;
+    font-family: var(--font-primary);
+    font-size: 15px;
+    line-height: 1.2;
+    color: var(--color-body-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--color-primary-lite);
+    color: #fff;
+  }
+
+  /* Heading sizes live on the elements as text-h* utilities; only the shared
+     family, colour and rhythm belong here. The 0.5rem margin matches
+     Bootstrap's reboot, which every template was relying on. */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary);
+    color: var(--color-heading);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  /* Bootstrap's anchor colour, kept so the port stays faithful. Worth
+     revisiting: primary would be the on-theme choice. */
+  a {
+    color: var(--color-link);
+  }
+
+  a:hover {
+    color: var(--color-link-hover);
+  }
+}
+
+
+/* Automatic dark theme.
+ *
+ * Re-points the semantic tokens rather than restating rules, so every
+ * bg-surface / text-heading / shadow-soft in the templates follows along. The
+ * hue is carried over from the brand purple so the dark ground sits under the
+ * primary sections rather than fighting them.
+ *
+ * The three brand shadows are light-blue glows, which read as haze on a dark
+ * ground; on dark they become ordinary shadows.
+ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-surface: #1c1826; /* cards sit above the page */
+    --color-surface-alt: #161320;
+    --color-heading: #f3f1f8;
+    --color-body-text: #b9b4c7;
+    --color-muted: #8a8398;
+    --color-line: #332c44;
+    --color-link: #8ab4ff;
+    --color-link-hover: #b79cff;
+    --color-accent: #b79cff;
+    --color-haze: #241f31; /* blockquote tint */
+    --color-footer: #0d0b12;
+    --color-footer-line: #2a2338;
+    --color-input-text: #cfc9dc;
+    --color-icon-soft: #4b4266;
+
+    /* NOT the shadows. Tailwind inlines a --shadow-* token's value into the
+       utility at build time -- .shadow-soft carries the literal colour, not
+       var(--shadow-soft) -- so re-pointing the token here would emit and do
+       nothing. The call sites carry dark:shadow-<colour> instead, which
+       overrides --tw-shadow-color and keeps the geometry. */
+  }
+
+  /* The page ground is darker than a card, so body cannot reuse --color-surface. */
+  body {
+    background-color: #120f19;
+  }
+}
+
+@view-transition {
+  navigation: auto;
+}

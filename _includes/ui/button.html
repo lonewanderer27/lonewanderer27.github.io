@@ -1,0 +1,42 @@
+{%- comment -%}
+  Button. Replaces Bootstrap's .btn plus the _buttons.scss overrides.
+
+  Params:
+    href    - link target; omit together with tag="button" for a submit button
+    label   - visible text (HTML allowed, e.g. an icon)
+    variant - primary (default) | transparent | light | dark
+    size    - default | sm | xs
+    tag     - a (default) | button
+    type    - button type when tag="button" (default: submit)
+    extra   - extra classes appended verbatim
+    style   - inline style attribute (used for view-transition-name)
+
+  Sizes and colours are arbitrary values on purpose: Bootstrap 4 defines its
+  own .px-4 / .py-4 / .text-* with !important, and an !important declaration
+  beats a normal one regardless of cascade layer, so reusing those names
+  during the overlap would hand control back to Bootstrap.
+{%- endcomment -%}
+
+{%- assign base = "inline-block text-center align-middle select-none border-0 relative z-[1] font-secondary capitalize leading-[1.5] rounded-[5px] transition-all duration-200 ease-[ease] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" -%}
+
+{%- case include.size -%}
+  {%- when "sm" -%}{%- assign size = "text-[15px] px-[30px] py-[10px]" -%}
+  {%- when "xs" -%}{%- assign size = "text-[15px] px-[10px] py-[5px]" -%}
+  {%- else -%}{%- assign size = "text-[22px] px-[44px] py-[16px]" -%}
+{%- endcase -%}
+
+{%- case include.variant -%}
+  {%- when "transparent" -%}{%- assign tone = "bg-transparent text-accent font-bold hover:text-accent" -%}
+  {%- when "light" -%}{%- assign tone = "bg-[#f8f9fa] text-[#212529] hover:bg-[#e2e6ea] font-semibold" -%}
+  {%- when "dark" -%}{%- assign tone = "bg-[#343a40] text-white hover:bg-[#23272b] font-semibold" -%}
+  {%- else -%}{%- assign tone = "bg-primary text-white hover:bg-primary-lite active:bg-primary-lite font-semibold" -%}
+{%- endcase -%}
+
+{%- assign classes = base | append: " " | append: size | append: " " | append: tone -%}
+{%- if include.extra -%}{%- assign classes = classes | append: " " | append: include.extra -%}{%- endif -%}
+
+{%- if include.tag == "button" -%}
+<button type="{{ include.type | default: 'submit' }}" class="{{ classes }}"{% if include.style %} style="{{ include.style }}"{% endif %}>{{ include.label }}</button>
+{%- else -%}
+<a href="{{ include.href }}" class="{{ classes }}"{% if include.style %} style="{{ include.style }}"{% endif %}>{{ include.label }}</a>
+{%- endif -%}

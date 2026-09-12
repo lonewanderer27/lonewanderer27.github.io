@@ -1,0 +1,25 @@
+{%- comment -%}
+  Page-title banner shared by the page and post layouts.
+  Params: heading (h1|h3), title, transition (view-transition-name)
+{%- endcomment -%}
+<section class="bg-primary relative pt-[120px] pb-[50px] sm:py-[180px] lg:pt-[250px] lg:pb-[150px]">
+  <div class="container-page relative z-[1]">
+    <div class="flex flex-wrap -mx-[15px]">
+      <div class="relative w-full px-[15px] text-center">
+        {% if include.heading == "h3" %}
+        <h3 class="text-h3 font-secondary text-white">{{ include.title }}</h3>
+        {% else %}
+        <h1 class="text-h1 font-secondary text-white"{% if include.transition %} style="view-transition-name: {{ include.transition }};"{% endif %}>{{ include.title }}</h1>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <!-- background shapes -->
+  <img src="{{ site.baseurl }}/assets/images/illustrations/page-title.png" alt="illustrations" class="max-w-full h-auto absolute left-0 bottom-0 w-full">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-pink-round.png" alt="illustrations" class="max-w-full h-auto absolute left-[-20px] top-[-10px]">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-cyan.png" alt="illustrations" class="max-w-full h-auto absolute left-[10%] top-[100px]">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-orange.png" alt="illustrations" class="max-w-full h-auto absolute left-1/2 top-[-20px] hidden sm:block">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-yellow.png" alt="illustrations" class="max-w-full h-auto absolute left-[90px] bottom-[-50px] rotate-180 hidden sm:block">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-cyan.png" alt="illustrations" class="max-w-full h-auto absolute right-[20%] bottom-[-20px] hidden sm:block">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan-lg.png" alt="illustrations" class="max-w-full h-auto absolute right-[-220px] bottom-[-100px] hidden sm:block">
+</section>

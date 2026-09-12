@@ -1,24 +1,24 @@
 <!-- footer -->
-<footer class="bg-dark footer-section">
-  <div class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-12">
-          <h5 class="text-light">Email</h5>
-          <p class="text-white paragraph-lg font-secondary">
+<footer class="bg-footer pt-[200px]">
+  <div class="py-[20px] sm:py-20">
+    <div class="container-page">
+      <div class="flex flex-wrap -mx-[15px]">
+        <div class="relative w-full px-[15px] lg:w-1/3">
+          <h5 class="text-h5 font-secondary text-muted">Email</h5>
+          <p class="text-white text-paragraph-lg font-secondary">
             <a class="text-white" href="mailto:{{ site.data.settings.email }}">{{ site.data.settings.email }}</a>
           </p>
         </div>
-        <div class="col-lg-4 col-12">
-          <h5 class="text-light">Phone</h5>
-          <p class="text-white paragraph-lg font-secondary">{{ site.data.settings.phone }}</p>
+        <div class="relative w-full px-[15px] lg:w-1/3">
+          <h5 class="text-h5 font-secondary text-muted">Phone</h5>
+          <p class="text-white text-paragraph-lg font-secondary">{{ site.data.settings.phone }}</p>
         </div>
-        <div class="col-lg-4 col-12 socials-footer">
-          <h5 class="text-light">Socials</h5><br/>
+        <div class="relative w-full px-[15px] lg:w-1/3">
+          <h5 class="text-h5 font-secondary text-muted">Socials</h5><br/>
           {% for social in site.data.settings.social %}
-          <li>
-            <a class="text-white fs-3" href="{{ social.link }}">
-              <i class="{{ social.icon }}"></i>
+          <li class="inline p-[15px]">
+            <a class="text-white" href="{{ social.link }}">
+              <i class="{{ social.icon }} text-[x-large]"></i>
             </a>
           </li>
           {% endfor %}
@@ -26,8 +26,8 @@
       </div>
     </div>
   </div>
-  <div class="border-top text-center border-dark py-5">
-    <p class="mb-0 text-light">{{site.data.settings.copyright | markdownify}}</p>
+  <div class="border-t border-t-footer-line text-center py-12">
+    <p class="mb-0 text-muted">{{site.data.settings.copyright | markdownify}}</p>
   </div>
 </footer>
 <!-- /footer -->
@@ -38,8 +38,9 @@
 <script src="{{ js | relative_url }}"></script>
 {% endfor %}
 
-<!-- Main Script -->
-<script src="{{ '/assets/js/script.js' | relative_url }}"></script>
-
-<!-- Email Form Script -->
+<!-- Site scripts -->
+<script src="{{ '/assets/js/nav.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/parallax.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/carousel.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/portfolio-filter.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/emailForm.js' | relative_url }}"></script>

@@ -17,7 +17,10 @@ docs/
 
 # Ruby Gems
 .bundle
-Gemfile.lock
+
+# Node / Tailwind
+node_modules/
+assets/css/main.css
 
 # Log Files
 *.log
