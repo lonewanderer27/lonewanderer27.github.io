@@ -143,7 +143,7 @@ certificates:
       name: "React Native",
       date: "April 2025",
       organization: "Udemy",
-      icon: brand-react,
+      icon: device-mobile,
       certificate: "https://www.udemy.com/certificate/UC-dde761c4-f890-4ab5-9b48-84f512df3805"
     }
   - {
