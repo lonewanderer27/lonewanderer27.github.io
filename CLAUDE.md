@@ -50,12 +50,27 @@ The size guard exists because a Tailwind build whose `@source` globs match nothi
 - **Breakpoints are pinned to Bootstrap 4's** (576/768/992/1200) so the port stayed a pure class translation. Unpinning is a deliberate, separate change.
 - Repeated markup is factored into includes rather than CSS classes — see `_includes/ui/`.
 
+### Icons
+
+One provider, inlined: [_includes/ui/icon.html](_includes/ui/icon.html) holds Tabler Icons (MIT) as a `{%- case -%}` over `include.name`, falling back to `medal`. There is no icon webfont and no icon CDN — the themify-icons woff (55KB + 13KB CSS) and the Font Awesome kit script were both removed, since the site draws about a dozen glyphs.
+
+- Size with a `size-*` utility, not a font size. The old `text-[45px] leading-25!` line-height centring trick does not work on an SVG; wrap the call in `grid place-items-center` instead.
+- Colour comes from `stroke="currentColor"`, so `text-*` semantic tokens still re-point for dark mode.
+- A single icon can override that with the include's `style` param. The experience entries do,
+  carrying `icon-color` / `icon-color-dark` hexes that render as `color: light-dark(light, dark)`.
+  `:root` already declares `color-scheme: light dark`, which is what makes `light-dark()` resolve.
+  A hex cannot become a utility class (`text-[{{ var }}]` is never generated, since Tailwind scans
+  for literals), so per-entry colour is an inline style rather than a class.
+- Icon names in `_data/settings.yml` are bare Tabler names (`brand-github`, `device-mobile`), not prefixed classes. `services`, `social`, `certificates` and `education` entries each take an optional `icon:`.
+- **Liquid cannot nest an include inside an include parameter** — the inner `%}` closes the outer tag. To pass an icon as a `ui/button.html` label, `{%- capture -%}` it first (see [portfolio-section.html](_includes/portfolio-section.html)).
+- Icons are decorative and `aria-hidden`; an icon-only link needs its own `aria-label`.
+
 Two idioms carried over from the Bootstrap port, both common across templates:
 
 - **Grid**: `container-page` (a custom `@utility` reproducing Bootstrap's stepped container widths) → `flex flex-wrap -mx-3.75` → `relative w-full px-3.75 lg:w-1/3` (3.75 = the 15px gutter on the 0.25rem spacing scale).
 - **Stateful classes toggled by JS** are styled with arbitrary variants, e.g. the header's `[&.nav-bg]:py-0`. The class itself is defined nowhere; only the variant references it.
 
-`@source` includes `../_data`, because icon class names (`ti-*`, `fa-*`) live in `_data/settings.yml`. Class names in YAML are scanned like class names in templates.
+`@source` includes `../_data`, because utility class names live in `_data/settings.yml` alongside the copy. Class names in YAML are scanned like class names in templates.
 
 ### Component includes with parameters
 
@@ -65,7 +80,7 @@ Two idioms carried over from the Bootstrap port, both common across templates:
 
 - [_config.yml](_config.yml) — Jekyll build config (plugins, `permalink: pretty`, kramdown, `destination: docs/`, `compress_html`, feed settings).
 - [_data/settings.yml](_data/settings.yml) — **all site copy**: title, logo, nav menu, social links, and every section (hero, about, work-process, skills, experience, certificates, education, services, portfolio + labels, testimonials, client slider, contact). Most content changes need no HTML.
-- [_data/plugins.yml](_data/plugins.yml) — vendor CSS/JS URL lists, iterated in `head.html` and `footer.html`. Currently themify-icons CSS and the EmailJS SDK.
+- [_data/plugins.yml](_data/plugins.yml) — vendor CSS/JS URL lists, iterated in `head.html` and `footer.html`. `css` is empty; `js` is just the EmailJS SDK.
 
 ### Pages, posts, layouts
 

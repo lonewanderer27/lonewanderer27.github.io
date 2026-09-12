@@ -41,8 +41,8 @@ hero:
   hero-title: Hi I’m Jay!<br>a Full-Stack <br>Engineer
 
 social:
-  - { icon: "fa-brands fa-github", link: "https://github.com/lonewanderer27" }
-  - { icon: "ti-linkedin", link: "https://linkedin.com/in/jay-puzon" }
+  - { icon: "brand-github", name: "GitHub", link: "https://github.com/lonewanderer27" }
+  - { icon: "brand-linkedin", name: "LinkedIn", link: "https://linkedin.com/in/jay-puzon" }
 
 #-------------------------------
 # About (Section and Page)
@@ -91,25 +91,33 @@ experience-title: Experience
 experience:
   - {
       name: Salesforce Developer,
-      icon: "icon-1.png",
+      icon: cloud-code,
+      icon-color: "#ec4899",
+      icon-color-dark: "#f472b6",
       date: "Jun 2026 - Present",
       organization: "Scape Australia",
     }
   - {
       name: Full Stack Engineer,
-      icon: "icon-2.png",
+      icon: stack-2,
+      icon-color: "#f59e0b",
+      icon-color-dark: "#fbbf24",
       date: "Feb 2025 - Jun 2026",
       organization: "Stratpoint Technologies",
     }
   - {
       name: AI Engineer,
-      icon: "icon-3.png",
+      icon: brain,
+      icon-color: "#06b6d4",
+      icon-color-dark: "#22d3ee",
       date: "Sep 2025 - Dec 2025",
       organization: "Upwork (Freelance)",
     }
   - {
       name: WordPress Developer,
-      icon: "icon-1.png",
+      icon: brand-wordpress,
+      icon-color: "#7c3aed",
+      icon-color-dark: "#a78bfa",
       date: "Jun 2022 - Jan 2023",
       organization: "OMP Security Inc, ARSIA Inc.",
     }
@@ -122,35 +130,41 @@ certificates:
       name: "Claude Code: AI-Assisted Development",
       date: "March 2026",
       organization: "Stratpoint Technologies",
+      icon: sparkles,
     }
   - {
       name: "Next.JS",
       date: "April 2025",
       organization: "Udemy",
+      icon: brand-nextjs,
       certificate: "https://www.udemy.com/certificate/UC-c456c804-6798-4614-aa62-20a46e633cf1"
     }
   - {
       name: "React Native",
       date: "April 2025",
       organization: "Udemy",
+      icon: device-mobile,
       certificate: "https://www.udemy.com/certificate/UC-dde761c4-f890-4ab5-9b48-84f512df3805"
     }
   - {
       name: Flutter & Dart,
       date: "March 2025",
       organization: "Udemy",
+      icon: brand-flutter,
       certificate: "https://www.udemy.com/certificate/UC-0abdfacd-f632-45da-9926-d82c449379e7"
     }
   - {
       name: React,
       date: "September 2024",
       organization: "Scrimba",
+      icon: brand-react,
       certificate: "https://v2.scrimba.com/certificate-cert2CsEjr6BTPCjR2r6GqCgcfc4y5MpTb6twi"
     }
   - {
       name: JavaScript,
       date: "November 2024",
       organization: "Scrimba",
+      icon: brand-javascript,
       certificate: "https://scrimba.com/certificate/u2Nz6eAV/gjavascript"
     }
 
@@ -164,6 +178,7 @@ education:
       name: B.S. in Computer Science,
       # date: "June 2025",
       organization: "Adamson University &mdash; Dean's Lister",
+      icon: school,
     }
 
 #-------------------------------
@@ -173,19 +188,19 @@ services-title: Services
 services:
   - {
       name: Mobile Application,
-      icon: ti-mobile,
+      icon: device-mobile,
       description: "I build cross-platform mobile apps with Flutter for both iOS and Android, shipped through Fastlane, Firebase App Distribution and TestFlight.",
       active: false
     }
   - {
       name: Full Stack Web App,
-      icon: ti-world,
+      icon: world,
       description: "I design and build full stack web applications, handling both frontend and backend, using React, Next.js, Node.js, Deno and PostgreSQL.",
       active: true
     }
   - {
       name: AI Integration,
-      icon: ti-bolt,
+      icon: bolt,
       description: "I integrate LLMs and computer vision into products — RAG over your own data with vector embeddings, plus containerized inference APIs.",
       active: false
     }

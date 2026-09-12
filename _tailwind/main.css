@@ -9,6 +9,9 @@
 @source "../_layouts";
 @source "../_pages";
 @source "../_posts";
+/* _data carries utility classes in YAML (section copy, layout tweaks), so it
+   is scanned like a template. It used to be here for the ti-* / fa-* icon
+   names too; those are inline SVG now (_includes/ui/icon.html). */
 @source "../_data";
 /* carousel.js builds its dot classes as strings, so the scripts are a
    source too. Without this the testimonial dots lose their styling. */

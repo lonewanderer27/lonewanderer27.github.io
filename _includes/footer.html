@@ -17,8 +17,8 @@
           <h5 class="text-h5 font-secondary text-muted">Socials</h5><br/>
           {% for social in site.data.settings.social %}
           <li class="inline p-3.75">
-            <a class="text-white" href="{{ social.link }}">
-              <i class="{{ social.icon }} text-[x-large]"></i>
+            <a class="text-white" href="{{ social.link }}" aria-label="{{ social.name | default: social.icon }}">
+              {% include ui/icon.html name=social.icon class="size-6 inline-block" %}
             </a>
           </li>
           {% endfor %}

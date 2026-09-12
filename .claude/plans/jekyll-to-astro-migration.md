@@ -158,7 +158,7 @@ export interface SiteConfig {
 // src/types/resume.ts
 export interface ExperienceItem {
   name: string;
-  /** Filename within /assets/images/experience/. */
+  /** Icon name resolved by the icon component (see _includes/ui/icon.html). */
   icon: string;
   date: string;
   organization: string;

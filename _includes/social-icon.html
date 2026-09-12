@@ -2,12 +2,13 @@
 <ul class="list-none pl-0 ms-12 mt-4 relative z-1">
     {% for social in site.data.settings.social %}
     <li class="mb-4 inline p-3.75 md:block md:p-0">
-        <a 
-            class="text-white" 
-            href="{{ social.link }}" 
+        <a
+            class="text-white"
+            href="{{ social.link }}"
             rel="{% if social.rel %}{{ social.rel }}{% endif %}"
+            aria-label="{{ social.name | default: social.icon }}"
         >
-            <i class="{{ social.icon }} text-[x-large] md:text-[length:inherit]"></i>
+            {% include ui/icon.html name=social.icon class="size-6 inline-block" %}
         </a>
     </li>
     {% endfor %}
