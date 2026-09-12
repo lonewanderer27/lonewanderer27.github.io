@@ -1,5 +1,6 @@
 <!-- client logo slider -->
-<section class="py-[20px] sm:py-20 pb-0">
+{% if site.data.settings.client-slider-items %}
+<section class="py-[20px] sm:py-20">
   <div class="container-page">
     <div class="relative w-full px-[15px] text-center">
       <h2 class="text-h2 font-secondary mb-20">My Clients</h2>
@@ -7,4 +8,5 @@
     {% include client-slider.html %}
   </div>
 </section>
+{% endif %}
 <!-- /client logo slider -->

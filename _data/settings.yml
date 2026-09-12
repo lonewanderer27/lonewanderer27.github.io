@@ -159,13 +159,13 @@ certificates:
 #-------------------------------
 # Education Section
 
-# education-title: Education
-# education:
-#   - {
-#       name: B.S. in Computer Science,
-#       # date: "June 2025",
-#       organization: "Adamson University &mdash; Dean's Lister",
-#     }
+education-title: Education
+education:
+  - {
+      name: B.S. in Computer Science,
+      # date: "June 2025",
+      organization: "Adamson University &mdash; Dean's Lister",
+    }
 
 #-------------------------------
 # Services Section

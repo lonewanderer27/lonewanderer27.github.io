@@ -52,15 +52,10 @@ image: assets/image/banner.png
 
 {% endcomment %}
 
-{% if site.data.settings.client-slider-items %}
-<section class="py-[20px] sm:py-20">
-  <div class="container-page">
-    <div class="flex flex-wrap -mx-[15px]">
-      <div class="relative w-full px-[15px] text-center">
-        <h2 class="text-h2 font-secondary mb-20">My Clients</h2>
-      </div>
-    </div>
-    {% include client-slider.html %}
-  </div>
-</section>
-{% endif %}
+{% include experience-section.html %}
+
+{% include certificates-section.html %}
+
+{% include education-section.html %}
+
+{% include client-section.html %}
