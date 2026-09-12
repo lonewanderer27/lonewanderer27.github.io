@@ -12,7 +12,7 @@
              which is the case in the two-up layout at tablet width. -->
         <div class="flex flex-col items-center text-center @min-[22rem]:flex-row @min-[22rem]:items-start @min-[22rem]:text-start">
           <div class="mb-4 @min-[22rem]:mb-0 @min-[22rem]:me-[1rem] @min-[32rem]:me-12">
-            <i class="ti-medall text-[45px] text-icon-soft size-[100px] leading-[100px]! text-center bg-surface shadow-soft rounded-full block"></i>
+            <i class="ti-medall text-[45px] text-icon-soft size-[100px] leading-[100px]! text-center bg-surface shadow-soft dark:shadow-black/50 rounded-full block"></i>
           </div>
           <div>
             <p class="text-heading mb-1">{{ item.date }}</p>
@@ -31,7 +31,7 @@
     </div>
   </div>
   <!-- bg image -->
-  <img class="max-w-full h-auto absolute left-0 top-[-300px] -z-10 w-full" src="{{ site.baseurl }}/assets/images/backgrounds/education-bg.png" alt="bg-image">
+  <img class="max-w-full h-auto absolute left-0 top-[-300px] -z-10 w-full dark:opacity-20" src="{{ site.baseurl }}/assets/images/backgrounds/education-bg.png" alt="bg-image">
 </section>
 <!-- /certificates -->
 {% endif %}

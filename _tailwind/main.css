@@ -21,6 +21,7 @@
   --color-haze: #eaeaea; /* was $gray */
 
   /* Semantic surfaces and text. These are the values the templates ask for,
+     so the dark theme is a matter of re-pointing them (see @layer base) and
      not of adding a dark: variant to every element. */
   --color-surface: #ffffff; /* cards, form fields, icon discs */
   --color-surface-alt: #f8f9fa; /* the tinted band behind "My Clients" */
@@ -141,6 +142,46 @@
   }
 }
 
+
+/* Automatic dark theme.
+ *
+ * Re-points the semantic tokens rather than restating rules, so every
+ * bg-surface / text-heading / shadow-soft in the templates follows along. The
+ * hue is carried over from the brand purple so the dark ground sits under the
+ * primary sections rather than fighting them.
+ *
+ * The three brand shadows are light-blue glows, which read as haze on a dark
+ * ground; on dark they become ordinary shadows.
+ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-surface: #1c1826; /* cards sit above the page */
+    --color-surface-alt: #161320;
+    --color-heading: #f3f1f8;
+    --color-body-text: #b9b4c7;
+    --color-muted: #8a8398;
+    --color-line: #332c44;
+    --color-link: #8ab4ff;
+    --color-link-hover: #b79cff;
+    --color-accent: #b79cff;
+    --color-haze: #241f31; /* blockquote tint */
+    --color-footer: #0d0b12;
+    --color-footer-line: #2a2338;
+    --color-input-text: #cfc9dc;
+    --color-icon-soft: #4b4266;
+
+    /* NOT the shadows. Tailwind inlines a --shadow-* token's value into the
+       utility at build time -- .shadow-soft carries the literal colour, not
+       var(--shadow-soft) -- so re-pointing the token here would emit and do
+       nothing. The call sites carry dark:shadow-<colour> instead, which
+       overrides --tw-shadow-color and keeps the geometry. */
+  }
+
+  /* The page ground is darker than a card, so body cannot reuse --color-surface. */
+  body {
+    background-color: #120f19;
+  }
+}
 
 @view-transition {
   navigation: auto;

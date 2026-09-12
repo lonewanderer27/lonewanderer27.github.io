@@ -8,7 +8,7 @@
       </div>
       {% for service in site.data.settings.services %}
       <div class="relative w-full px-[15px] mb-6 md:mb-0 md:w-1/3">
-        <div class="relative flex flex-col min-w-0 break-words rounded bg-surface bg-clip-border shadow-soft transition-all duration-200 ease-[ease] hover:shadow-lift">
+        <div class="relative flex flex-col min-w-0 break-words rounded bg-surface bg-clip-border shadow-soft dark:shadow-black/50 transition-all duration-200 ease-[ease] hover:shadow-lift dark:hover:shadow-black/60">
           <div class="flex-auto text-center px-6 py-12 {% if service.active %}bg-primary transition-all duration-300 ease-[ease] [&_*]:text-white!{% endif %}">
             <i class="{{ service.icon }} text-[45px] mb-12 inline-block"></i>
             <h4 class="text-h4 font-secondary mb-6">{{ service.name }}</h4>
