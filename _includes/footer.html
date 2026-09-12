@@ -27,7 +27,10 @@
     </div>
   </div>
   <div class="border-t border-t-footer-line text-center py-12">
-    <p class="mb-0 text-muted">{{site.data.settings.copyright | markdownify}}</p>
+    {%- assign year = site.time | date: "%Y" -%}
+    {%- assign copyright = site.data.settings.copyright | replace: "{year}", year -%}
+    <!-- div, not p: markdownify emits its own <p> wrapper -->
+    <div class="[&_p]:mb-0 text-muted">{{ copyright | markdownify }}</div>
   </div>
 </footer>
 <!-- /footer -->
