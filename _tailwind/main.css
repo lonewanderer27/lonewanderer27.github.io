@@ -384,13 +384,14 @@
  * backdrop-filter still runs, but with nothing translucent to show through it
  * is visually inert.
  *
- * Note these also flatten the AMBIENT ground, not just the materials: a
- * translucency-sensitive reader should not be handed a decorative wash
- * either.
+ * These flatten every decorative wash, not just the global ambient ground:
+ * a translucency-sensitive reader should not be handed a decorative wash
+ * behind the hero or portrait either. The material tokens are kept opaque,
+ * while the edge becomes a normal semantic line so cards retain separation.
  *
  * prefers-reduced-transparency is a real OS setting (macOS/iOS "Reduce
- * transparency", Windows "Transparency effects"). prefers-contrast lands on
- * the same values. */
+ * transparency", Windows "Transparency effects"). Increased contrast and
+ * browsers without backdrop-filter use the same fallback values. */
 @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
   :root {
     --color-material-thin: var(--color-surface);
@@ -401,6 +402,8 @@
     --color-ambient-1: transparent;
     --color-ambient-2: transparent;
     --color-ambient-3: transparent;
+    --color-hero-1: transparent;
+    --color-hero-2: transparent;
   }
 }
 
@@ -416,6 +419,8 @@
     --color-ambient-1: transparent;
     --color-ambient-2: transparent;
     --color-ambient-3: transparent;
+    --color-hero-1: transparent;
+    --color-hero-2: transparent;
   }
 }
 
