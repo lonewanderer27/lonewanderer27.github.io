@@ -1,6 +1,12 @@
-<div class="relative w-full px-[15px] mb-6 sm:w-1/2 lg:w-1/3">
-  <article class="relative flex flex-col min-w-0 break-words rounded bg-white bg-clip-border shadow-soft">
-    <img class="w-full rounded h-[200px] object-cover" src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+{%- comment -%}
+  Blog card. The wrapper is a container, so the card reacts to the width of
+  its own column rather than the viewport: once the column is wide enough for
+  a side-by-side layout it takes one, whichever grid it happens to sit in.
+  This is what the dead .card-lg rule in _blog.scss was reaching for.
+{%- endcomment -%}
+<div class="@container relative w-full px-[15px] mb-6 sm:w-1/2 lg:w-1/3">
+  <article class="relative flex flex-col min-w-0 break-words rounded bg-white bg-clip-border shadow-soft @min-[24rem]:flex-row">
+    <img class="w-full rounded h-[200px] object-cover @min-[24rem]:w-[42%] @min-[24rem]:h-auto @min-[24rem]:self-stretch" src="{{ post.image | relative_url }}" alt="{{ post.title }}">
     <div class="flex-auto p-[1.25rem]">
       <h4 class="text-h4 font-secondary mb-[0.75rem]">
         <a class="text-black hover:text-primary" href="{{ post.url | relative_url }}">{{ post.title }}</a>
