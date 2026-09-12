@@ -22,15 +22,15 @@
 {%- endcomment -%}
 {% if site.data.settings.testimonial-items %}
 <!-- testimonial -->
-<section class="py-[20px] sm:py-20 bg-primary relative">
-  <div class="container-page relative z-[1]">
-    <div class="flex flex-wrap -mx-[15px]">
-      <div class="relative w-full px-[15px] text-center">
+<section class="py-5 sm:py-20 bg-primary relative">
+  <div class="container-page relative z-1">
+    <div class="flex flex-wrap -mx-3.75">
+      <div class="relative w-full px-3.75 text-center">
         <h2 class="text-h2 font-secondary text-white mb-12">Testimonials</h2>
       </div>
-      <div class="relative w-full px-[15px] mx-auto lg:w-5/6">
+      <div class="relative w-full px-3.75 mx-auto lg:w-5/6">
         <div data-carousel="testimonials"
-             class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+             class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth scrollbar-none [&::-webkit-scrollbar]:hidden">
           {% for testimonial-item in site.data.settings.testimonial-items %}
           <!-- slider-item -->
           <figure class="w-full shrink-0 snap-center text-center">
@@ -41,7 +41,7 @@
             <figcaption>
               {% unless testimonial-item.anonymous %}
                 {% if testimonial-item.image %}
-                <img class="max-w-full h-auto size-[80px] object-cover rounded-full mb-6 inline-block"
+                <img class="max-w-full h-auto size-20 object-cover rounded-full mb-6 inline-block"
                   src="{{ testimonial-item.image | relative_url }}"
                   alt="{{ testimonial-item.name | default: testimonial-item.role }}">
                 {% endif %}
@@ -70,11 +70,11 @@
   </div>
   <!-- bg shapes -->
   <img src="{{ site.baseurl }}/assets/images/backgrounds/map.png" alt="map" class="max-w-full h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-v.png" alt="bg-shape" class="max-w-full h-auto absolute left-[100px] top-[-50px]">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-orange.png" alt="bg-shape" class="max-w-full h-auto absolute right-[150px] top-[50px]">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-sm.png" alt="bg-shape" class="max-w-full h-auto absolute right-[50px] top-[200px]">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-pink-round.png" alt="bg-shape" class="max-w-full h-auto absolute left-[100px] bottom-[200px] hidden sm:block">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan.png" alt="bg-shape" class="max-w-full h-auto absolute right-[200px] bottom-[-50px] hidden sm:block">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-v.png" alt="bg-shape" class="max-w-full h-auto absolute left-25 -top-12.5">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-orange.png" alt="bg-shape" class="max-w-full h-auto absolute right-37.5 top-12.5">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-sm.png" alt="bg-shape" class="max-w-full h-auto absolute right-12.5 top-50">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-pink-round.png" alt="bg-shape" class="max-w-full h-auto absolute left-25 bottom-50 hidden sm:block">
+  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan.png" alt="bg-shape" class="max-w-full h-auto absolute right-50 -bottom-12.5 hidden sm:block">
 </section>
 <!-- /testimonial -->
 {% endif %}

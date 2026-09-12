@@ -52,7 +52,7 @@ The size guard exists because a Tailwind build whose `@source` globs match nothi
 
 Two idioms carried over from the Bootstrap port, both common across templates:
 
-- **Grid**: `container-page` (a custom `@utility` reproducing Bootstrap's stepped container widths) → `flex flex-wrap -mx-[15px]` → `relative w-full px-[15px] lg:w-1/3`.
+- **Grid**: `container-page` (a custom `@utility` reproducing Bootstrap's stepped container widths) → `flex flex-wrap -mx-3.75` → `relative w-full px-3.75 lg:w-1/3` (3.75 = the 15px gutter on the 0.25rem spacing scale).
 - **Stateful classes toggled by JS** are styled with arbitrary variants, e.g. the header's `[&.nav-bg]:py-0`. The class itself is defined nowhere; only the variant references it.
 
 `@source` includes `../_data`, because icon class names (`ti-*`, `fa-*`) live in `_data/settings.yml`. Class names in YAML are scanned like class names in templates.

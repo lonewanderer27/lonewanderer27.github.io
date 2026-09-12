@@ -8,8 +8,8 @@
 (function () {
   "use strict";
 
-  var DOT = "h-[6px] w-[12px] m-[2px] rounded-[10px] bg-white/50 transition-all duration-200 ease-[ease] cursor-pointer";
-  var DOT_ACTIVE = "w-[25px] bg-white";
+  var DOT = "h-1.5 w-3 m-0.5 rounded-[10px] bg-white/50 transition-all duration-200 ease-[ease] cursor-pointer";
+  var DOT_ACTIVE = "w-6.25 bg-white";
 
   document.querySelectorAll("[data-carousel]").forEach(function (track) {
     var slides = Array.prototype.slice.call(track.children);

@@ -9,10 +9,10 @@
   viewport, so this is a fixed 135px -- what 15vh actually resolved to at a
   typical window height.
 {%- endcomment -%}
-<div class="flex items-center justify-center snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+<div class="flex items-center justify-center snap-x snap-mandatory overflow-x-auto scrollbar-none [&::-webkit-scrollbar]:hidden">
   {% for slider-item in site.data.settings.client-slider-items %}
   <a href="{{ slider-item.url }}" class="shrink-0 snap-center text-center block outline-0 p-6">
-    <img class="max-w-full h-auto w-[135px]" src="{{ site.baseurl }}/{{ slider-item.logo }}" alt="client-logo">
+    <img class="max-w-full h-auto w-33.75" src="{{ site.baseurl }}/{{ slider-item.logo }}" alt="client-logo">
   </a>
   {% endfor %}
 </div>
