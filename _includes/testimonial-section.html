@@ -1,3 +1,25 @@
+{%- comment -%}
+  Testimonials, driven by `testimonial-items` in _data/settings.yml.
+
+  Per-item fields, all optional except `content`:
+    content      the quote. Passed through markdownify, so **bold** works and
+                 is picked up by the [&_strong] variant below.
+    name         the person, when they have agreed to be named.
+    designation  their role, shown under `name`.
+    role         attribution without a name, e.g. "Marketing Lead".
+    context      what kind of client, shown under `role`, e.g.
+                 "security services company".
+    image        a photo of the person. Only rendered when the item is NOT
+                 anonymous: a stock photo above an unnamed quote reads as a
+                 fabricated reviewer.
+    anonymous    true to caption the quote "Anonymous Client".
+
+  Attribution falls back in order: name -> role -> "Anonymous Client".
+
+  One quote per slide. The track is a CSS scroll-snap carousel; carousel.js
+  generates the pagination dots and syncs the active one. See its markup
+  contract before changing data-carousel / data-carousel-dots.
+{%- endcomment -%}
 {% if site.data.settings.testimonial-items %}
 <!-- testimonial -->
 <section class="py-[20px] sm:py-20 bg-primary relative">
@@ -9,23 +31,37 @@
       <div class="relative w-full px-[15px] mx-auto lg:w-5/6">
         <div data-carousel="testimonials"
              class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        {% for testimonial-item in site.data.settings.testimonial-items %}
-        <!-- slider-item -->
-          <div class="w-full shrink-0 snap-center text-center [&_strong]:text-secondary [&_strong]:font-normal">
-          <i class="ti-quote-right text-white text-[45px] mb-6 inline-block"></i>
-          <p class="text-white mb-6">{{ testimonial-item.content }}</p>
-          <img class="max-w-full h-auto rounded-full mb-6 inline-block" src="{{ testimonial-item.image | relative_url }}"
-            alt="{{ testimonial-item.name }}">
-          {% if testimonial-item.anonymous %}
-          <h4 class="text-h4 font-secondary text-white">Anonymous Client</h4>
-          </br>
-          {% else %}
-          <h4 class="text-h4 font-secondary text-white">{{ testimonial-item.name }}</h4>
-            {% if testimonial-item.designation %}
-            <h6 class="text-h6 font-secondary text-muted mb-6">{{ testimonial-item.designation }}</h6>
-            {% endif %}
-          {% endif %}
-        </div>
+          {% for testimonial-item in site.data.settings.testimonial-items %}
+          <!-- slider-item -->
+          <figure class="w-full shrink-0 snap-center text-center">
+            <i class="ti-quote-right text-white text-[45px] mb-6 inline-block"></i>
+            <blockquote class="text-white mb-6 [&_p]:mb-0 [&_strong]:text-secondary [&_strong]:font-normal">
+              {{ testimonial-item.content | markdownify }}
+            </blockquote>
+            <figcaption>
+              {% unless testimonial-item.anonymous %}
+                {% if testimonial-item.image %}
+                <img class="max-w-full h-auto size-[80px] object-cover rounded-full mb-6 inline-block"
+                  src="{{ testimonial-item.image | relative_url }}"
+                  alt="{{ testimonial-item.name | default: testimonial-item.role }}">
+                {% endif %}
+              {% endunless %}
+              {% if testimonial-item.name %}
+              <h4 class="text-h4 font-secondary text-white">{{ testimonial-item.name }}</h4>
+                {% if testimonial-item.designation %}
+                <h6 class="text-h6 font-secondary text-white/70">{{ testimonial-item.designation }}</h6>
+                {% endif %}
+              {% elsif testimonial-item.role %}
+              <h4 class="text-h4 font-secondary text-white">{{ testimonial-item.role }}</h4>
+                {% if testimonial-item.context %}
+                <h6 class="text-h6 font-secondary text-white/70">{{ testimonial-item.context }}</h6>
+                {% endif %}
+              {% else %}
+              <h4 class="text-h4 font-secondary text-white/70">Anonymous Client</h4>
+              {% endif %}
+            </figcaption>
+          </figure>
+          <!-- /slider-item -->
           {% endfor %}
         </div>
         <div data-carousel-dots="testimonials" class="flex justify-center pt-2"></div>
