@@ -122,35 +122,41 @@ certificates:
       name: "Claude Code: AI-Assisted Development",
       date: "March 2026",
       organization: "Stratpoint Technologies",
+      icon: sparkles,
     }
   - {
       name: "Next.JS",
       date: "April 2025",
       organization: "Udemy",
+      icon: brand-nextjs,
       certificate: "https://www.udemy.com/certificate/UC-c456c804-6798-4614-aa62-20a46e633cf1"
     }
   - {
       name: "React Native",
       date: "April 2025",
       organization: "Udemy",
+      icon: brand-react,
       certificate: "https://www.udemy.com/certificate/UC-dde761c4-f890-4ab5-9b48-84f512df3805"
     }
   - {
       name: Flutter & Dart,
       date: "March 2025",
       organization: "Udemy",
+      icon: brand-flutter,
       certificate: "https://www.udemy.com/certificate/UC-0abdfacd-f632-45da-9926-d82c449379e7"
     }
   - {
       name: React,
       date: "September 2024",
       organization: "Scrimba",
+      icon: brand-react,
       certificate: "https://v2.scrimba.com/certificate-cert2CsEjr6BTPCjR2r6GqCgcfc4y5MpTb6twi"
     }
   - {
       name: JavaScript,
       date: "November 2024",
       organization: "Scrimba",
+      icon: brand-javascript,
       certificate: "https://scrimba.com/certificate/u2Nz6eAV/gjavascript"
     }
 
@@ -164,6 +170,7 @@ education:
       name: B.S. in Computer Science,
       # date: "June 2025",
       organization: "Adamson University &mdash; Dean's Lister",
+      icon: school,
     }
 
 #-------------------------------
