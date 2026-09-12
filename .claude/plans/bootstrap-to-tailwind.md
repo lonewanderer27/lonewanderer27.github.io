@@ -690,6 +690,26 @@ The `fix` commit is where the hero parallax starts working for the first time (s
 - Steps A–H: `refactor(styles)!: convert all styling to tailwind` — breaking, because it contains the `ci!` commit and its manual settings change.
 - Step I: `refactor(scripts): replace jquery plugins with native css and js`
 
+### Harness pitfall found the hard way
+
+**Chrome headless clamps `--window-size` width to a 500px minimum.** Asking
+for 375 renders a 500px-wide layout and then writes a 375px-wide PNG, so the
+right-hand 125px is silently cropped. Before/after comparisons stay valid
+(both sides get the same treatment) but two things follow:
+
+- Mobile was never actually tested at 375px. Use 500 as the narrow width.
+- Anything living in that right-hand strip is invisible to the harness. The
+  nav toggle sits there, which cost a long detour: it was reported missing,
+  then "fixed", when it had been rendering at x=420 the whole time.
+
+Two findings recorded earlier were artifacts of this and are **retracted**:
+Bootstrap 4.1.1's toggler data-URI icon renders fine in current Chrome (tested
+directly), and the mobile blurb does not overflow horizontally.
+
+The general lesson: when the harness says an element is absent, confirm it is
+absent from the *layout* (computed style and bounding rect) before concluding
+anything about CSS.
+
 ### Verification, in order of value
 
 1. **Screenshot baseline before step B.** Capture `/`, `/about`, `/portfolio`, `/blog`, a post, `/contact`, and `/404.html` at 375 / 768 / 1024 / 1440 px. There is no test suite in this repo, so screenshots *are* the test suite, and without them the port is unverifiable.
