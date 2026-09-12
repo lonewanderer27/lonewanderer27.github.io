@@ -25,17 +25,16 @@ redirect_from: /projects
         </div>
       </div>
     </div>
-    <!-- `shots` is the set of images the home page's portfolio strip renders;
-         only those cards are named, because only those have something to
-         morph with. See _includes/portfolio-section.html for the rest. -->
-    {%- assign shots = "" -%}
-    {%- for shot in site.data.settings.portfolio-home-items -%}
-      {%- assign shots = shots | append: "|" | append: shot.image -%}
-    {%- endfor -%}
+    <!-- Each card receives a unique view-transition-name based on its image slug
+         and the portfolio-card class (which maps to view-transition-class: portfolio-card).
+         This enables smooth in-page category transitions (group reflow, enter, exit).
+         The items that also appear on the home page keep matching names, preserving
+         the cross-document morph between the Home strip and Portfolio grid. -->
+    <p class="sr-only" aria-live="polite" id="portfolio-status"></p>
     <div data-portfolio-grid class="grid grid-cols-1 gap-x-7.5 sm:grid-cols-2 lg:grid-cols-3">
       {% for item in site.data.settings.portfolio-items %}
       <div class="relative w-full px-3.75 mb-6" data-groups="[{% for portfolio in item.portfolio-type %}{% if forloop.first == true %}{% else %},{% endif %}&quot;{{ portfolio.type }}&quot;{% endfor %}]">
-        <div class="relative rounded-card overflow-hidden group"{% if shots contains item.image %} style="view-transition-name: shot-{{ item.image | split: "/" | last | split: "." | first | slugify }};"{% endif %}>
+        <div class="relative rounded-card overflow-hidden group portfolio-card" style="view-transition-name: shot-{{ item.image | split: "/" | last | split: "." | first | slugify }};">
           <img src="{{ site.baseurl }}/{{ item.image }}" alt="portfolio-image" class="max-w-full rounded-card w-full block scale-110 transition-all duration-300 ease-[ease] group-hover:scale-100">
           <div class="absolute inset-0 rounded-[inherit] bg-black/30 invisible opacity-0 transition-all duration-300 ease-[ease] group-hover:visible group-hover:opacity-100">
             <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center">
