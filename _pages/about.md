@@ -2,7 +2,8 @@
 layout: about
 title: About Me
 author: Adriane (Ian) James
-image: assets/images/about/author.jpg
+image: assets/images/about/author-800.webp
+image-sm: assets/images/about/author-400.webp
 # signature: assets/images/about/signature.png
 ---
 
