@@ -4,7 +4,12 @@ image: /assets/image/banner.png
 ---
 
 <!-- page title -->
-{% include page-title.html title=page.title transition="portfolio-page-title" %}
+<!-- The transition name comes from the page's own front matter, not from here.
+     This used to hard-code "portfolio-page-title" for every page on this
+     layout, so /blog and /contact inherited it too and the home page's
+     "Portfolio" heading morphed into the word "Contact". Pages with no
+     counterpart elsewhere (contact) simply set nothing and cross-fade. -->
+{% include page-title.html title=page.title transition=page.transition %}
 <!-- /page title -->
 
 {{ content }}

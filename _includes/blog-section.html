@@ -1,9 +1,12 @@
 <!-- blog -->
+<!-- The heading is paired with /blog's page title (see the `transition`
+     key in _pages/blog.html); the cards are paired with the posts they link
+     to, in _includes/post.html. -->
 <section class="py-5 sm:py-20">
   <div class="container-page">
     <div class="flex flex-wrap -mx-3.75">
       <div class="relative w-full px-3.75 text-center">
-        <h2 class="text-h2 font-secondary mb-20">Latest Blogs</h2>
+        <h2 class="text-h2 font-secondary mb-20 [view-transition-name:blog-title]">Latest Blogs</h2>
       </div>
       {% for post in site.posts offset:0 limit:3 %}
       {% include post.html %}

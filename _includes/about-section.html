@@ -1,10 +1,14 @@
 <!-- about -->
+<!-- The "more about me" button used to carry view-transition-name:
+     about-page-title, which stretched a 40px pill into the about page's
+     <h1>. The continuity across that navigation is the portrait, which is
+     literally the same image file -- see ui/portrait.html's `transition`. -->
 <section class="py-5 sm:py-20">
   <div class="container-page">
     <div class="flex flex-wrap -mx-3.75">
       <div class="relative w-full px-3.75 mx-auto text-center lg:w-5/6">
         <p class="font-secondary text-paragraph-lg text-heading">{{ site.data.settings.blurb }}</p>
-        {% include ui/button.html variant="transparent" href=site.data.settings.blurb-btn-link label=site.data.settings.blurb-btn-name style="view-transition-name: about-page-title;" %}
+        {% include ui/button.html variant="transparent" href=site.data.settings.blurb-btn-link label=site.data.settings.blurb-btn-name %}
       </div>
     </div>
   </div>
