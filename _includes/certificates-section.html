@@ -19,9 +19,18 @@
           <div>
             <p class="text-heading mb-1">{{ item.date }}</p>
             <h4 class="text-h4 font-secondary">
-              {% if item.certificate %}
+              {% if item.image %}
+              {%- comment -%} Has image → open modal {%- endcomment -%}
+              <button type="button"
+                data-cert-image="{{ item.image | relative_url }}"
+                {% if item.certificate %}data-cert-url="{{ item.certificate }}"{% endif %}
+                class="underline text-accent cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit text-start"
+                title="View certificate">{{ item.name }}</button>
+              {% elsif item.certificate %}
+              {%- comment -%} URL only → direct link {%- endcomment -%}
               <a href="{{ item.certificate }}" class="underline text-accent" title="View certificate">{{ item.name }}</a>
               {% else %}
+              {%- comment -%} Neither → plain text {%- endcomment -%}
               {{ item.name }}
               {% endif %}
             </h4>
@@ -34,6 +43,25 @@
       {% endfor %}
     </div>
   </div>
+
+  <!-- Certificate preview modal (shared, populated by JS) -->
+  <dialog id="cert-modal">
+    <div id="cert-modal-content" class="material-thick rounded-card p-4 sm:p-6 relative">
+      <button type="button" data-cert-close aria-label="Close"
+              class="absolute top-3 right-3 size-8 grid place-items-center rounded-full
+                     material text-heading cursor-pointer border-none bg-transparent
+                     hover:bg-material-thin transition-colors duration-150">
+        {% include ui/icon.html name="x" class="size-5" %}
+      </button>
+      <a id="cert-link" target="_blank" rel="noopener noreferrer" class="block">
+        <img id="cert-image" src="" alt=""
+             class="rounded-control max-h-[75dvh] w-auto max-w-full mx-auto block" />
+      </a>
+      <p id="cert-hint" class="text-muted text-center text-h6 mt-3 mb-0">
+        Click the image to view the original certificate ↗
+      </p>
+    </div>
+  </dialog>
 </section>
 <!-- /certificates -->
 {% endif %}
