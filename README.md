@@ -1,6 +1,6 @@
 # Kross Jekyll | My Portfolio
 
-Kross Jekyll Creative Portfolio Template ported from [Kross HTML Template](https://themefisher.com/products/kross/)
+Jekyll personal portfolio/blog ported from the [Kross HTML Template](https://themefisher.com/products/kross/), restyled with Tailwind CSS v4.
 
 ## Demo
 
@@ -8,14 +8,21 @@ Kross Jekyll Creative Portfolio Template ported from [Kross HTML Template](https
 |---|---|---|---|---|
 | ![Homepage](./preview-home.png) | ![About](./preview-about.png) | ![Blog](./preview-blog.png) | ![portfolio](./preview-portfolio.png) | ![contact](./preview-contact.png) |
 
-[Live Preview](https://lonewanderer27.github.io)
+[Live Preview](https://jay.thedev.id)
 
 ## Setup
 
-To start your project, fork this repository
-After forking the repo, your site will be live immediately on your personal Github Pages account, e.g. `https://yourusername.github.io/your-repo-name/`.
+```bash
+bundle install     # Ruby gems (Ruby 3.4.10)
+pnpm install       # Node deps (pnpm 11)
 
-Make sure GitHub Pages is enabled for your repo. It might take some time for the site to propagate entirely.
+pnpm dev           # build CSS, then watch CSS + `jekyll serve`
+pnpm css:build     # _tailwind/main.css -> assets/css/main.css (minified)
+```
+
+`bundle exec jekyll serve` on its own is **not** enough — Jekyll does not compile the CSS, it only copies the already-built `assets/css/main.css`. Run `pnpm dev`, or `pnpm css:build` first, otherwise the site renders unstyled.
+
+`assets/css/main.css` and `docs/` are build artifacts and are gitignored.
 
 ## Customize
 
@@ -39,29 +46,20 @@ Things you can customize in `_data/settings.yml` (no HTML/CSS):
 
 I have made the following modifications to the original project:
 
+- Restyled from Bootstrap 4 to Tailwind CSS v4 — `_tailwind/main.css` is the only hand-written CSS, with semantic colour tokens and dark mode via `prefers-color-scheme`.
+- Replaced the jQuery plugins with plain-JS (`assets/js/`).
 - Added a feature to display certificates.
 - Nav item active class when its the active page
 
 ## Deployment
 
-To run the theme locally, navigate to the theme directory and run `bundle install` to install the dependencies, then run `jekyll serve` or `bundle exec jekyll serve` to start the Jekyll server.
-I would recommend checking the [Deployment Methods](https://jekyllrb.com/docs/deployment-methods/) page on Jekyll's website.
+Deployed to GitHub Pages at `https://jay.thedev.id` from `main` by [pages.yml](.github/workflows/pages.yml): `pnpm css:build` → `bundle exec jekyll build` (into `docs/`) → upload as the Pages artifact. The repo's Pages source must be set to **GitHub Actions**, not a branch/folder.
 
-## Reporting Issues
-
-We use GitHub Issues as the official bug tracker for the **Kross Theme**. Please Search [existing issues](https://github.com/themefisher/kross-jekyll/issues). It’s possible someone has already reported the same problem.
-If your problem or idea is not addressed yet, [open a new issue](https://github.com/themefisher/kross-jekyll/issues/new)
-
-## Technical Support or Questions
-
-If you have questions or need help integrating the product please [contact us](mailto:themefisher@gmail.com) instead of opening an issue.
-
-<!-- licence -->
 ## License
 
 Copyright (c) 2016 - Present, Designed & Developed by [Themefisher](https://themefisher.com)
 
-Modified by [Ian James](https://github.com/lonewanderer27) (2024) 
+Modified by [Ian James](https://github.com/lonewanderer27) (2026)
 
 **Code License:** Released under the [MIT](https://github.com/themefisher/kross-jekyll/blob/main/LICENSE) license.
 
