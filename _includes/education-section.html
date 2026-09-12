@@ -7,9 +7,11 @@
         <h2 class="text-h2 font-secondary mb-20">{{ site.data.settings.education-title }}</h2>
       </div>
       {% for item in site.data.settings.education %}
-      <div class="relative w-full px-[15px] mb-20 md:w-1/2">
-        <div class="flex">
-          <div class="me-[1rem] lg:me-12">
+      <div class="@container relative w-full px-[15px] mb-20 md:w-1/2">
+        <!-- Stacks when the column is too narrow for an icon beside the text,
+             which is the case in the two-up layout at tablet width. -->
+        <div class="flex flex-col items-center text-center @min-[22rem]:flex-row @min-[22rem]:items-start @min-[22rem]:text-start">
+          <div class="mb-4 @min-[22rem]:mb-0 @min-[22rem]:me-[1rem] @min-[32rem]:me-12">
             <i class="ti-medall text-[45px] text-[#c8d5ef] size-[100px] leading-[100px]! text-center bg-white shadow-soft rounded-full block"></i>
           </div>
           <div>
