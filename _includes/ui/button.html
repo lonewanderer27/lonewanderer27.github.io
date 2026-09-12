@@ -26,7 +26,7 @@
 {%- endcase -%}
 
 {%- case include.variant -%}
-  {%- when "transparent" -%}{%- assign tone = "bg-transparent text-primary font-bold hover:text-primary" -%}
+  {%- when "transparent" -%}{%- assign tone = "bg-transparent text-accent font-bold hover:text-accent" -%}
   {%- when "light" -%}{%- assign tone = "bg-[#f8f9fa] text-[#212529] hover:bg-[#e2e6ea] font-semibold" -%}
   {%- when "dark" -%}{%- assign tone = "bg-[#343a40] text-white hover:bg-[#23272b] font-semibold" -%}
   {%- else -%}{%- assign tone = "bg-primary text-white hover:bg-primary-lite active:bg-primary-lite font-semibold" -%}

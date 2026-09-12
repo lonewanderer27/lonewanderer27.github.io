@@ -10,10 +10,7 @@ redirect_from: /projects
       <div class="relative w-full px-[15px]">
         <!-- Filter. Bootstrap's data-toggle="buttons" existed only to move an
              .active class between labels; :has(:checked) does that in CSS. -->
-        <div class="flex flex-col justify-center sm:flex-row
-                    [&>label]:relative [&>label]:flex-initial [&>label]:mb-0!
-                    [&>label:not(:first-child)]:rounded-tl-none [&>label:not(:first-child)]:rounded-bl-none
-                    [&>label:not(:last-child)]:rounded-tr-none [&>label:not(:last-child)]:rounded-br-none">
+        <div class="flex flex-col justify-center sm:flex-row [&>label]:relative [&>label]:flex-initial [&>label]:mb-0! [&>label:not(:first-child)]:rounded-tl-none [&>label:not(:first-child)]:rounded-bl-none [&>label:not(:last-child)]:rounded-tr-none [&>label:not(:last-child)]:rounded-br-none">
           <label class="inline-block text-center align-middle select-none cursor-pointer border-0 relative z-[1] font-secondary capitalize font-semibold leading-[1.5] rounded-[5px] text-[15px] px-[30px] py-[10px] bg-primary text-white transition-all duration-200 ease-[ease] has-[:checked]:bg-primary-lite">
             <input type="radio" name="portfolio-filter" value="all" checked="checked" class="absolute pointer-events-none [clip:rect(0,0,0,0)]" />All
           </label>
@@ -58,7 +55,7 @@ redirect_from: /projects
 
 <!-- clients -->
 {% if site.data.settings.client-slider-items %}
-<section class="py-[20px] sm:py-20 bg-[#f8f9fa]">
+<section class="py-[20px] sm:py-20 bg-surface-alt">
   <div class="container-page">
     <div class="flex flex-wrap -mx-[15px]">
       <div class="relative w-full px-[15px] text-center">

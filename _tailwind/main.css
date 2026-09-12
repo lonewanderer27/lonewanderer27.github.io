@@ -9,8 +9,6 @@
 @source "../index.html";
 @source "../404.html";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
   /* Brand — ported from assets/scss/_variables.scss */
   --color-primary: #41228e;
@@ -21,6 +19,19 @@
   --color-line: #c7c7c7;
   --color-ink: #222222; /* was the .bg-dark override */
   --color-haze: #eaeaea; /* was $gray */
+
+  /* Semantic surfaces and text. These are the values the templates ask for,
+     not of adding a dark: variant to every element. */
+  --color-surface: #ffffff; /* cards, form fields, icon discs */
+  --color-surface-alt: #f8f9fa; /* the tinted band behind "My Clients" */
+  --color-heading: #000000;
+  --color-link: #007bff;
+  --color-link-hover: #41228e;
+  --color-accent: #41228e; /* brand colour used as text ON the page ground */
+  --color-footer: #222222;
+  --color-footer-line: #343a40;
+  --color-input-text: #495057;
+  --color-icon-soft: #c8d5ef; /* the pale medal glyph */
 
   /* Breakpoints pinned to Bootstrap 4's, so template diffs stay pure class
      translation with no breakpoint shift mixed in. Unpin deliberately later. */
@@ -89,7 +100,7 @@
 
 @layer base {
   body {
-    background-color: #fff;
+    background-color: var(--color-surface);
     overflow-x: hidden;
     font-family: var(--font-primary);
     font-size: 15px;
@@ -108,7 +119,7 @@
      Bootstrap's reboot, which every template was relying on. */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-secondary);
-    color: #000;
+    color: var(--color-heading);
     line-height: 1.2;
     margin-bottom: 0.5rem;
   }
@@ -122,13 +133,14 @@
   /* Bootstrap's anchor colour, kept so the port stays faithful. Worth
      revisiting: primary would be the on-theme choice. */
   a {
-    color: #007bff;
+    color: var(--color-link);
   }
 
   a:hover {
-    color: var(--color-primary);
+    color: var(--color-link-hover);
   }
 }
+
 
 @view-transition {
   navigation: auto;

@@ -10,12 +10,12 @@ layout: default
     <div class="flex flex-wrap -mx-[15px]">
       <div class="relative w-full px-[15px]">
         <img src="{{page.image | relative_url }}" class="max-w-full h-auto rounded float-left me-12 mb-6" alt="{{page.title}}">
-        <p class="font-secondary">Published on {{ page.date | date: '%b %d, %Y' }} by <span class="text-primary">{{ page.author }}</span
-            class="text-primary"> on {% for tag in page.tags %}<span>{{ tag }} </span>{% endfor %}</p>
+        <p class="font-secondary">Published on {{ page.date | date: '%b %d, %Y' }} by <span class="text-accent">{{ page.author }}</span
+            class="text-accent"> on {% for tag in page.tags %}<span>{{ tag }} </span>{% endfor %}</p>
         {% if page.image_source %}
         <p class="font-secondary">Header Image on <a href="{{ page.image_source_url }}">{{ page.image_source }}</a></p>
         {% endif %}
-        <div class="content my-12 prose max-w-none prose-headings:font-secondary prose-headings:text-black prose-headings:leading-[1.2] prose-p:text-[15px] prose-p:leading-[1.8] prose-p:text-body-text prose-li:text-[15px] prose-li:leading-[1.8] prose-li:text-body-text prose-a:text-[#007bff] prose-a:no-underline hover:prose-a:text-primary prose-strong:font-secondary prose-strong:text-[22px] prose-strong:font-normal prose-strong:text-black prose-strong:leading-[1.5] prose-blockquote:border-s-2 prose-blockquote:border-s-primary prose-blockquote:bg-haze prose-blockquote:not-italic">
+        <div class="content my-12 prose max-w-none prose-headings:font-secondary prose-headings:text-heading prose-headings:leading-[1.2] prose-p:text-[15px] prose-p:leading-[1.8] prose-p:text-body-text prose-li:text-[15px] prose-li:leading-[1.8] prose-li:text-body-text prose-a:text-link prose-a:no-underline hover:prose-a:text-link-hover prose-strong:font-secondary prose-strong:text-[22px] prose-strong:font-normal prose-strong:text-heading prose-strong:leading-[1.5] prose-blockquote:border-s-2 prose-blockquote:border-s-primary prose-blockquote:bg-haze prose-blockquote:not-italic">
           {{ content }}
         </div>
       </div>

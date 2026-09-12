@@ -1,11 +1,7 @@
 <!-- The `navigation` class is kept purely as a JS hook: script.js toggles
      .nav-bg on it during scroll. All styling comes from utilities, and the
      scrolled state is expressed with the [&.nav-bg]: variant. -->
-<header class="navigation fixed top-0 inset-x-0 z-[1030] transition-all duration-300 ease-[ease]
-               p-[20px] bg-primary
-               [&.nav-bg]:bg-primary [&.nav-bg]:py-0 [&.nav-bg]:px-[20px]
-               lg:py-[20px] lg:px-[130px] lg:bg-transparent
-               lg:[&.nav-bg]:py-0 lg:[&.nav-bg]:px-[100px]">
+<header class="navigation fixed top-0 inset-x-0 z-[1030] transition-all duration-300 ease-[ease] p-[20px] bg-primary [&.nav-bg]:bg-primary [&.nav-bg]:py-0 [&.nav-bg]:px-[20px] lg:py-[20px] lg:px-[130px] lg:bg-transparent lg:[&.nav-bg]:py-0 lg:[&.nav-bg]:px-[100px]">
   <nav class="relative flex flex-wrap items-center justify-between py-2 px-[1rem]">
     <a class="inline-block py-[0.3125rem] me-4 whitespace-nowrap font-secondary text-[40px] leading-[inherit]" href="{{ site.baseurl }}/">
       {% if site.data.settings.logo %}
@@ -16,9 +12,9 @@
     </a>
     <button type="button" data-nav-toggle aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"
       class="flex flex-col justify-center gap-[5px] w-[44px] h-[38px] px-[9px] rounded border border-white/25 bg-transparent lg:hidden">
-      <span class="block h-[2px] w-full rounded bg-white"></span>
-      <span class="block h-[2px] w-full rounded bg-white"></span>
-      <span class="block h-[2px] w-full rounded bg-white"></span>
+      <span class="block h-[2px] w-full rounded bg-surface"></span>
+      <span class="block h-[2px] w-full rounded bg-surface"></span>
+      <span class="block h-[2px] w-full rounded bg-surface"></span>
     </button>
 
     <div id="navigation" class="hidden w-full items-center text-center lg:flex lg:w-auto lg:ms-auto">

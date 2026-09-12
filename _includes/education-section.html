@@ -12,13 +12,13 @@
              which is the case in the two-up layout at tablet width. -->
         <div class="flex flex-col items-center text-center @min-[22rem]:flex-row @min-[22rem]:items-start @min-[22rem]:text-start">
           <div class="mb-4 @min-[22rem]:mb-0 @min-[22rem]:me-[1rem] @min-[32rem]:me-12">
-            <i class="ti-medall text-[45px] text-[#c8d5ef] size-[100px] leading-[100px]! text-center bg-white shadow-soft rounded-full block"></i>
+            <i class="ti-medall text-[45px] text-icon-soft size-[100px] leading-[100px]! text-center bg-surface shadow-soft rounded-full block"></i>
           </div>
           <div>
-            <p class="text-black mb-1">{{ item.date }}</p>
+            <p class="text-heading mb-1">{{ item.date }}</p>
             <h4 class="text-h4 font-secondary">
               {% if item.certificate %}
-              <a href="{{ item.certificate }}" class="underline text-primary" title="View certificate">{{ item.name }}</a>
+              <a href="{{ item.certificate }}" class="underline text-accent" title="View certificate">{{ item.name }}</a>
               {% else %}
               {{ item.name }}
               {% endif %}
