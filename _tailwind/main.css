@@ -100,6 +100,12 @@
 
 
 @layer base {
+  /* Tells the browser both themes are supported, so it renders scrollbars,
+     form controls and autofill to match instead of leaving them light. */
+  :root {
+    color-scheme: light dark;
+  }
+
   body {
     background-color: var(--color-surface);
     overflow-x: hidden;
