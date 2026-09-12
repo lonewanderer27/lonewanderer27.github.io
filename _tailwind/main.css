@@ -1,4 +1,8 @@
-@import "tailwindcss";
+/* source(none) disables automatic source detection, which otherwise scans the
+   whole project -- including the plan documents in .claude/ -- and emits their
+   example classes into production CSS. The @source list below is the only
+   input. */
+@import "tailwindcss" source(none);
 @plugin "@tailwindcss/typography";
 
 @source "../_includes";
@@ -6,6 +10,9 @@
 @source "../_pages";
 @source "../_posts";
 @source "../_data";
+/* carousel.js builds its dot classes as strings, so the scripts are a
+   source too. Without this the testimonial dots lose their styling. */
+@source "../assets/js";
 @source "../index.html";
 @source "../404.html";
 
