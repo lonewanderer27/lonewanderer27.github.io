@@ -17,8 +17,7 @@ menu:
   - { name: Blog, link: "/blog" }
   - { name: Portfolio, link: "/portfolio" }
   - { name: Resume, link: "/resume" }
-  - { name: Contact, link: "/contact" }
-  - { name: <i class="fa-brands fa-github"></i>, link: "https://github.com/lonewanderer27"}
+  - { name: Let's connect, link: "/contact" }
 
 #-------------------------------
 # Google Analytics Section
