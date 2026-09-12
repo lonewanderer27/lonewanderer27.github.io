@@ -4,27 +4,27 @@ title: Portfolio
 redirect_from: /projects
 ---
 <!-- portfolio -->
-<section class="py-[20px] sm:py-20">
+<section class="py-5 sm:py-20">
   <div class="container-page">
-    <div class="flex flex-wrap -mx-[15px] mb-12">
-      <div class="relative w-full px-[15px]">
+    <div class="flex flex-wrap -mx-3.75 mb-12">
+      <div class="relative w-full px-3.75">
         <!-- Filter. Bootstrap's data-toggle="buttons" existed only to move an
              .active class between labels; :has(:checked) does that in CSS. -->
         <div class="flex flex-col justify-center sm:flex-row [&>label]:relative [&>label]:flex-initial [&>label]:mb-0 [&>label:not(:first-child)]:rounded-tl-none [&>label:not(:first-child)]:rounded-bl-none [&>label:not(:last-child)]:rounded-tr-none [&>label:not(:last-child)]:rounded-br-none">
-          <label class="inline-block text-center align-middle select-none cursor-pointer border-0 relative z-[1] font-secondary capitalize font-semibold leading-[1.5] rounded-[5px] text-[15px] px-[30px] py-[10px] bg-primary text-white transition-all duration-200 ease-[ease] has-[:checked]:bg-primary-lite">
+          <label class="inline-block text-center align-middle select-none cursor-pointer border-0 relative z-1 font-secondary capitalize font-semibold leading-normal rounded-[5px] text-[15px] px-7.5 py-2.5 bg-primary text-white transition-all duration-200 ease-[ease] has-checked:bg-primary-lite">
             <input type="radio" name="portfolio-filter" value="all" checked="checked" class="absolute pointer-events-none [clip:rect(0,0,0,0)]" />All
           </label>
           {% for label in site.data.settings.portfolio-label %}
-          <label class="inline-block text-center align-middle select-none cursor-pointer border-0 relative z-[1] font-secondary capitalize font-semibold leading-[1.5] rounded-[5px] text-[15px] px-[30px] py-[10px] bg-primary text-white transition-all duration-200 ease-[ease] has-[:checked]:bg-primary-lite">
+          <label class="inline-block text-center align-middle select-none cursor-pointer border-0 relative z-1 font-secondary capitalize font-semibold leading-normal rounded-[5px] text-[15px] px-7.5 py-2.5 bg-primary text-white transition-all duration-200 ease-[ease] has-checked:bg-primary-lite">
             <input type="radio" name="portfolio-filter" value="{{ label.type }}" class="absolute pointer-events-none [clip:rect(0,0,0,0)]" />{{ label.title }}
           </label>
           {% endfor %}
         </div>
       </div>
     </div>
-    <div data-portfolio-grid class="grid grid-cols-1 gap-x-[30px] sm:grid-cols-2 lg:grid-cols-3">
+    <div data-portfolio-grid class="grid grid-cols-1 gap-x-7.5 sm:grid-cols-2 lg:grid-cols-3">
       {% for item in site.data.settings.portfolio-items %}
-      <div class="relative w-full px-[15px] mb-6" data-groups="[{% for portfolio in item.portfolio-type %}{% if forloop.first == true %}{% else %},{% endif %}&quot;{{ portfolio.type }}&quot;{% endfor %}]">
+      <div class="relative w-full px-3.75 mb-6" data-groups="[{% for portfolio in item.portfolio-type %}{% if forloop.first == true %}{% else %},{% endif %}&quot;{{ portfolio.type }}&quot;{% endfor %}]">
         <div class="relative rounded overflow-hidden group">
           <img src="{{ site.baseurl }}/{{ item.image }}" alt="portfolio-image" class="max-w-full rounded w-full block scale-110 transition-all duration-300 ease-[ease] group-hover:scale-100">
           <div class="absolute inset-0 rounded-[inherit] bg-black/30 invisible opacity-0 transition-all duration-300 ease-[ease] group-hover:visible group-hover:opacity-100">
@@ -55,10 +55,10 @@ redirect_from: /projects
 
 <!-- clients -->
 {% if site.data.settings.client-slider-items %}
-<section class="py-[20px] sm:py-20 bg-surface-alt">
+<section class="py-5 sm:py-20 bg-surface-alt">
   <div class="container-page">
-    <div class="flex flex-wrap -mx-[15px]">
-      <div class="relative w-full px-[15px] text-center">
+    <div class="flex flex-wrap -mx-3.75">
+      <div class="relative w-full px-3.75 text-center">
         <h2 class="text-h2 font-secondary mb-20">My Clients</h2>
       </div>
     </div>

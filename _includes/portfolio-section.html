@@ -1,15 +1,15 @@
 {% if site.data.settings.portfolio-home-items %}
 <!-- portfolio -->
-<section class="py-[20px] sm:py-20">
+<section class="py-5 sm:py-20">
   <div class="container-page">
-    <div class="flex flex-wrap -mx-[15px]">
-      <div class="relative w-full px-[15px] text-center">
+    <div class="flex flex-wrap -mx-3.75">
+      <div class="relative w-full px-3.75 text-center">
         <h2 class="text-h2 font-secondary mb-20" style="view-transition-name: portfolio-page-title;">Portfolio</h2>
       </div>
     </div>
-    <div data-portfolio-grid class="grid grid-cols-1 gap-x-[30px] sm:grid-cols-2 lg:grid-cols-3">
+    <div data-portfolio-grid class="grid grid-cols-1 gap-x-7.5 sm:grid-cols-2 lg:grid-cols-3">
       {% for item in site.data.settings.portfolio-home-items %}
-      <div class="relative w-full px-[15px] mb-6">
+      <div class="relative w-full px-3.75 mb-6">
         <div class="relative rounded overflow-hidden group">
           <img src="{{ site.baseurl }}/{{ item.image }}" alt="portfolio-image" class="max-w-full rounded w-full block scale-110 transition-all duration-300 ease-[ease] group-hover:scale-100">
           <div class="absolute inset-0 rounded-[inherit] bg-black/30 invisible opacity-0 transition-all duration-300 ease-[ease] group-hover:visible group-hover:opacity-100">
@@ -34,8 +34,8 @@
       </div>
       {% endfor %}
     </div>
-    <div class="flex flex-wrap -mx-[15px]">
-      <div class="relative w-full px-[15px] text-center">
+    <div class="flex flex-wrap -mx-3.75">
+      <div class="relative w-full px-3.75 text-center">
         {% include ui/button.html variant="transparent" href=site.data.settings.portfolio-home-btn-link label=site.data.settings.portfolio-home-btn-name %}
       </div>
     </div>

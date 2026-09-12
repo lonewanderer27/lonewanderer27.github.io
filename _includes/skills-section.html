@@ -1,20 +1,20 @@
 {% if site.data.settings.skills %}
 <!-- skills -->
-<section class="py-[20px] sm:py-20">
+<section class="py-5 sm:py-20">
   <div class="container-page">
-    <div class="flex flex-wrap -mx-[15px]">
-      <div class="relative w-full px-[15px] text-center">
+    <div class="flex flex-wrap -mx-3.75">
+      <div class="relative w-full px-3.75 text-center">
         <h2 class="text-h2 font-secondary mb-20">{{ site.data.settings.skills-title }}</h2>
       </div>
       {% for skill in site.data.settings.skills %}
-      <div class="relative w-full px-[15px] mb-6 lg:mb-0 sm:w-1/2 lg:w-1/4">
-        <div class="relative flex flex-col min-w-0 break-words rounded bg-surface bg-clip-border shadow-soft dark:shadow-black/50 text-center">
-          <div class="relative rounded-t h-[130px] overflow-hidden" style="background-color: {{ skill.color }}">
-            <div class="absolute w-full h-full before:content-[''] before:absolute before:bottom-0 before:left-1/2 before:z-10 before:size-[800px] before:-translate-x-1/2 before:rounded-[45%] before:bg-white/40 before:animate-wave motion-reduce:before:animate-none after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:z-20 after:size-[800px] after:-translate-x-1/2 after:rounded-[47%] after:bg-white/90 after:animate-wave-slow motion-reduce:after:animate-none"
+      <div class="relative w-full px-3.75 mb-6 lg:mb-0 sm:w-1/2 lg:w-1/4">
+        <div class="relative flex flex-col min-w-0 wrap-break-word rounded bg-surface bg-clip-border shadow-soft dark:shadow-black/50 text-center">
+          <div class="relative rounded-t h-32.5 overflow-hidden" style="background-color: {{ skill.color }}">
+            <div class="absolute w-full h-full before:content-[''] before:absolute before:bottom-0 before:left-1/2 before:z-10 before:size-200 before:-translate-x-1/2 before:rounded-[45%] before:bg-white/40 before:animate-wave motion-reduce:before:animate-none after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:z-20 after:size-200 after:-translate-x-1/2 after:rounded-[47%] after:bg-white/90 after:animate-wave-slow motion-reduce:after:animate-none"
                  style="bottom: {{ skill.value }}"></div>
           </div>
-          <div class="px-[1.25rem] py-[0.75rem] bg-surface">
-            <h4 class="text-h4 font-secondary mb-[0.75rem]">{{ skill.name }} ({{ skill.value }})</h4>
+          <div class="px-5 py-3 bg-surface">
+            <h4 class="text-h4 font-secondary mb-3">{{ skill.name }} ({{ skill.value }})</h4>
           </div>
         </div>
       </div>
