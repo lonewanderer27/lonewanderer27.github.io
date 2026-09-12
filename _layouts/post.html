@@ -2,14 +2,20 @@
 layout: default
 ---
 <!-- page title -->
-{% include page-title.html heading="h3" title=page.title %}
+<!-- The title and the header image below are the other half of the pair the
+     blog card sets up in _includes/post.html, so arriving from a card morphs
+     the card's title and thumbnail into place. The "Similar Stories" list at
+     the bottom of this page includes THIS post, and that copy of the card
+     suppresses its names so they stay unique in the document. -->
+{%- assign post_title_transition = page.slug | prepend: "post-title-" -%}
+{% include page-title.html heading="h3" title=page.title transition=post_title_transition %}
 <!-- /page title -->
 
 <section class="py-5 sm:py-20">
   <div class="container-page">
     <div class="flex flex-wrap -mx-3.75">
       <div class="relative w-full px-3.75">
-        <img src="{{page.image | relative_url }}" class="max-w-full h-auto rounded float-left me-12 mb-6" alt="{{page.title}}">
+        <img src="{{page.image | relative_url }}" class="max-w-full h-auto rounded-card float-left me-12 mb-6" alt="{{page.title}}" style="view-transition-name: post-image-{{ page.slug }};">
         <p class="font-secondary">Published on {{ page.date | date: '%b %d, %Y' }} by <span class="text-accent">{{ page.author }}</span
             class="text-accent"> on {% for tag in page.tags %}<span>{{ tag }} </span>{% endfor %}</p>
         {% if page.image_source %}

@@ -4,7 +4,11 @@
   Params:
     href    - link target; omit together with tag="button" for a submit button
     label   - visible text (HTML allowed, e.g. an icon)
-    variant - primary (default) | transparent | light | dark
+    variant - primary (default) | transparent | light | dark | material
+              material is only meaningful over a textured backdrop (the hero,
+              the page-title banner, the contact panel's dots). On a plain
+              section there is nothing behind it to blur, so it degrades to
+              a faint tint -- plain, not broken.
     size    - default | sm | xs
     tag     - a (default) | button
     type    - button type when tag="button" (default: submit)
@@ -17,7 +21,7 @@
   during the overlap would hand control back to Bootstrap.
 {%- endcomment -%}
 
-{%- assign base = "inline-block text-center align-middle select-none border-0 relative z-1 font-secondary capitalize leading-normal rounded-[5px] transition-all duration-200 ease-[ease] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" -%}
+{%- assign base = "inline-block text-center align-middle select-none border-0 relative z-1 font-secondary capitalize leading-normal rounded-control transition-all duration-200 ease-[ease] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" -%}
 
 {%- case include.size -%}
   {%- when "sm" -%}{%- assign size = "text-[15px] px-7.5 py-2.5" -%}
@@ -29,6 +33,7 @@
   {%- when "transparent" -%}{%- assign tone = "bg-transparent text-accent font-bold hover:text-accent" -%}
   {%- when "light" -%}{%- assign tone = "bg-[#f8f9fa] text-[#212529] hover:bg-[#e2e6ea] font-semibold" -%}
   {%- when "dark" -%}{%- assign tone = "bg-[#343a40] text-white hover:bg-[#23272b] font-semibold" -%}
+  {%- when "material" -%}{%- assign tone = "material text-heading font-semibold hover:bg-material-thick" -%}
   {%- else -%}{%- assign tone = "bg-primary text-white hover:bg-primary-lite active:bg-primary-lite font-semibold" -%}
 {%- endcase -%}
 

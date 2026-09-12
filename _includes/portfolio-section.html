@@ -5,14 +5,35 @@
   <div class="container-page">
     <div class="flex flex-wrap -mx-3.75">
       <div class="relative w-full px-3.75 text-center">
-        <h2 class="text-h2 font-secondary mb-20" style="view-transition-name: portfolio-page-title;">Portfolio</h2>
+        <h2 class="text-h2 font-secondary mb-20 [view-transition-name:portfolio-title]">Portfolio</h2>
       </div>
     </div>
     <div data-portfolio-grid class="grid grid-cols-1 gap-x-7.5 sm:grid-cols-2 lg:grid-cols-3">
+      {%- comment -%}
+        A card is named after its image file, so it shares a name with the
+        same image over on /portfolio and the two morph into each other
+        across that navigation.
+
+        `shots` is the set of images the portfolio page renders, and a card
+        is only named if it is in that set. That keeps the rule from
+        _tailwind/main.css honest without hard-coding "the first three":
+        portfolio-home-items and portfolio-items are separate lists in
+        settings.yml, so an item that appears in only one of them has nothing
+        to morph with and is better left to the root fade.
+
+        The name goes on the clipping wrapper, not the <img>: a named element
+        is lifted out of its ancestors' clip for the flight, so naming the
+        image would release it from `overflow-hidden` and it would fly at its
+        hover-idle scale-110, un-rounded.
+      {%- endcomment -%}
+      {%- assign shots = "" -%}
+      {%- for shot in site.data.settings.portfolio-items -%}
+        {%- assign shots = shots | append: "|" | append: shot.image -%}
+      {%- endfor -%}
       {% for item in site.data.settings.portfolio-home-items %}
       <div class="relative w-full px-3.75 mb-6">
-        <div class="relative rounded overflow-hidden group">
-          <img src="{{ site.baseurl }}/{{ item.image }}" alt="portfolio-image" class="max-w-full rounded w-full block scale-110 transition-all duration-300 ease-[ease] group-hover:scale-100">
+        <div class="relative rounded-card overflow-hidden group"{% if shots contains item.image %} style="view-transition-name: shot-{{ item.image | split: "/" | last | split: "." | first | slugify }};"{% endif %}>
+          <img src="{{ site.baseurl }}/{{ item.image }}" alt="portfolio-image" class="max-w-full rounded-card w-full block scale-110 transition-all duration-300 ease-[ease] group-hover:scale-100">
           <div class="absolute inset-0 rounded-[inherit] bg-black/30 invisible opacity-0 transition-all duration-300 ease-[ease] group-hover:visible group-hover:opacity-100">
             <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center">
               {% if item.url %}
