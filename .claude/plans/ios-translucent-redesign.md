@@ -344,16 +344,15 @@ Counting these needs care: `[view-transition-name:site-header]` (the arbitrary-v
 
 ## 8. Outstanding
 
-*(The light-mode quiet-text failure that sat here through the build is resolved — see the token split in §7.1.)*
+*(Two items that sat here through the build are resolved: the light-mode quiet-text failure, via the token split in §7.1; and the `page-title.html` padding, now 150px like the hero and about page. The hero still uses a `md:` breakpoint for that step where the other two use `sm:`, so it is 30px tighter between 576px and 767px — the only remaining difference.)*
 
-1. **`page-title.html` padding.** Still `pt-30 pb-12.5 sm:py-45 lg:pt-62.5 lg:pb-37.5` — 250px of top padding sized for a slab that no longer exists. The hero and about page were brought to 120/150px; this serves `/blog`, `/portfolio`, `/contact` and every post, and is the last one out of step. The transition pass edited this file but only to route the `transition` param, so the padding is untouched.
-2. **The `/about` perf trace** (§7.4). Now also worth watching during a navigation: the header is a named group *and* a `backdrop-filter` element, so it is snapshotted every transition.
-3. **`author.png`, 1483 KB, untracked and referenced nowhere.** Jekyll copies everything under `assets/`, so committing it ships 1.44 MB of dead weight to Pages. Either keep the master outside `assets/` or add it to `_config.yml`'s `exclude`.
-4. **A stale comment** in [ui/button.html](../../_includes/ui/button.html) says `variant: material` is meaningful over "the page-title banner, the contact panel's dots" — the page-title banner no longer has any texture.
-5. **`variant: material` has no call site.**
-6. **Four `.DS_Store` files** are untracked. Jekyll ignores dotfiles so they never reach `docs/`, but they belong in `.gitignore`.
-7. **The `blog-title` pair morphs differing text** (§7.6).
-8. **Transitions are unverified in a browser.** The audit covers the invariants that fail silently; it cannot tell you whether the morphs look good. Worth walking home → portfolio, home → blog → a post, and home → about, in both themes, plus one pass with OS reduce-motion on to confirm navigation falls back to a plain load.
+1. **The `/about` perf trace** (§7.4). Now also worth watching during a navigation: the header is a named group *and* a `backdrop-filter` element, so it is snapshotted every transition.
+2. **`author.png`, 1483 KB, untracked and referenced nowhere.** Jekyll copies everything under `assets/`, so committing it ships 1.44 MB of dead weight to Pages. Either keep the master outside `assets/` or add it to `_config.yml`'s `exclude`.
+3. **A stale comment** in [ui/button.html](../../_includes/ui/button.html) says `variant: material` is meaningful over "the page-title banner, the contact panel's dots" — the page-title banner no longer has any texture.
+4. **`variant: material` has no call site.**
+5. **Four `.DS_Store` files** are untracked. Jekyll ignores dotfiles so they never reach `docs/`, but they belong in `.gitignore`.
+6. **The `blog-title` pair morphs differing text** (§7.6).
+7. **Transitions are unverified in a browser.** The audit covers the invariants that fail silently; it cannot tell you whether the morphs look good. Worth walking home → portfolio, home → blog → a post, and home → about, in both themes, plus one pass with OS reduce-motion on to confirm navigation falls back to a plain load.
 
 ## 9. Out of scope
 
