@@ -92,24 +92,32 @@ experience:
   - {
       name: Salesforce Developer,
       icon: cloud-code,
+      icon-color: "#ec4899",
+      icon-color-dark: "#f472b6",
       date: "Jun 2026 - Present",
       organization: "Scape Australia",
     }
   - {
       name: Full Stack Engineer,
       icon: stack-2,
+      icon-color: "#f59e0b",
+      icon-color-dark: "#fbbf24",
       date: "Feb 2025 - Jun 2026",
       organization: "Stratpoint Technologies",
     }
   - {
       name: AI Engineer,
       icon: brain,
+      icon-color: "#06b6d4",
+      icon-color-dark: "#22d3ee",
       date: "Sep 2025 - Dec 2025",
       organization: "Upwork (Freelance)",
     }
   - {
       name: WordPress Developer,
       icon: brand-wordpress,
+      icon-color: "#7c3aed",
+      icon-color-dark: "#a78bfa",
       date: "Jun 2022 - Jan 2023",
       organization: "OMP Security Inc, ARSIA Inc.",
     }

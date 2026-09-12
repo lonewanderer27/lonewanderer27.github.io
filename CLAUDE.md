@@ -56,6 +56,11 @@ One provider, inlined: [_includes/ui/icon.html](_includes/ui/icon.html) holds Ta
 
 - Size with a `size-*` utility, not a font size. The old `text-[45px] leading-25!` line-height centring trick does not work on an SVG; wrap the call in `grid place-items-center` instead.
 - Colour comes from `stroke="currentColor"`, so `text-*` semantic tokens still re-point for dark mode.
+- A single icon can override that with the include's `style` param. The experience entries do,
+  carrying `icon-color` / `icon-color-dark` hexes that render as `color: light-dark(light, dark)`.
+  `:root` already declares `color-scheme: light dark`, which is what makes `light-dark()` resolve.
+  A hex cannot become a utility class (`text-[{{ var }}]` is never generated, since Tailwind scans
+  for literals), so per-entry colour is an inline style rather than a class.
 - Icon names in `_data/settings.yml` are bare Tabler names (`brand-github`, `device-mobile`), not prefixed classes. `services`, `social`, `certificates` and `education` entries each take an optional `icon:`.
 - **Liquid cannot nest an include inside an include parameter** — the inner `%}` closes the outer tag. To pass an icon as a `ui/button.html` label, `{%- capture -%}` it first (see [portfolio-section.html](_includes/portfolio-section.html)).
 - Icons are decorative and `aria-hidden`; an icon-only link needs its own `aria-label`.

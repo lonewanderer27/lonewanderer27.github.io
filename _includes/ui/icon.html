@@ -7,6 +7,9 @@
     class - classes on the <svg>; pass a size-* utility, since the 24x24
             width/height attributes are dropped in favour of the class
     extra - extra classes appended verbatim
+    style - inline style attribute; used to colour a single icon, e.g.
+            `color: light-dark(#ec4899, #f472b6)`, since stroke follows
+            currentColor
 
   Icons are inlined rather than loaded as a font because the site uses a
   dozen of them: the themify woff alone was 55KB, plus 13KB of CSS, to draw
@@ -64,4 +67,4 @@
     {%- assign d = '<path d="M12 4v3m-4 -3v6m8 -6v6" /><path d="M12 18.5l-3 1.5l.5 -3.5l-2 -2l3 -.5l1.5 -3l1.5 3l3 .5l-2 2l.5 3.5l-3 -1.5" />' -%}
 {%- endcase -%}
 
-<svg class="{{ icon_class }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">{{ d }}</svg>
+<svg class="{{ icon_class }}"{% if include.style %} style="{{ include.style }}"{% endif %} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">{{ d }}</svg>
