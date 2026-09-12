@@ -2,36 +2,34 @@
 layout: default
 image: assets/image/banner.png
 ---
-<!-- page title -->
-<section class="bg-primary relative pt-30 pb-12.5 text-center sm:py-45 sm:text-start lg:pt-87.5 lg:pb-17.5">
-  <div class="container-page relative z-1">
-    <div class="flex flex-wrap -mx-3.75">
-      <div class="relative w-full px-3.75">
-        <h1 class="text-h1 font-secondary text-white" style="view-transition-name: about-page-title;">{{ page.title }}</h1>
-      </div>
-    </div>
-  </div>
-  <!-- background shapes -->
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-bg-top.png" alt="illustrations" class="max-w-full h-auto absolute left-0 top-0 w-full">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-sm.png" alt="illustrations" class="max-w-full h-auto absolute left-17.5 top-25">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-yellow.png" alt="illustrations" class="max-w-full h-auto absolute left-[30%] top-12.5 rotate-180">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-orange.png" alt="illustrations" class="max-w-full h-auto absolute left-25 bottom-25 hidden sm:block">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-cyan.png" alt="illustrations" class="max-w-full h-auto absolute left-[40%] -bottom-6.25 hidden sm:block">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan-lg.png" alt="illustrations" class="max-w-full h-auto absolute bottom-25 -right-25 hidden sm:block">
-</section>
-<!-- /page title -->
-
 <!-- about -->
-<section class="pt-12 pb-5 sm:pb-20">
-  <div class="container-page">
-    <div class="flex flex-wrap -mx-3.75">
-      <div class="relative w-full px-3.75 md:w-2/3 prose dark:prose-invert max-w-none prose-headings:font-secondary prose-headings:text-heading prose-headings:leading-[1.2] prose-p:text-[15px] prose-p:leading-[1.8] prose-p:text-body-text prose-li:text-[15px] prose-li:leading-[1.8] prose-li:text-body-text prose-a:text-link prose-a:no-underline hover:prose-a:text-link-hover prose-strong:font-secondary prose-strong:text-[22px] prose-strong:font-normal prose-strong:text-heading prose-strong:leading-normal prose-blockquote:border-s-2 prose-blockquote:border-s-primary prose-blockquote:bg-haze prose-blockquote:not-italic">
-        {{ content }}
-      </div>
-      <div class="relative w-full px-3.75 text-center md:w-1/3 lg:-mt-57.5">
-        <div class="relative mb-6 before:content-[''] before:absolute before:inset-0 before:-z-10 before:shadow-glow dark:before:shadow-black/50">
-          <img src="{{ site.baseurl }}/{{ page.image }}" alt="{{ page.author }}" class="max-w-full h-auto w-full rounded-[15px] border-10 border-white">
+<!-- One row, laid out like the hero: title and bio in the left column, the
+     portrait in the right, items-start so the two tops line up.
+
+     This replaces a title in its OWN <section> plus a lg:-mt-57.5 pull on the
+     portrait column, which was reaching across a section boundary to fake the
+     alignment. That worked only at the one banner height it was tuned for:
+     shrinking the banner moved the title without moving the photo, and any
+     pull big enough to catch up put the photo behind the fixed header. In one
+     row there is nothing to tune -- the columns are siblings.
+
+     Breakpoints follow the hero (7/12 + 5/12, stacking below lg) rather than
+     the old md:w-2/3 + md:w-1/3: a 597px-tall portrait in a 256px-wide md
+     column was never the right shape. -->
+<section class="relative pt-30 pb-5 sm:pt-37.5 sm:pb-20">
+  <div class="container-page relative z-1">
+    <div class="flex flex-wrap items-start -mx-3.75">
+      <div class="relative w-full px-3.75 text-center sm:text-start lg:mt-20 lg:w-7/12">
+        <h1 class="text-h1 font-secondary text-heading mb-10">{{ page.title }}</h1>
+        <div class="prose dark:prose-invert max-w-none prose-headings:font-secondary prose-headings:text-heading prose-headings:leading-[1.2] prose-p:text-[15px] prose-p:leading-[1.8] prose-p:text-body-text prose-li:text-[15px] prose-li:leading-[1.8] prose-li:text-body-text prose-a:text-link prose-a:no-underline hover:prose-a:text-link-hover prose-strong:font-secondary prose-strong:text-[22px] prose-strong:font-normal prose-strong:text-heading prose-strong:leading-normal prose-blockquote:border-s-2 prose-blockquote:border-s-primary prose-blockquote:bg-haze prose-blockquote:not-italic">
+          {{ content }}
         </div>
+      </div>
+      <div class="relative w-full px-3.75 mt-12 text-center lg:mt-0 lg:w-5/12">
+        {% include ui/portrait.html src=page.image src-sm=page.image-sm
+                                    alt=page.author
+                                    extra="max-w-100 mx-auto mb-6"
+                                    transition="portrait" %}
         {% if page.signature %}
         <img src="{{ site.baseurl }}/{{ page.signature }}" alt="signature" class="max-w-full h-auto mx-auto">
         {% endif %}

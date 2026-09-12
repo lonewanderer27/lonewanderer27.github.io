@@ -1,40 +1,39 @@
 <!-- hero area -->
-<section class="bg-primary relative pt-62.5 pb-37.5 overflow-hidden md:pt-75 md:pb-50 md:overflow-visible" id="parallax">
-  <div class="container-page">
-    <div class="flex flex-wrap -mx-3.75">
-      <div class="relative w-full px-3.75 mx-auto lg:w-[91.666667%]">
-        <h1 class="text-h1 font-secondary text-white relative z-2">{{ site.data.settings.hero.hero-title }}</h1>
+<!-- Was a bg-primary slab carrying leaf-bg.png plus eight positioned
+     leaf/dot PNGs (#l2-#l9, driven by the now-deleted parallax.js). Both the
+     slab and the clip-art are gone, so the heading sits in text-heading
+     rather than white.
+
+     Two columns: heading plus the social rail on the left, the cutout
+     portrait on the right. See ui/portrait.html for why the figure stands in
+     front of a material panel rather than sitting inside a frame.
+
+     The wash below is hero-local and much stronger than the sitewide one;
+     see --color-hero-* in _tailwind/main.css for why it cannot be global.
+     It is a plain absolute layer and the content above it carries z-1, so
+     neither depends on a negative z-index escaping to the root. -->
+<section class="relative pt-30 pb-20 overflow-hidden md:pt-37.5 md:pb-37.5">
+  <div aria-hidden="true" class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute -top-[30vmax] -right-[10vmax] size-[80vmax] bg-[radial-gradient(circle_at_center,var(--color-hero-1)_0%,transparent_65%)]"></div>
+    <div class="absolute top-[10vmax] -left-[20vmax] size-[60vmax] bg-[radial-gradient(circle_at_center,var(--color-hero-2)_0%,transparent_65%)]"></div>
+  </div>
+  <div class="container-page relative z-1">
+    <div class="flex flex-wrap items-center -mx-3.75">
+      <div class="relative w-full px-3.75 lg:w-7/12">
+        <h1 class="text-h1 font-secondary text-heading">{{ site.data.settings.hero.hero-title }}</h1>
+        {% include social-icon.html %}
+        <!-- /social icon -->
       </div>
+      {% if site.data.settings.hero.hero-image %}
+      <div class="relative w-full px-3.75 mt-12 lg:mt-0 lg:w-5/12">
+        {% include ui/portrait.html src=site.data.settings.hero.hero-image
+                                    src-sm=site.data.settings.hero.hero-image-sm
+                                    alt=site.data.settings.hero.hero-image-alt
+                                    extra="max-w-100 mx-auto" eager="true"
+                                    transition="portrait" %}
+      </div>
+      {% endif %}
     </div>
   </div>
-  <div class="absolute bottom-0 left-0 w-full">
-    <img class="max-w-full h-auto w-full" src="{{ site.baseurl }}/assets/images/illustrations/leaf-bg.png" alt="bg-shape">
-  </div>
-  <div class="absolute z-1 top-47.5 -left-62.5" id="l2">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/dots-cyan.png" alt="bg-shape">
-  </div>
-  <div class="absolute z-1 top-50 left-[40%]" id="l3">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-orange.png" alt="bg-shape">
-  </div>
-  <div class="absolute z-1 top-50 right-[40%]" id="l4">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/dots-orange.png" alt="bg-shape">
-  </div>
-  <div class="absolute z-1 top-25 -right-37.5 hidden md:block" id="l5">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-yellow.png" alt="bg-shape">
-  </div>
-  <div class="absolute z-1 -bottom-5 left-[10%] hidden md:block" id="l6">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan.png" alt="bg-shape">
-  </div>
-  <div class="absolute z-1 bottom-25 left-[20%] hidden md:block" id="l7">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-orange.png" alt="bg-shape">
-  </div>
-  <div class="absolute z-1 bottom-40 right-[45%] hidden md:block" id="l8">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-pink-round.png" alt="bg-shape">
-  </div>
-  <div class="absolute z-1 bottom-25 -right-2.5 hidden md:block" id="l9">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan-2.png" alt="bg-shape">
-  </div>
-  {% include social-icon.html %}
-  <!-- /social icon -->
 </section>
 <!-- /hero area -->

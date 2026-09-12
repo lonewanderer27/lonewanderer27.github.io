@@ -22,7 +22,12 @@
 {%- endcomment -%}
 {% if site.data.settings.testimonial-items %}
 <!-- testimonial -->
-<section class="py-5 sm:py-20 bg-primary relative">
+<!-- The solid bg-primary band became a tinted translucent one: it is the
+     only brand-coloured region left after the flat pass, and a full-bleed
+     material over the ambient ground is the iOS pattern for a tinted section.
+     White text on material-brand measures 5.18:1 against the worst backdrop,
+     so the existing text-white copy is unchanged. -->
+<section class="py-5 sm:py-20 material-brand border-x-0! relative">
   <div class="container-page relative z-1">
     <div class="flex flex-wrap -mx-3.75">
       <div class="relative w-full px-3.75 text-center">
@@ -68,13 +73,6 @@
       </div>
     </div>
   </div>
-  <!-- bg shapes -->
-  <img src="{{ site.baseurl }}/assets/images/backgrounds/map.png" alt="map" class="max-w-full h-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-v.png" alt="bg-shape" class="max-w-full h-auto absolute left-25 -top-12.5">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-orange.png" alt="bg-shape" class="max-w-full h-auto absolute right-37.5 top-12.5">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-sm.png" alt="bg-shape" class="max-w-full h-auto absolute right-12.5 top-50">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-pink-round.png" alt="bg-shape" class="max-w-full h-auto absolute left-25 bottom-50 hidden sm:block">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan.png" alt="bg-shape" class="max-w-full h-auto absolute right-50 -bottom-12.5 hidden sm:block">
 </section>
 <!-- /testimonial -->
 {% endif %}
