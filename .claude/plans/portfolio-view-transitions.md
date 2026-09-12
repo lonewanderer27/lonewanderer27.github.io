@@ -13,6 +13,7 @@ Same-document View Transitions for the `/portfolio` page. When the user changes 
 | Filtered-in item | Fades in and scales up from `scale(0.92)` to `1` | `::view-transition-new(.portfolio-card):only-child` |
 | Page chrome (header, title, filters, footer) | Remains perfectly steady; zero 12px jump | `:active-view-transition-type(portfolio-filter)` & `.is-filtering` suppress root rise |
 | Cross-document navigation (Home $\leftrightarrow$ Portfolio) | 3 shared cards morph between Home strip and Portfolio grid | Shared `shot-*` names preserved |
+| Heading-to-filter spacing | Balanced 48px gap above and below filter buttons | Banner bottom padding & portfolio section top padding normalized |
 | `prefers-reduced-motion: reduce` | Instant DOM update without transitions | JS media query check + CSS `@media` overrides |
 | Unsupported browser | Instant DOM update | Progressive enhancement fallback in `portfolio-filter.js` |
 
@@ -62,6 +63,12 @@ If the user clicks another filter before the previous transition completes, `act
 ### 5. Accessibility Focus Management
 If keyboard focus is currently inside a project card that is being hidden, focus is returned to the selected filter radio button to prevent focus abandonment. An `aria-live="polite"` element announces the number of visible projects to screen readers.
 
+### 6. Banner and Filter Vertical Rhythm
+The `page-title.html` banner previously carried `pb-12.5 sm:pb-45 lg:pb-37.5` (`150px`–`180px`), leftover dead space from the theme's old illustration graphics that used to overlap downward. Combined with `_pages/portfolio.html`'s `py-5 sm:py-20` (`80px` top padding), this produced an excessive `230px`–`260px` gap between the "Portfolio" heading and the filter buttons.
+- In `_includes/page-title.html`: Reduced bottom padding to `pb-6 sm:pb-10 lg:pb-12` (`48px` on desktop).
+- In `_pages/portfolio.html`: Reduced section padding from `py-5 sm:py-20` to `pt-0 pb-5 sm:pt-0 sm:pb-20`.
+This establishes a balanced 48px vertical rhythm above the filter buttons (from the heading) and below the filter buttons (`mb-12`, 48px to the cards).
+
 ---
 
 ## Phases & Conventional Commits
@@ -81,3 +88,7 @@ Wrap DOM updates in `document.startViewTransition()` with transition type `portf
 ### Phase 4 — `docs(plan): add portfolio view transitions design plan`
 #### [NEW] `.claude/plans/portfolio-view-transitions.md`
 Add design document to `.claude/plans/` capturing the architecture and behavior rules.
+
+### Phase 5 — `fix(styles): reduce dead spacing between page-title banner and filter controls`
+#### [MODIFY] `_includes/page-title.html` & `_pages/portfolio.html`
+Normalize `page-title` bottom padding and portfolio section top padding to eliminate obsolete illustration gap and create a clean 48px vertical rhythm.
