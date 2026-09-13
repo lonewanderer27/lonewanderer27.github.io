@@ -8,7 +8,7 @@
         <h2 class="text-h2 font-secondary mb-20 [view-transition-name:portfolio-title]">Portfolio</h2>
       </div>
     </div>
-    <div data-portfolio-grid class="grid grid-cols-1 gap-x-7.5 sm:grid-cols-2 lg:grid-cols-3">
+    <div data-portfolio-grid class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
       {%- comment -%}
         A card is named after its image file, so it shares a name with the
         same image over on /portfolio and the two morph into each other
@@ -37,18 +37,18 @@
           <div class="absolute inset-0 rounded-[inherit] bg-black/30 invisible opacity-0 transition-all duration-300 ease-[ease] group-hover:visible group-hover:opacity-100">
             <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center">
               {% if item.url %}
-              {% if item.url-text %}
-              {% include ui/button.html variant="light" size="sm" href=item.url label=item.url-text %}
-              {% else %}
-              {% include ui/button.html variant="light" size="sm" href=item.url label="view project" %}
-              {% endif %}
+                {% if item.url-text %}
+                  {% include ui/button.html variant="light" size="sm" href=item.url label=item.url-text %}
+                {% else %}
+                  {% include ui/button.html variant="light" size="sm" href=item.url label="view project" %}
+                {% endif %}
               {% endif %}
               {% if item.github %}
-              {% if item.url %}
-              {% include ui/button.html variant="dark" size="sm" href=item.github label=github_icon extra="ms-4" %}
-              {% else %}
-              {% include ui/button.html variant="dark" size="sm" href=item.github label="Visit Github" extra="ms-4" %}
-              {% endif %}
+                {% if item.url %}
+                  {% include ui/button.html variant="dark" size="sm" href=item.github label=github_icon extra="ms-4" %}
+                {% else %}
+                  {% include ui/button.html variant="dark" size="sm" href=item.github label="Visit Github" extra="ms-4" %}
+                {% endif %}
               {% endif %}
             </div>
           </div>
