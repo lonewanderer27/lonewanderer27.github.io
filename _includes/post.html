@@ -13,9 +13,18 @@
 {%- endcomment -%}
 {%- assign named = true -%}
 {%- if post.url == page.url -%}{%- assign named = false -%}{%- endif -%}
+{%- assign card_image_transition = nil -%}
+{%- if named -%}{%- assign card_image_transition = post.slug | prepend: "post-image-" -%}{%- endif -%}
 <div class="@container relative w-full px-3.75 mb-6 sm:w-1/2 lg:w-1/3">
   <article class="relative flex flex-col min-w-0 wrap-break-word rounded-card material bg-clip-border shadow-card dark:shadow-none @min-[24rem]:flex-row">
-    <img class="w-full rounded-t-card h-50 object-cover @min-[24rem]:w-[42%] @min-[24rem]:h-auto @min-[24rem]:self-stretch @min-[24rem]:rounded-t-none @min-[24rem]:rounded-s-card" src="{{ post.image | relative_url }}" alt="{{ post.title }}"{% if named %} style="view-transition-name: post-image-{{ post.slug }};"{% endif %}>
+    {% include ui/themed-image.html
+         src=post.image
+         src_dark=post.image_dark
+         alt=post.title
+         transition=card_image_transition
+         fill=true
+         class="w-full h-50 @min-[24rem]:w-[42%] @min-[24rem]:h-auto @min-[24rem]:self-stretch"
+         img_class="object-cover rounded-t-card @min-[24rem]:rounded-t-none @min-[24rem]:rounded-s-card" %}
     <div class="flex-auto p-5">
       <h4 class="text-h4 font-secondary mb-3"{% if named %} style="view-transition-name: post-title-{{ post.slug }};"{% endif %}>
         <a class="text-heading hover:text-accent" href="{{ post.url | relative_url }}">{{ post.title }}</a>
