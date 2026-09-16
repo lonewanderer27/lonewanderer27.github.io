@@ -1,19 +1,45 @@
-# Validates post header images at build time. Not a generator -- it never
-# writes anything, only raises to fail the build.
+# Validates and renders post header/body dark-image pairs at build time.
 #
-# Two rules, enforced on every entry in site.posts:
-#   1. `image` is required.
-#   2. `image_dark`, if set, must match `image`'s pixel dimensions exactly.
-#      The two are rendered stacked (_includes/ui/themed-image.html), with the
-#      dark layer sized to the light layer's box, so a mismatch renders
-#      stretched -- silently, with nothing in the HTML to show it. That is
-#      why this is a build assertion and not a lint warning.
+# Two jobs:
+#   1. Validation (check, at :site, :post_read -- runs before Liquid/kramdown
+#      render, so doc.content here is still raw Markdown). Enforces:
+#        - `image` is required on every post.
+#        - `image_dark`, if set, must match `image`'s pixel dimensions.
+#        - a body image declaring `{:data-src-dark="..."}` (kramdown's
+#          inline-attribute-list syntax) must match ITS pixel dimensions too.
+#      Both pair checks share the same logic (check_pair) and the same
+#      message shape: name both files and both sizes, since that is the one
+#      error an author actually has to act on.
+#   2. Rewrite (rewrite, at :documents, :post_render -- runs after kramdown
+#      has turned Markdown into HTML). Turns a validated body-image `<img
+#      data-src-dark="...">` into the same stacked light/dark markup
+#      _includes/ui/themed-image.html renders for the header and the card, so
+#      the existing CSS (_tailwind/main.css) and JS
+#      (assets/js/themed-image-pairs.js) pick it up unchanged -- both are
+#      already page-wide and count-agnostic, keyed off the .themed-image-dark
+#      class alone.
 #
-# Runs on both `jekyll build` and `jekyll serve` via the :post_read hook, so
-# the check fires locally, not just in CI.
+# The two are split across hooks because the thing each one needs isn't
+# available at the same point in the pipeline: validation wants the raw
+# source (so it can fail before any rendering happens at all), the rewrite
+# needs kramdown to have already produced the <img> tag it's rewriting.
+#
+# Not a generator either way -- validation only raises, and the rewrite only
+# ever replaces markup an author already opted into via an IAL.
+#
+# Runs on both `jekyll build` and `jekyll serve`, so both checks fire
+# locally, not just in CI.
 require "fastimage"
 
 module ThemedImagePairs
+  # Matches kramdown's inline-attribute-list syntax: an image immediately
+  # followed (no space -- kramdown's own rule) by {:...data-src-dark="...".}
+  BODY_IMAGE_IAL = /!\[[^\]]*\]\(([^)\s]+)\)\{:[^}]*\bdata-src-dark="([^"]+)"[^}]*\}/.freeze
+
+  # Matches the <img> kramdown renders from that IAL, once it's plain HTML.
+  # Attribute order isn't assumed -- each value is pulled out separately below.
+  BODY_IMAGE_TAG = %r{<img\s+[^>]*data-src-dark="[^"]*"[^>]*/?>}.freeze
+
   def self.check(site)
     site.posts.docs.each { |doc| check_doc(site, doc) }
   end
@@ -27,10 +53,27 @@ module ThemedImagePairs
 
     # image_dark is optional -- most posts stop here.
     dark = doc.data["image_dark"]
-    return if dark.nil? || dark.to_s.empty?
+    unless dark.nil? || dark.to_s.empty?
+      check_pair(site, doc, light, dark, light_label: "image", dark_label: "image_dark")
+    end
 
-    dark_path = resolve(site, dark)
-    fail_with(doc, "image_dark not found: #{dark}") unless File.file?(dark_path)
+    # Body images declare their own pairs inline via a kramdown IAL, e.g.
+    # ![alt](light.png){:data-src-dark="dark.png"}. doc.content is still raw
+    # Markdown at this hook, so this is a plain regex over source text, not
+    # an HTML parse -- kramdown hasn't run yet.
+    doc.content.to_s.scan(BODY_IMAGE_IAL).each do |body_light, body_dark|
+      check_pair(site, doc, body_light, body_dark, light_label: "image", dark_label: "data-src-dark")
+    end
+  end
+
+  # Shared by the front-matter image_dark check and every body-image pair:
+  # same missing-file / dimension-mismatch checks, same message shape --
+  # only the labels (what to call each side in an error) vary.
+  def self.check_pair(site, doc, light, dark, light_label:, dark_label:)
+    light_path = resolve(site, light)
+    dark_path  = resolve(site, dark)
+    fail_with(doc, "#{light_label} not found: #{light}") unless File.file?(light_path)
+    fail_with(doc, "#{dark_label} not found: #{dark}") unless File.file?(dark_path)
 
     # FastImage reads only the file header, so this is cheap even for large
     # source images -- no full decode.
@@ -45,17 +88,17 @@ module ThemedImagePairs
     # actually has to act on, so the message has to be enough to fix it
     # without re-running a separate checker.
     fail_with(doc, <<~MSG)
-      image_dark dimensions do not match image.
-        image:      #{light} (#{light_size[0]}x#{light_size[1]})
-        image_dark: #{dark} (#{dark_size[0]}x#{dark_size[1]})
+      #{dark_label} dimensions do not match #{light_label}.
+        #{light_label}: #{light} (#{light_size[0]}x#{light_size[1]})
+        #{dark_label}: #{dark} (#{dark_size[0]}x#{dark_size[1]})
       The two files are stacked and the dark one is sized to the light one's box,
       so a mismatch renders stretched. Re-export the dark variant at
       #{light_size[0]}x#{light_size[1]}.
     MSG
   end
 
-  # Front-matter image paths are site-absolute ("/assets/images/..."); resolve
-  # against site.source the same way Jekyll resolves a static file.
+  # Front-matter/body-image paths are site-absolute ("/assets/images/...");
+  # resolve against site.source the same way Jekyll resolves a static file.
   def self.resolve(site, url)
     File.join(site.source, url.to_s.sub(%r{\A/}, ""))
   end
@@ -65,8 +108,28 @@ module ThemedImagePairs
   def self.fail_with(doc, message)
     raise Jekyll::Errors::FatalException, "#{doc.relative_path}: #{message}"
   end
+
+  # Rewrites every validated body-image pair into the stacked light/dark
+  # markup, once kramdown has already turned the Markdown into doc.output.
+  # Only src/alt/data-src-dark survive -- any other IAL attribute on the
+  # image (a caption class, an explicit width) is dropped.
+  def self.rewrite(doc)
+    doc.output = doc.output.gsub(BODY_IMAGE_TAG) do |tag|
+      src  = tag[/\bsrc="([^"]*)"/, 1]
+      alt  = tag[/\balt="([^"]*)"/, 1] || ""
+      dark = tag[/\bdata-src-dark="([^"]*)"/, 1]
+      %(<span class="relative block"><img class="block" src="#{src}" alt="#{alt}">) +
+        %(<img class="themed-image-dark absolute inset-0 block size-full" src="#{dark}" alt="" aria-hidden="true"></span>)
+    end
+  end
 end
 
 Jekyll::Hooks.register :site, :post_read do |site|
   ThemedImagePairs.check(site)
+end
+
+Jekyll::Hooks.register :documents, :post_render do |doc|
+  next unless doc.collection&.label == "posts"
+
+  ThemedImagePairs.rewrite(doc)
 end
