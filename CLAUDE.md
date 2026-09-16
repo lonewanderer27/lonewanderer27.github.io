@@ -82,6 +82,16 @@ Two idioms carried over from the Bootstrap port, both common across templates:
 - [_data/settings.yml](_data/settings.yml) — **all site copy**: title, logo, nav menu, social links, and every section (hero, about, work-process, skills, experience, certificates, education, services, portfolio + labels, testimonials, client slider, contact). Most content changes need no HTML.
 - [_data/plugins.yml](_data/plugins.yml) — vendor CSS/JS URL lists, iterated in `head.html` and `footer.html`. `css` is empty; `js` is just the EmailJS SDK.
 
+### Custom Jekyll plugins
+
+[_plugins/themed_image_pairs.rb](_plugins/themed_image_pairs.rb) is a `Jekyll::Hooks.register :site, :post_read` check, not a generator — it validates front matter and raises to fail the build; it writes nothing. It runs on both `jekyll build` and `jekyll serve`, and is the first file in `_plugins/`: viable because CI's `bundle exec jekyll build` uses this repo's own Gemfile, not the `github-pages` gem, which ignores `_plugins/`.
+
+It enforces two rules on every entry in `site.posts`:
+- `image` is required. A post with no `image` fails the build.
+- `image_dark`, if set, must be a file with the exact same pixel width and height as `image`. A mismatch fails the build naming both files' dimensions — the two are stacked with the dark one sized to the light one's box, so a mismatched dark file renders stretched with nothing in the HTML to show it.
+
+Dimension reads go through the `fastimage` gem (pure Ruby, no native extension) rather than a hand-rolled header parser.
+
 ### Pages, posts, layouts
 
 `_pages/` holds standalone pages with permalink `/:basename:output_ext` (so `/about.html`, `/blog.html`, …); `_posts/` uses date-prefixed filenames with `permalink: pretty`. `_layouts/default.html` is the base shell (head + header + content + contact-section + footer) wrapped in `compress.html` for HTML minification; `page.html` adds a page-title banner; `about.html` adds the bio/team/client layout; `post.html` is for posts. Each site section is its own include, driven by `settings.yml` — reorder the homepage by editing the include list in [index.html](index.html).
@@ -90,7 +100,9 @@ Page-title elements carry `style="view-transition-name: ..."` (`about-page-title
 
 ### JavaScript
 
-Plain IIFEs, no jQuery, no framework, loaded at the bottom of [_includes/footer.html](_includes/footer.html) in this order: vendor (from `plugins.yml`), then `nav.js`, `parallax.js`, `carousel.js`, `portfolio-filter.js`, `emailForm.js`. Each script bails out silently when its hooks are absent, so all of them load on every page.
+Plain IIFEs, no jQuery, no framework, loaded at the bottom of [_includes/footer.html](_includes/footer.html) in this order: vendor (from `plugins.yml`), then `nav.js`, `carousel.js`, `portfolio-filter.js`, `emailForm.js`, `themed-image-pairs.js`. Each script bails out silently when its hooks are absent, so all of them load on every page.
+
+One exception: the pre-paint scheme marker (`.scheme-js` / `.scheme-vt` / `data-scheme` on `<html>`) is an inline `<script>` in [_includes/head.html](_includes/head.html), not a footer IIFE — it has to run before first paint, or a dark-mode visitor sees a frame of the light header image before `themed-image-pairs.js` can react. That script only reads the markers; it never sets them.
 
 DOM contracts — changing this markup breaks the behaviour with no error:
 
@@ -99,6 +111,7 @@ DOM contracts — changing this markup breaks the behaviour with no error:
 | [nav.js](assets/js/nav.js) | `[data-nav-toggle]` + `#navigation`; toggles `.navigation`'s `nav-bg` class via an IntersectionObserver sentinel |
 | [portfolio-filter.js](assets/js/portfolio-filter.js) | `[data-portfolio-grid]` whose children carry `data-groups='["api",…]'`; radios named `portfolio-filter` with value `all` or a group |
 | [carousel.js](assets/js/carousel.js) | `[data-carousel]` scroll-snap container (direct children are slides) + `[data-carousel-dots]`; dot classes are string constants in the script |
+| [themed-image-pairs.js](assets/js/themed-image-pairs.js) | `[data-scheme]` + `.scheme-js`/`.scheme-vt` on `<html>` (set by the head.html snippet above) and a `.themed-image-dark` layer somewhere on the page; flips `data-scheme` on a live `prefers-color-scheme` change, wrapped in `document.startViewTransition({ types: ["scheme-swap"] })` when available |
 
 Visibility is toggled with the **`hidden` utility class, never the `hidden` attribute**: Preflight's `[hidden]{display:none!important}` sits in the base layer, and for `!important` declarations cascade-layer order is inverted, so that base rule beats an important utility.
 
