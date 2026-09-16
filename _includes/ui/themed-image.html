@@ -1,0 +1,28 @@
+{%- comment -%}
+  Light/dark image pair. Renders a single <img> unless src_dark is set, in
+  which case both images are stacked in one wrapper -- the light one in flow,
+  the dark one absolutely positioned over it at the same box -- and revealed
+  by opacity (see _tailwind/main.css's "Light/dark image pairs" block and
+  assets/js/themed-image-pairs.js). The dark file's pixel dimensions are
+  asserted to match src's at build time by _plugins/themed_image_pairs.rb, so
+  the stacking here can assume the two boxes already agree.
+
+  Params:
+    src       - required. Light (default) image, site-absolute or relative_url-able.
+    src_dark  - optional. Dark variant of the same image.
+    alt       - alt text for src. The dark layer is decorative (alt="").
+    transition - view-transition-name, applied to the wrapper (or the <img>
+                 itself when there is no src_dark) rather than to src alone,
+                 since the wrapper is what a caller floats/margins and what
+                 an in-page scheme swap needs to snapshot as one box.
+    class     - classes for the outer element (float, margin, max-width).
+    img_class - classes shared by both <img> layers (rounding, object-fit).
+{%- endcomment -%}
+{%- if include.src_dark and include.src_dark != "" -%}
+<span class="relative block {{ include.class }}"{% if include.transition %} style="view-transition-name: {{ include.transition }};"{% endif %}>
+  <img class="block {{ include.img_class }}" src="{{ include.src | relative_url }}" alt="{{ include.alt }}">
+  <img class="themed-image-dark absolute inset-0 block size-full {{ include.img_class }}" src="{{ include.src_dark | relative_url }}" alt="" aria-hidden="true">
+</span>
+{%- else -%}
+<img class="{{ include.class }} {{ include.img_class }}" src="{{ include.src | relative_url }}" alt="{{ include.alt }}"{% if include.transition %} style="view-transition-name: {{ include.transition }};"{% endif %}>
+{%- endif -%}
