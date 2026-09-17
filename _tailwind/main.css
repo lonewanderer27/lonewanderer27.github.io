@@ -692,3 +692,54 @@ html.is-filtering::view-transition-group(portfolio-title) {
   }
 }
 
+/* ---------------------------------------------------------------------------
+   Light/dark image pairs (_includes/ui/themed-image.html)
+
+   Two <img>s stacked in one wrapper; the dark one is revealed by opacity. The
+   signal is deliberately split: with JS the scheme lives in [data-scheme] on
+   <html>, because a View Transition needs a style change it can wrap in its
+   own callback -- a media query flips underneath it and there is nothing left
+   to capture. Without JS the media query is the only signal. `.scheme-js`
+   marks which regime is in force, so exactly one of them ever applies.
+--------------------------------------------------------------------------- */
+.themed-image-dark {
+  opacity: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.scheme-js) .themed-image-dark {
+    opacity: 1;
+  }
+}
+
+:root[data-scheme="dark"] .themed-image-dark {
+  opacity: 1;
+}
+
+/* Fallback cross-fade, for browsers with no View Transition support and for
+   JS-off. Where a VT does run, the snapshot pair does the fade and a CSS
+   transition underneath it would double-animate -- so `.scheme-vt` removes it. */
+:root:not(.scheme-vt) .themed-image-dark {
+  transition: opacity 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .themed-image-dark {
+    transition: none;
+  }
+}
+
+/* The swap is in-page, so hold the rest of the document still -- same shape as
+   the portfolio filter block above, including the class fallback for browsers
+   that take startViewTransition's callback form but not its options object. */
+html:active-view-transition-type(scheme-swap)::view-transition-old(root),
+html:active-view-transition-type(scheme-swap)::view-transition-new(root),
+html:active-view-transition-type(scheme-swap)::view-transition-group(root),
+html.is-scheme-swapping::view-transition-old(root),
+html.is-scheme-swapping::view-transition-new(root),
+html.is-scheme-swapping::view-transition-group(root),
+html:active-view-transition-type(scheme-swap)::view-transition-group(site-header),
+html.is-scheme-swapping::view-transition-group(site-header) {
+  animation: none !important;
+}
+

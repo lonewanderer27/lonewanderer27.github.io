@@ -12,6 +12,7 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
+    fastimage (2.4.1)
     ffi (1.17.4)
     forwardable-extended (2.6.0)
     google-protobuf (4.35.1)
@@ -88,6 +89,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler
+  fastimage (~> 2.4)
   jekyll
   jekyll-feed
   jekyll-redirect-from (~> 0.16.0)

@@ -1,0 +1,43 @@
+{%- comment -%}
+  Light/dark image pair. Renders a single <img> unless src_dark is set, in
+  which case both images are stacked in one wrapper -- the light one in flow,
+  the dark one absolutely positioned over it at the same box -- and revealed
+  by opacity (see _tailwind/main.css's "Light/dark image pairs" block and
+  assets/js/themed-image-pairs.js). The dark file's pixel dimensions are
+  asserted to match src's at build time by _plugins/themed_image_pairs.rb, so
+  the stacking here can assume the two boxes already agree.
+
+  Params:
+    src       - required. Light (default) image, site-absolute or relative_url-able.
+    src_dark  - optional. Dark variant of the same image.
+    alt       - alt text for src. The dark layer is decorative (alt="").
+    transition - view-transition-name, applied to the wrapper (or the <img>
+                 itself when there is no src_dark) rather than to src alone,
+                 since the wrapper is what a caller floats/margins and what
+                 an in-page scheme swap needs to snapshot as one box.
+    class     - classes for the outer element. Positioning only (float,
+                margin, max-width) by default -- the light image is in flow
+                and its own size sets the wrapper's box. With fill=true this
+                becomes the box itself (e.g. a flex item's w-*/h-* classes),
+                since both layers are then absolutely positioned to fill it.
+    img_class - classes shared by both <img> layers (rounding, object-fit).
+    fill      - optional boolean. false/omitted (default): the light image
+                sits in flow, sized by img_class (e.g. max-w-full h-auto).
+                true: the light image is also absolute inset-0 size-full,
+                matching the dark layer, for a call site where the box comes
+                from the surrounding layout rather than the image's own
+                aspect ratio (the blog card) -- `class` must give the
+                wrapper an explicit size in that case.
+{%- endcomment -%}
+{%- if include.src_dark and include.src_dark != "" -%}
+<span class="relative block {{ include.class }}"{% if include.transition %} style="view-transition-name: {{ include.transition }};"{% endif %}>
+  {%- if include.fill -%}
+  <img class="absolute inset-0 block size-full {{ include.img_class }}" src="{{ include.src | relative_url }}" alt="{{ include.alt }}">
+  {%- else -%}
+  <img class="block {{ include.img_class }}" src="{{ include.src | relative_url }}" alt="{{ include.alt }}">
+  {%- endif -%}
+  <img class="themed-image-dark absolute inset-0 block size-full {{ include.img_class }}" src="{{ include.src_dark | relative_url }}" alt="" aria-hidden="true">
+</span>
+{%- else -%}
+<img class="{{ include.class }} {{ include.img_class }}" src="{{ include.src | relative_url }}" alt="{{ include.alt }}"{% if include.transition %} style="view-transition-name: {{ include.transition }};"{% endif %}>
+{%- endif -%}

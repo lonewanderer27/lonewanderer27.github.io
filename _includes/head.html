@@ -25,6 +25,30 @@
   <!-- Main Stylesheet. Built by `pnpm css:build`, not by Jekyll. -->
   <link href="{{ '/assets/css/main.css' | relative_url }}" rel="stylesheet">
 
+  <!-- Scheme markers, inline and before first paint -- not a footer IIFE like
+       the rest of the site's JS, because [data-scheme] has to already be
+       correct by the time the browser paints, or a dark-mode visitor sees a
+       frame of the light header image.
+
+       .scheme-js gates the CSS fallback transition in _tailwind/main.css: it
+       only applies when JS is off, so it needs to know JS is on to stay out
+       of the way. .scheme-vt marks View Transition support the same way, for
+       assets/js/themed-image-pairs.js to read without re-testing the API. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add("scheme-js");
+      if (typeof document.startViewTransition === "function") {
+        root.classList.add("scheme-vt");
+      }
+      // Source of truth for the dark image layer once JS is present -- see
+      // the :root[data-scheme="dark"] rule in _tailwind/main.css.
+      root.dataset.scheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    })();
+  </script>
+
   <!--Favicon-->
   <link rel="shortcut icon" href="{{ '/assets/images/favicon.png' | relative_url }} " type="image/x-icon">
   <link rel="icon" href="{{ '/assets/images/favicon.png' | relative_url }} " type="image/x-icon">
