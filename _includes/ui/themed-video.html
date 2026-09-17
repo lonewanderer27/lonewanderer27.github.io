@@ -1,0 +1,101 @@
+{%- comment -%}
+  Video. Same params shape as ui/button.html. Paused with native controls
+  by default -- autoplay is an explicit per-embed opt-in, not the default.
+  Supports an optional light/dark pair, mirroring ui/themed-image.html.
+
+  Params:
+    src         - video file path (required), passed through relative_url
+    src_dark    - optional. Dark variant of the same clip. When set, both
+                  videos are stacked in one wrapper exactly like
+                  ui/themed-image.html's light/dark image pair, reusing its
+                  .themed-image-dark class and [data-scheme] signal -- no
+                  separate CSS or scheme-detection needed for video.
+    poster      - still image shown before playback starts (optional)
+    poster_dark - optional. Dark variant of poster; falls back to poster
+                  when src_dark is set but poster_dark isn't.
+    autoplay    - false (default) | true -- forces muted + playsinline when
+                  true, on both layers of a pair
+    loop        - false (default) | true -- forced true regardless while
+                  autoplay is true
+    controls    - true (default) | false -- defaults to false instead when
+                  autoplay is true, unless controls is also explicitly
+                  requested
+    extra       - extra classes appended verbatim -- on the wrapper <span>
+                  when src_dark is set, on the <video> itself otherwise
+    style       - inline style attribute (e.g. view-transition-name) -- on
+                  the wrapper <span> when src_dark is set, on the <video>
+                  itself otherwise
+
+  autoplay always forces muted + playsinline: browsers refuse unmuted
+  autoplay outright, and iOS Safari refuses inline autoplay without
+  playsinline, so neither is exposed as a separate toggle.
+
+  To imitate an animated GIF (silent, looping, no chrome, plays the instant
+  it's on screen) pass ONLY `autoplay="true"` and nothing else: loop is
+  already forced true and controls already default to hidden in that case,
+  which is the same muted/loop/no-controls combination a GIF has by
+  construction -- there's no separate "gif mode", this already is one, at a
+  fraction of a GIF's file size for the same clip.
+
+  [data-video-autoplay] is the hook assets/js/video-autoplay.js reads to
+  strip autoplay under prefers-reduced-motion, for posts that opted in.
+
+  [data-video-pair] marks BOTH layers of a light/dark pair so
+  assets/js/themed-media-pairs.js can pause whichever one [data-scheme]
+  says is currently hidden -- unlike a stacked <img> pair, an unseen
+  autoplaying <video> keeps decoding at opacity: 0, so leaving both playing
+  would double the CPU/bandwidth cost of the visible one alone.
+{%- endcomment -%}
+
+{%- assign autoplay = false -%}
+{%- if include.autoplay == true -%}{%- assign autoplay = true -%}{%- endif -%}
+{%- assign loop = false -%}
+{%- if include.loop == true or autoplay -%}{%- assign loop = true -%}{%- endif -%}
+
+{%- assign controls = true -%}
+{%- if include.controls == false -%}{%- assign controls = false -%}{%- endif -%}
+{%- if include.controls == nil and autoplay -%}{%- assign controls = false -%}{%- endif -%}
+
+{%- assign video_classes = "max-w-full h-auto rounded-card" -%}
+
+{%- if include.src_dark and include.src_dark != "" -%}
+  {%- assign outer_classes = "relative block" -%}
+  {%- if include.extra -%}{%- assign outer_classes = outer_classes | append: " " | append: include.extra -%}{%- endif -%}
+  {%- assign poster_dark = include.poster_dark | default: include.poster -%}
+<span class="{{ outer_classes }}"{% if include.style %} style="{{ include.style }}"{% endif %}>
+  <video
+    class="block {{ video_classes }}"
+    src="{{ include.src | relative_url }}"
+    {% if include.poster %}poster="{{ include.poster | relative_url }}"{% endif %}
+    {% if autoplay %}autoplay muted playsinline data-video-autoplay{% endif %}
+    {% if loop %}loop{% endif %}
+    {% if controls %}controls{% endif %}
+    preload="metadata"
+    data-video-pair
+  ></video>
+  <video
+    class="themed-image-dark absolute inset-0 block size-full {{ video_classes }}"
+    src="{{ include.src_dark | relative_url }}"
+    {% if poster_dark %}poster="{{ poster_dark | relative_url }}"{% endif %}
+    {% if autoplay %}autoplay muted playsinline data-video-autoplay{% endif %}
+    {% if loop %}loop{% endif %}
+    {% if controls %}controls{% endif %}
+    preload="metadata"
+    aria-hidden="true"
+    tabindex="-1"
+    data-video-pair
+  ></video>
+</span>
+{%- else -%}
+  {%- if include.extra -%}{%- assign video_classes = video_classes | append: " " | append: include.extra -%}{%- endif -%}
+<video
+  class="{{ video_classes }}"
+  {% if include.style %}style="{{ include.style }}"{% endif %}
+  src="{{ include.src | relative_url }}"
+  {% if include.poster %}poster="{{ include.poster | relative_url }}"{% endif %}
+  {% if autoplay %}autoplay muted playsinline data-video-autoplay{% endif %}
+  {% if loop %}loop{% endif %}
+  {% if controls %}controls{% endif %}
+  preload="metadata"
+></video>
+{%- endif -%}
