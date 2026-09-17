@@ -6,11 +6,13 @@ does the fade where it is available; a CSS `opacity` transition on the stacked
 pair does it everywhere else. The two files must be pixel-identical in size, and
 the build fails if they are not.
 
-Scope: the post header image in `_layouts/post.html`, and the equivalent
-thumbnail in the blog card, `_includes/post.html` (Phase 5). Both go through
-the same `_includes/ui/themed-image.html` component, so a post's dark image
-renders consistently wherever that post's image appears — a card on the
-home page or `/blog` is not a second, unhandled place to forget it.
+Scope: the post header image in `_layouts/post.html`, the equivalent
+thumbnail in the blog card, `_includes/post.html` (Phase 5), and — via a
+different mechanism, since Markdown body content doesn't go through Liquid
+includes — any image inside a post's body (Phase 6). All three share one
+enforcement rule (dimensions must match, checked at build time) and one
+rendering signal (`.themed-image-dark` + `[data-scheme]`), so a post's dark
+treatment is never something you have to remember to redo per image.
 
 ---
 
@@ -487,7 +489,137 @@ No changes needed to Phase 3 (CSS) or Phase 4 (JS) — `.themed-image-dark`,
 scoped to the post layout, so the card gets the cross-fade and the View
 Transition swap for free.
 
-## Phase 6 — optional follow-ups
+## Phase 6 — body images (post content)
+
+So far this only covers the header image and its card thumbnail — both
+front-matter-declared, both rendered through one Liquid include. A post's
+*body* can carry any number of images via ordinary Markdown, and those go
+through a different pipeline stage (kramdown → raw HTML, before Jekyll ever
+hands the layout a `content` string), so neither the include nor the
+front-matter check reaches them. Four ways to close that gap, in the order
+they were considered:
+
+**A. Filename convention** (`diagram.png` next to an auto-discovered
+`diagram-dark.png`). Rejected for the same reason auto-discovery was already
+rejected for the header image (*Conventions*, above): it turns "forgot the
+dark file" into silence instead of a build error, and "found a `-dark` file
+that wasn't meant to pair with anything" into an accidental pairing.
+
+**B. A custom Liquid tag or `{% include ui/themed-image.html ... %}` call
+inline in the Markdown body**, reusing Phase 2's include directly — the
+least new code. Rejected because Jekyll runs Liquid *before* kramdown, so
+the include's HTML output becomes raw text kramdown then has to parse back
+out — correctly, only if the call sits alone with a blank line on each
+side, one of Jekyll's best-known footguns (get the blank lines wrong and
+kramdown wraps or mangles the output with no warning). That fragility is
+exactly what this whole plan exists to avoid.
+
+**C. Manual raw HTML** (an author pastes the `<span class="relative
+block">…</span>` structure straight into the Markdown body). Already works
+today, zero new code — kramdown passes a block-level raw HTML chunk
+through untouched. Rejected as *the* answer, kept as the fallback: no
+dimension validation, and a typo'd `themed-image-dark` class silently
+produces no dark layer at all.
+
+**D. Kramdown IAL + a build-time rewrite (recommended).** Kramdown already
+supports attaching attributes to an inline element with `{:...}` immediately
+after it — no plugin needed for the syntax itself:
+
+```markdown
+![Diagram of the request flow](/assets/images/blog/<post>/diagram.png){:data-src-dark="/assets/images/blog/<post>/diagram-dark.png"}
+```
+
+kramdown renders that straight through to the `<img>` tag as a normal
+`data-src-dark` attribute (verified against this repo's actual kramdown
+config, not assumed):
+
+```
+$ bundle exec ruby -e '
+require "kramdown"
+puts Kramdown::Document.new(%q{![Diagram](/x.png){:data-src-dark="/y.png"}}).to_html
+'
+<p><img src="/x.png" alt="Diagram" data-src-dark="/y.png" /></p>
+```
+
+Two build-time steps, both extending the already-shipped
+`_plugins/themed_image_pairs.rb` rather than a new file:
+
+1. **Validation, in the existing `check_doc`, at the existing `:site,
+   :post_read` hook.** `doc.content` at this point is still raw Markdown, so
+   a regex over the source finds every `data-src-dark` IAL before kramdown
+   ever runs, and each pair goes through the exact same dimension check as
+   `image`/`image_dark` — same `fail_with`, same message shape, so a body
+   image mismatch fails the build exactly like a header mismatch does.
+
+   ```ruby
+   # Matches kramdown's inline-attribute-list syntax: an image immediately
+   # followed (no space -- kramdown's own rule) by {:...data-src-dark="...".}
+   BODY_IMAGE_IAL = /!\[[^\]]*\]\(([^)\s]+)\)\{:[^}]*\bdata-src-dark="([^"]+)"[^}]*\}/
+
+   def self.check_doc(site, doc)
+     # ...existing image/image_dark checks above are unchanged...
+
+     doc.content.to_s.scan(BODY_IMAGE_IAL).each do |light, dark|
+       check_pair(site, doc, light, dark, label: "body image")
+     end
+   end
+   ```
+
+   (`check_pair` is the existing dimension-comparison logic, factored out of
+   `check_doc` so both the front-matter pair and every body-image pair call
+   the same code — the “names both files and both sizes” message stays
+   identical either way, just prefixed with which image it's about.)
+
+2. **Rewrite, in a new `:documents, :post_render` hook**, after kramdown has
+   turned the Markdown into `doc.output`. Regex over the rendered HTML,
+   order-independent on attributes (kramdown's own attribute order is
+   stable, but nothing here depends on it):
+
+   ```ruby
+   Jekyll::Hooks.register :documents, :post_render do |doc|
+     next unless doc.collection&.label == "posts"
+
+     doc.output = doc.output.gsub(/<img\s+[^>]*data-src-dark="[^"]*"[^>]*\/?>/) do |tag|
+       src  = tag[/\bsrc="([^"]*)"/, 1]
+       alt  = tag[/\balt="([^"]*)"/, 1] || ""
+       dark = tag[/\bdata-src-dark="([^"]*)"/, 1]
+       %(<span class="relative block"><img class="block" src="#{src}" alt="#{alt}">) +
+       %(<img class="themed-image-dark absolute inset-0 block size-full" src="#{dark}" alt="" aria-hidden="true"></span>)
+     end
+   end
+   ```
+
+Both regexes and the end-to-end rewrite were run against this repo's real
+`bundle exec jekyll build` (a scratch post, reverted after) before writing
+this — including the edge case of an image sitting mid-sentence rather than
+on its own line, which kramdown still wraps individually. That case is
+called out below as a real caveat, not a hidden one.
+
+**Why this needs no changes to Phase 3 (CSS) or Phase 4 (JS) — again.**
+`.themed-image-dark`'s opacity rules and `themed-image-pairs.js`'s
+`[data-scheme]` flip are already page-wide and count-agnostic: the page has
+one scheme, one attribute, and every `.themed-image-dark` element (header,
+card, now any number of body images) reads the same signal. Adding body
+images doesn't add a second thing to keep in sync — it adds more elements
+matching a selector that already exists.
+
+Three deliberate limits of this design, worth stating plainly rather than
+discovering them later:
+
+- **No `view-transition-name`.** A body image has no natural page-to-page
+  pairing the way the header/card do, so the rewrite doesn't emit one —
+  there is nothing on another page for it to morph into or from.
+- **No `fill`.** A body image is ordinary flowing content (subject to the
+  `.prose img` typography styles), the same regime as Phase 2's header, not
+  Phase 5's card — so the light layer stays in flow and the wrapper shrinks
+  to fit it, unmodified.
+- **Only `src`, `alt`, and `data-src-dark` survive the rewrite.** Any other
+  IAL attribute on the image (a caption class, an explicit `width`) is
+  dropped, because the regex only extracts those three. Fine for a v1; if
+  it turns out authors want e.g. a caption class preserved too, extend the
+  extraction rather than special-casing it.
+
+## Phase 7 — optional follow-ups
 
 - **Hero / about portrait**: same include, if a dark variant is ever drawn.
 
@@ -590,6 +722,14 @@ broken output. Scopes match the set already in use (see CLAUDE.md
    are page-wide, not post-layout-specific, so the card gets the cross-fade
    and the View Transition swap without any change to either.
 
+8. **`feat(build): validate and render themed image pairs inside post bodies`**
+   `_plugins/themed_image_pairs.rb` gains the `BODY_IMAGE_IAL` scan in
+   `check_doc` (factoring the dimension check into a shared `check_pair`)
+   and the new `:documents, :post_render` rewrite hook. No CSS/JS changes —
+   same reasoning as commit 7. Should land with (or after) a CLAUDE.md note
+   documenting the `{:data-src-dark="..."}` authoring syntax, alongside the
+   *Custom Jekyll plugins* section commit 6 already added.
+
 Not a commit in this sequence: fixing
 `2026-09-13-reimagining-my-portfolio-with-translucent-effects.md`'s missing
 `image`. That is content, not this feature — call it out to the user as a
@@ -629,6 +769,17 @@ blocking prerequisite for commit 2 rather than deciding the image for them.
    (`w-full`/`h-50`) and desktop (`w-[42%]`/`self-stretch`) — and flipping
    the OS appearance cross-fades the card exactly like the post header,
    with no separate CSS/JS change needed to make that happen.
+10. **Body image, mismatch fails.** A post-body `{:data-src-dark="..."}` IAL
+    pointing at a wrong-sized file → `bundle exec jekyll build` raises,
+    same message shape as the header check, naming the body image's path.
+11. **Body image, paired.** A standalone body image with a valid
+    `data-src-dark` renders as the stacked pair and cross-fades on a live
+    scheme change, with no separate CSS/JS change — confirms Phase 6's "no
+    changes to Phase 3/4" claim, not just Phase 5's.
+12. **Body image, inline-in-text.** An image mid-sentence with
+    `data-src-dark` still rewrites correctly but visibly breaks onto its own
+    line (the wrapper is `display:block`) — confirms this is a real,
+    documented limitation rather than an unnoticed one.
 
 ---
 
